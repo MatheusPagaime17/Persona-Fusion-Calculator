@@ -1,0 +1,1465 @@
+[
+  {
+    "name": "Arsene",
+    "arcana": "Fool",
+    "baseLevel": 1,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Obariyon",
+    "arcana": "Fool",
+    "baseLevel": 8,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "High Pixie",
+    "arcana": "Fool",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Izanagi",
+    "arcana": "Fool",
+    "baseLevel": 20,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Izanagi Picaro",
+    "arcana": "Fool",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Orpheus",
+    "arcana": "Fool",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Orpheus Picaro",
+    "arcana": "Fool",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Decarabia",
+    "arcana": "Fool",
+    "baseLevel": 32,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Legion",
+    "arcana": "Fool",
+    "baseLevel": 38,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ose",
+    "arcana": "Fool",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Bugs",
+    "arcana": "Fool",
+    "baseLevel": 49,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Crystal Skull",
+    "arcana": "Fool",
+    "baseLevel": 50,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Dionysus",
+    "arcana": "Fool",
+    "baseLevel": 61,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Black Frost",
+    "arcana": "Fool",
+    "baseLevel": 67,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Vishnu",
+    "arcana": "Fool",
+    "baseLevel": 83,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Satanael",
+    "arcana": "Fool",
+    "baseLevel": 95,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Jack-o'-Lantern",
+    "arcana": "Magician",
+    "baseLevel": 2,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Cait Sith",
+    "arcana": "Magician",
+    "baseLevel": 5,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Jack Frost",
+    "arcana": "Magician",
+    "baseLevel": 11,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Nekomata",
+    "arcana": "Magician",
+    "baseLevel": 17,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Sandman",
+    "arcana": "Magician",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Choronzon",
+    "arcana": "Magician",
+    "baseLevel": 28,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Queen Mab",
+    "arcana": "Magician",
+    "baseLevel": 43,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Rangda",
+    "arcana": "Magician",
+    "baseLevel": 48,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Forneus",
+    "arcana": "Magician",
+    "baseLevel": 63,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Surt",
+    "arcana": "Magician",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Futsunushi",
+    "arcana": "Magician",
+    "baseLevel": 76,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Silky",
+    "arcana": "Priestess",
+    "baseLevel": 6,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Apsaras",
+    "arcana": "Priestess",
+    "baseLevel": 11,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Koh-i-Noor",
+    "arcana": "Priestess",
+    "baseLevel": 25,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Isis",
+    "arcana": "Priestess",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kikuri-Hime",
+    "arcana": "Priestess",
+    "baseLevel": 40,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Sarasvati",
+    "arcana": "Priestess",
+    "baseLevel": 50,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Skadi",
+    "arcana": "Priestess",
+    "baseLevel": 53,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Scathach",
+    "arcana": "Priestess",
+    "baseLevel": 77,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Cybele",
+    "arcana": "Priestess",
+    "baseLevel": 83,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Yaksini",
+    "arcana": "Empress",
+    "baseLevel": 20,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Queen's Necklace",
+    "arcana": "Empress",
+    "baseLevel": 15,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Lamia",
+    "arcana": "Empress",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Hariti",
+    "arcana": "Empress",
+    "baseLevel": 40,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Dakini",
+    "arcana": "Empress",
+    "baseLevel": 50,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Titania",
+    "arcana": "Empress",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kali",
+    "arcana": "Empress",
+    "baseLevel": 63,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Alilat",
+    "arcana": "Empress",
+    "baseLevel": 81,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Mother Harlot",
+    "arcana": "Empress",
+    "baseLevel": 85,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Regent",
+    "arcana": "Emperor",
+    "baseLevel": 10,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Eligor",
+    "arcana": "Emperor",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Setanta",
+    "arcana": "Emperor",
+    "baseLevel": 25,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Thoth",
+    "arcana": "Emperor",
+    "baseLevel": 36,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Emperor's Amulet",
+    "arcana": "Emperor",
+    "baseLevel": 35,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Barong",
+    "arcana": "Emperor",
+    "baseLevel": 52,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "King Frost",
+    "arcana": "Emperor",
+    "baseLevel": 64,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Oberon",
+    "arcana": "Emperor",
+    "baseLevel": 66,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Baal",
+    "arcana": "Emperor",
+    "baseLevel": 75,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Odin",
+    "arcana": "Emperor",
+    "baseLevel": 84,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Berith",
+    "arcana": "Hierophant",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Orobas",
+    "arcana": "Hierophant",
+    "baseLevel": 17,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Anzu",
+    "arcana": "Hierophant",
+    "baseLevel": 25,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Daisoujou",
+    "arcana": "Hierophant",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Unicorn",
+    "arcana": "Hierophant",
+    "baseLevel": 41,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Bishamonten",
+    "arcana": "Hierophant",
+    "baseLevel": 67,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Forneus",
+    "arcana": "Hierophant",
+    "baseLevel": 63,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kohryu",
+    "arcana": "Hierophant",
+    "baseLevel": 76,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Pixie",
+    "arcana": "Lovers",
+    "baseLevel": 2,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Saki Mitama",
+    "arcana": "Lovers",
+    "baseLevel": 6,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Leanan Sidhe",
+    "arcana": "Lovers",
+    "baseLevel": 19,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ame-no-Uzume",
+    "arcana": "Lovers",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kushinada",
+    "arcana": "Lovers",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Narcissus",
+    "arcana": "Lovers",
+    "baseLevel": 50,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Parvati",
+    "arcana": "Lovers",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Raphael",
+    "arcana": "Lovers",
+    "baseLevel": 78,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ishtar",
+    "arcana": "Lovers",
+    "baseLevel": 85,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Agathion",
+    "arcana": "Chariot",
+    "baseLevel": 3,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Slime",
+    "arcana": "Chariot",
+    "baseLevel": 10,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Shiisaa",
+    "arcana": "Chariot",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Shiki-Ouji",
+    "arcana": "Chariot",
+    "baseLevel": 21,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kin-ki",
+    "arcana": "Chariot",
+    "baseLevel": 27,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "White Rider",
+    "arcana": "Chariot",
+    "baseLevel": 38,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Cerberus",
+    "arcana": "Chariot",
+    "baseLevel": 55,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Thor",
+    "arcana": "Chariot",
+    "baseLevel": 64,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Chi You",
+    "arcana": "Chariot",
+    "baseLevel": 88,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Archangel",
+    "arcana": "Justice",
+    "baseLevel": 14,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Angel",
+    "arcana": "Justice",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Principality",
+    "arcana": "Justice",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Power",
+    "arcana": "Justice",
+    "baseLevel": 41,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Melchizedek",
+    "arcana": "Justice",
+    "baseLevel": 58,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Dominion",
+    "arcana": "Justice",
+    "baseLevel": 68,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Throne",
+    "arcana": "Justice",
+    "baseLevel": 72,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Uriel",
+    "arcana": "Justice",
+    "baseLevel": 81,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Metatron",
+    "arcana": "Justice",
+    "baseLevel": 89,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Bicorn",
+    "arcana": "Hermit",
+    "baseLevel": 4,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Koropokguru",
+    "arcana": "Hermit",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ippon-Datara",
+    "arcana": "Hermit",
+    "baseLevel": 13,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Sudama",
+    "arcana": "Hermit",
+    "baseLevel": 17,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Naga",
+    "arcana": "Hermit",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kurama Tengu",
+    "arcana": "Hermit",
+    "baseLevel": 31,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Arahabaki",
+    "arcana": "Hermit",
+    "baseLevel": 35,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kumbhanda",
+    "arcana": "Hermit",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Loa",
+    "arcana": "Hermit",
+    "baseLevel": 51,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Fafnir",
+    "arcana": "Hermit",
+    "baseLevel": 68,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ongyo-Ki",
+    "arcana": "Hermit",
+    "baseLevel": 75,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Kelpie",
+    "arcana": "Strength",
+    "baseLevel": 6,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Rakshasa",
+    "arcana": "Strength",
+    "baseLevel": 24,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Orlov",
+    "arcana": "Strength",
+    "baseLevel": 30,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Valkyrie",
+    "arcana": "Strength",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Siegfried",
+    "arcana": "Strength",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Zaou-Gongen",
+    "arcana": "Strength",
+    "baseLevel": 80,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Mokoi",
+    "arcana": "Death",
+    "baseLevel": 5,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Matador",
+    "arcana": "Death",
+    "baseLevel": 19,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Pisaca",
+    "arcana": "Death",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Hell Biker",
+    "arcana": "Death",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Hope Diamond",
+    "arcana": "Death",
+    "baseLevel": 40,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Pale Rider",
+    "arcana": "Death",
+    "baseLevel": 54,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Chernobog",
+    "arcana": "Death",
+    "baseLevel": 62,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Thanatos",
+    "arcana": "Death",
+    "baseLevel": 65,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Thanatos Picaro",
+    "arcana": "Death",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Mot",
+    "arcana": "Death",
+    "baseLevel": 72,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Alice",
+    "arcana": "Death",
+    "baseLevel": 83,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Genbu",
+    "arcana": "Temperance",
+    "baseLevel": 7,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Koppa Tengu",
+    "arcana": "Temperance",
+    "baseLevel": 11,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Makami",
+    "arcana": "Temperance",
+    "baseLevel": 15,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Jikokuten",
+    "arcana": "Temperance",
+    "baseLevel": 22,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Mitra",
+    "arcana": "Temperance",
+    "baseLevel": 31,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Byakko",
+    "arcana": "Temperance",
+    "baseLevel": 45,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Raja Naga",
+    "arcana": "Temperance",
+    "baseLevel": 55,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Gabriel",
+    "arcana": "Temperance",
+    "baseLevel": 77,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ardha",
+    "arcana": "Temperance",
+    "baseLevel": 84,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Incubus",
+    "arcana": "Devil",
+    "baseLevel": 5,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Andras",
+    "arcana": "Devil",
+    "baseLevel": 10,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lilim",
+    "arcana": "Devil",
+    "baseLevel": 32,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Pazuzu",
+    "arcana": "Devil",
+    "baseLevel": 47,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Baphomet",
+    "arcana": "Devil",
+    "baseLevel": 58,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Nebiros",
+    "arcana": "Devil",
+    "baseLevel": 68,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Belial",
+    "arcana": "Devil",
+    "baseLevel": 82,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Beelzebub",
+    "arcana": "Devil",
+    "baseLevel": 87,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Kodama",
+    "arcana": "Star",
+    "baseLevel": 11,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Fuuki",
+    "arcana": "Star",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kaiwan",
+    "arcana": "Star",
+    "baseLevel": 36,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Neko Shogun",
+    "arcana": "Star",
+    "baseLevel": 30,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Garuda",
+    "arcana": "Star",
+    "baseLevel": 52,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Hanuman",
+    "arcana": "Star",
+    "baseLevel": 64,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Hastur",
+    "arcana": "Star",
+    "baseLevel": 84,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lucifer",
+    "arcana": "Star",
+    "baseLevel": 93,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Hua Po",
+    "arcana": "Hanged",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Inugami",
+    "arcana": "Hanged",
+    "baseLevel": 14,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Orthrus",
+    "arcana": "Hanged",
+    "baseLevel": 21,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Take-Minakata",
+    "arcana": "Hanged",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Emperor's Amulet",
+    "arcana": "Hanged",
+    "baseLevel": 35,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Hecatoncheires",
+    "arcana": "Hanged",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Moloch",
+    "arcana": "Hanged",
+    "baseLevel": 60,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Macabre",
+    "arcana": "Hanged",
+    "baseLevel": 73,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Attis",
+    "arcana": "Hanged",
+    "baseLevel": 82,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Nue",
+    "arcana": "Moon",
+    "baseLevel": 20,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Sui-ki",
+    "arcana": "Moon",
+    "baseLevel": 24,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Black Ooze",
+    "arcana": "Moon",
+    "baseLevel": 13,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Mothman",
+    "arcana": "Moon",
+    "baseLevel": 33,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Girimehkala",
+    "arcana": "Moon",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Byakhee",
+    "arcana": "Moon",
+    "baseLevel": 70,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Sandalphon",
+    "arcana": "Moon",
+    "baseLevel": 75,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lilith",
+    "arcana": "Moon",
+    "baseLevel": 60,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Tsukiyomi",
+    "arcana": "Moon",
+    "baseLevel": 50,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Tsukiyomi Picaro",
+    "arcana": "Moon",
+    "baseLevel": 55,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Kaguya",
+    "arcana": "Moon",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Kaguya Picaro",
+    "arcana": "Moon",
+    "baseLevel": 25,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Ariadne",
+    "arcana": "Fortune",
+    "baseLevel": 30,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Ariadne Picaro",
+    "arcana": "Fortune",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Stone of Scone",
+    "arcana": "Fortune",
+    "baseLevel": 20,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Clotho",
+    "arcana": "Fortune",
+    "baseLevel": 27,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lachesis",
+    "arcana": "Fortune",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Atropos",
+    "arcana": "Fortune",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Norn",
+    "arcana": "Fortune",
+    "baseLevel": 52,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Fortuna",
+    "arcana": "Fortune",
+    "baseLevel": 46,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lakshmi",
+    "arcana": "Fortune",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Asterius",
+    "arcana": "Fortune",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Asterius Picaro",
+    "arcana": "Fortune",
+    "baseLevel": 62,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Mandrake",
+    "arcana": "Sun",
+    "baseLevel": 3,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Suzaku",
+    "arcana": "Sun",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Thunderbird",
+    "arcana": "Sun",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Mithras",
+    "arcana": "Sun",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Yurlungur",
+    "arcana": "Sun",
+    "baseLevel": 43,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Horus",
+    "arcana": "Sun",
+    "baseLevel": 49,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ganesha",
+    "arcana": "Sun",
+    "baseLevel": 58,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Yatagarasu",
+    "arcana": "Sun",
+    "baseLevel": 57,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Quetzalcoatl",
+    "arcana": "Sun",
+    "baseLevel": 66,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Asura",
+    "arcana": "Sun",
+    "baseLevel": 76,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Anubis",
+    "arcana": "Judgement",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Trumpeter",
+    "arcana": "Judgement",
+    "baseLevel": 59,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Yamata-no-Orochi",
+    "arcana": "Judgement",
+    "baseLevel": 64,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Abaddon",
+    "arcana": "Judgement",
+    "baseLevel": 75,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Messiah",
+    "arcana": "Judgement",
+    "baseLevel": 81,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Messiah Picaro",
+    "arcana": "Judgement",
+    "baseLevel": 90,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Shiva",
+    "arcana": "Judgement",
+    "baseLevel": 82,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Michael",
+    "arcana": "Judgement",
+    "baseLevel": 87,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Satan",
+    "arcana": "Judgement",
+    "baseLevel": 92,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Cendrillon",
+    "arcana": "Faith",
+    "baseLevel": 43,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Unicorn",
+    "arcana": "Faith",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Okuninushi",
+    "arcana": "Faith",
+    "baseLevel": 54,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Orichalcum",
+    "arcana": "Faith",
+    "baseLevel": 60,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Siegfried",
+    "arcana": "Faith",
+    "baseLevel": 84,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Cu Chulainn",
+    "arcana": "Faith",
+    "baseLevel": 76,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Phoenix",
+    "arcana": "Faith",
+    "baseLevel": 21,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Maria",
+    "arcana": "Faith",
+    "baseLevel": 93,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Vohu Manah",
+    "arcana": "Councillor",
+    "baseLevel": 80,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Ananta",
+    "arcana": "Councillor",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Kushi Mitama",
+    "arcana": "Councillor",
+    "baseLevel": 12,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Nigi Mitama",
+    "arcana": "Councillor",
+    "baseLevel": 22,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Decarabia",
+    "arcana": "Councillor",
+    "baseLevel": 37,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Izanagi-no-Okami",
+    "arcana": "World",
+    "baseLevel": 89,
+    "special": true,
+    "dlc": true
+  },
+  {
+    "name": "Izanagi-no-Okami Picaro",
+    "arcana": "World",
+    "baseLevel": 92,
+    "special": true,
+    "dlc": true
+  }
+]

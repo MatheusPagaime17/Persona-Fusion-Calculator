@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Calculadora de Fusão - Persona 5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h1>Calculadora de Fusão de Personas</h1>
+        <p>Selecione duas Personas para ver o resultado da fusão.</p>
+
+        <div class="selection-area">
+            <div class="persona-selector">
+                <label for="persona1">Persona 1</label>
+                <select id="persona1">
+                    <option value="">Selecione...</option>
+                </select>
+            </div>
+            
+            <span class="plus-sign">+</span>
+
+            <div class="persona-selector">
+                <label for="persona2">Persona 2</label>
+                <select id="persona2">
+                    <option value="">Selecione...</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="calculateBtn">Calcular Fusão</button>
+
+        <div id="result-area">
+            <h2>Resultado</h2>
+            <p id="result-text">O resultado aparecerá aqui.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
