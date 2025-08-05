@@ -49,13 +49,6 @@
     "dlc": true
   },
   {
-    "name": "Decarabia",
-    "arcana": "Fool",
-    "baseLevel": 32,
-    "special": false,
-    "dlc": false
-  },
-  {
     "name": "Legion",
     "arcana": "Fool",
     "baseLevel": 38,
@@ -81,7 +74,8 @@
     "arcana": "Fool",
     "baseLevel": 50,
     "special": true,
-    "dlc": false
+    "dlc": false,
+    "treasureDemonModifier": 2
   },
   {
     "name": "Dionysus",
@@ -96,6 +90,13 @@
     "baseLevel": 67,
     "special": true,
     "dlc": false
+  },
+  {
+    "name": "Raoul",
+    "arcana": "Fool",
+    "baseLevel": 76,
+    "special": false,
+    "dlc": true
   },
   {
     "name": "Vishnu",
@@ -207,7 +208,8 @@
     "arcana": "Priestess",
     "baseLevel": 25,
     "special": true,
-    "dlc": false
+    "dlc": false,
+    "treasureDemonModifier": 1
   },
   {
     "name": "Isis",
@@ -252,17 +254,18 @@
     "dlc": false
   },
   {
-    "name": "Yaksini",
-    "arcana": "Empress",
-    "baseLevel": 20,
-    "special": false,
-    "dlc": false
-  },
-  {
     "name": "Queen's Necklace",
     "arcana": "Empress",
     "baseLevel": 15,
     "special": true,
+    "dlc": false,
+    "treasureDemonModifier": 1
+  },
+  {
+    "name": "Yaksini",
+    "arcana": "Empress",
+    "baseLevel": 20,
+    "special": false,
     "dlc": false
   },
   {
@@ -319,7 +322,8 @@
     "arcana": "Emperor",
     "baseLevel": 10,
     "special": true,
-    "dlc": false
+    "dlc": false,
+    "treasureDemonModifier": -1
   },
   {
     "name": "Eligor",
@@ -340,13 +344,6 @@
     "arcana": "Emperor",
     "baseLevel": 36,
     "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Emperor's Amulet",
-    "arcana": "Emperor",
-    "baseLevel": 35,
-    "special": true,
     "dlc": false
   },
   {
@@ -423,13 +420,6 @@
     "name": "Bishamonten",
     "arcana": "Hierophant",
     "baseLevel": 67,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Forneus",
-    "arcana": "Hierophant",
-    "baseLevel": 63,
     "special": false,
     "dlc": false
   },
@@ -567,16 +557,16 @@
     "dlc": false
   },
   {
-    "name": "Archangel",
+    "name": "Angel",
     "arcana": "Justice",
-    "baseLevel": 14,
+    "baseLevel": 9,
     "special": false,
     "dlc": false
   },
   {
-    "name": "Angel",
+    "name": "Archangel",
     "arcana": "Justice",
-    "baseLevel": 9,
+    "baseLevel": 14,
     "special": false,
     "dlc": false
   },
@@ -707,6 +697,84 @@
     "dlc": false
   },
   {
+    "name": "Stone of Scone",
+    "arcana": "Fortune",
+    "baseLevel": 20,
+    "special": true,
+    "dlc": false,
+    "treasureDemonModifier": -1
+  },
+  {
+    "name": "Clotho",
+    "arcana": "Fortune",
+    "baseLevel": 27,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lachesis",
+    "arcana": "Fortune",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Atropos",
+    "arcana": "Fortune",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Fortuna",
+    "arcana": "Fortune",
+    "baseLevel": 46,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Norn",
+    "arcana": "Fortune",
+    "baseLevel": 52,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Lakshmi",
+    "arcana": "Fortune",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Asterius",
+    "arcana": "Fortune",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Asterius Picaro",
+    "arcana": "Fortune",
+    "baseLevel": 62,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Ariadne",
+    "arcana": "Fortune",
+    "baseLevel": 30,
+    "special": false,
+    "dlc": true
+  },
+  {
+    "name": "Ariadne Picaro",
+    "arcana": "Fortune",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": true
+  },
+  {
     "name": "Kelpie",
     "arcana": "Strength",
     "baseLevel": 6,
@@ -725,7 +793,8 @@
     "arcana": "Strength",
     "baseLevel": 30,
     "special": true,
-    "dlc": false
+    "dlc": false,
+    "treasureDemonModifier": -1
   },
   {
     "name": "Valkyrie",
@@ -735,17 +804,81 @@
     "dlc": false
   },
   {
-    "name": "Siegfried",
-    "arcana": "Strength",
-    "baseLevel": 69,
-    "special": false,
-    "dlc": false
-  },
-  {
     "name": "Zaou-Gongen",
     "arcana": "Strength",
     "baseLevel": 80,
     "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Hua Po",
+    "arcana": "Hanged",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Inugami",
+    "arcana": "Hanged",
+    "baseLevel": 14,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Orthrus",
+    "arcana": "Hanged",
+    "baseLevel": 21,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Take-Minakata",
+    "arcana": "Hanged",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Emperor's Amulet",
+    "arcana": "Hanged",
+    "baseLevel": 35,
+    "special": true,
+    "dlc": false,
+    "treasureDemonModifier": 1
+  },
+  {
+    "name": "Hecatoncheires",
+    "arcana": "Hanged",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Moloch",
+    "arcana": "Hanged",
+    "baseLevel": 60,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Macabre",
+    "arcana": "Hanged",
+    "baseLevel": 73,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Attis",
+    "arcana": "Hanged",
+    "baseLevel": 82,
+    "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Mandrake",
+    "arcana": "Death",
+    "baseLevel": 3,
+    "special": false,
     "dlc": false
   },
   {
@@ -781,7 +914,8 @@
     "arcana": "Death",
     "baseLevel": 40,
     "special": true,
-    "dlc": false
+    "dlc": false,
+    "treasureDemonModifier": -2
   },
   {
     "name": "Pale Rider",
@@ -959,17 +1093,17 @@
     "dlc": false
   },
   {
-    "name": "Kaiwan",
-    "arcana": "Star",
-    "baseLevel": 36,
-    "special": false,
-    "dlc": false
-  },
-  {
     "name": "Neko Shogun",
     "arcana": "Star",
     "baseLevel": 30,
     "special": true,
+    "dlc": false
+  },
+  {
+    "name": "Kaiwan",
+    "arcana": "Star",
+    "baseLevel": 36,
+    "special": false,
     "dlc": false
   },
   {
@@ -1001,66 +1135,10 @@
     "dlc": false
   },
   {
-    "name": "Hua Po",
-    "arcana": "Hanged",
-    "baseLevel": 9,
+    "name": "Black Ooze",
+    "arcana": "Moon",
+    "baseLevel": 13,
     "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Inugami",
-    "arcana": "Hanged",
-    "baseLevel": 14,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Orthrus",
-    "arcana": "Hanged",
-    "baseLevel": 21,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Take-Minakata",
-    "arcana": "Hanged",
-    "baseLevel": 26,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Emperor's Amulet",
-    "arcana": "Hanged",
-    "baseLevel": 35,
-    "special": true,
-    "dlc": false
-  },
-  {
-    "name": "Hecatoncheires",
-    "arcana": "Hanged",
-    "baseLevel": 42,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Moloch",
-    "arcana": "Hanged",
-    "baseLevel": 60,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Macabre",
-    "arcana": "Hanged",
-    "baseLevel": 73,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Attis",
-    "arcana": "Hanged",
-    "baseLevel": 82,
-    "special": true,
     "dlc": false
   },
   {
@@ -1074,13 +1152,6 @@
     "name": "Sui-ki",
     "arcana": "Moon",
     "baseLevel": 24,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Black Ooze",
-    "arcana": "Moon",
-    "baseLevel": 13,
     "special": false,
     "dlc": false
   },
@@ -1099,6 +1170,13 @@
     "dlc": false
   },
   {
+    "name": "Lilith",
+    "arcana": "Moon",
+    "baseLevel": 60,
+    "special": false,
+    "dlc": false
+  },
+  {
     "name": "Byakhee",
     "arcana": "Moon",
     "baseLevel": 70,
@@ -1109,13 +1187,6 @@
     "name": "Sandalphon",
     "arcana": "Moon",
     "baseLevel": 75,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Lilith",
-    "arcana": "Moon",
-    "baseLevel": 60,
     "special": false,
     "dlc": false
   },
@@ -1146,90 +1217,6 @@
     "baseLevel": 25,
     "special": false,
     "dlc": true
-  },
-  {
-    "name": "Ariadne",
-    "arcana": "Fortune",
-    "baseLevel": 30,
-    "special": false,
-    "dlc": true
-  },
-  {
-    "name": "Ariadne Picaro",
-    "arcana": "Fortune",
-    "baseLevel": 42,
-    "special": false,
-    "dlc": true
-  },
-  {
-    "name": "Stone of Scone",
-    "arcana": "Fortune",
-    "baseLevel": 20,
-    "special": true,
-    "dlc": false
-  },
-  {
-    "name": "Clotho",
-    "arcana": "Fortune",
-    "baseLevel": 27,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Lachesis",
-    "arcana": "Fortune",
-    "baseLevel": 34,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Atropos",
-    "arcana": "Fortune",
-    "baseLevel": 39,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Norn",
-    "arcana": "Fortune",
-    "baseLevel": 52,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Fortuna",
-    "arcana": "Fortune",
-    "baseLevel": 46,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Lakshmi",
-    "arcana": "Fortune",
-    "baseLevel": 69,
-    "special": false,
-    "dlc": false
-  },
-  {
-    "name": "Asterius",
-    "arcana": "Fortune",
-    "baseLevel": 56,
-    "special": false,
-    "dlc": true
-  },
-  {
-    "name": "Asterius Picaro",
-    "arcana": "Fortune",
-    "baseLevel": 62,
-    "special": false,
-    "dlc": true
-  },
-  {
-    "name": "Mandrake",
-    "arcana": "Sun",
-    "baseLevel": 3,
-    "special": false,
-    "dlc": false
   },
   {
     "name": "Suzaku",
@@ -1358,16 +1345,16 @@
     "dlc": false
   },
   {
-    "name": "Cendrillon",
+    "name": "Phoenix",
     "arcana": "Faith",
-    "baseLevel": 43,
+    "baseLevel": 21,
     "special": false,
     "dlc": false
   },
   {
-    "name": "Unicorn",
+    "name": "Cendrillon",
     "arcana": "Faith",
-    "baseLevel": 39,
+    "baseLevel": 43,
     "special": false,
     "dlc": false
   },
@@ -1383,14 +1370,8 @@
     "arcana": "Faith",
     "baseLevel": 60,
     "special": true,
-    "dlc": false
-  },
-  {
-    "name": "Siegfried",
-    "arcana": "Faith",
-    "baseLevel": 84,
-    "special": false,
-    "dlc": false
+    "dlc": false,
+    "treasureDemonModifier": 2
   },
   {
     "name": "Cu Chulainn",
@@ -1400,10 +1381,10 @@
     "dlc": false
   },
   {
-    "name": "Phoenix",
+    "name": "Siegfried",
     "arcana": "Faith",
-    "baseLevel": 21,
-    "special": false,
+    "baseLevel": 84,
+    "special": true,
     "dlc": false
   },
   {
@@ -1411,20 +1392,6 @@
     "arcana": "Faith",
     "baseLevel": 93,
     "special": true,
-    "dlc": false
-  },
-  {
-    "name": "Vohu Manah",
-    "arcana": "Councillor",
-    "baseLevel": 80,
-    "special": true,
-    "dlc": false
-  },
-  {
-    "name": "Ananta",
-    "arcana": "Councillor",
-    "baseLevel": 44,
-    "special": false,
     "dlc": false
   },
   {
@@ -1446,6 +1413,20 @@
     "arcana": "Councillor",
     "baseLevel": 37,
     "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Ananta",
+    "arcana": "Councillor",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false
+  },
+  {
+    "name": "Vohu Manah",
+    "arcana": "Councillor",
+    "baseLevel": 80,
+    "special": true,
     "dlc": false
   },
   {
