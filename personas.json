@@ -178,14 +178,14 @@
   {
     "name": "Surt",
     "arcana": "Magician",
-    "baseLevel": 69,
+    "baseLevel": 83,
     "special": false,
     "dlc": false
   },
   {
     "name": "Futsunushi",
     "arcana": "Magician",
-    "baseLevel": 76,
+    "baseLevel": 86,
     "special": true,
     "dlc": false
   },

@@ -7,6 +7,11 @@ Update v1.1:
 °   I have updated the JSON file, if u see any Persona with wrong arcana, lvl or tag like DLC, let me know!
 °   Updates on the FusionChart, just fixed some arcana results, any error let me know.
 
+Update v1.1.1:
+
+°   FusionChart 100% reviewed and Fixed!!!
+
+
 Future updates:
 
 // Minor changes
