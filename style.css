@@ -159,3 +159,62 @@ button:hover {
     /* Sombra vermelha para dar um brilho sutil */
     text-shadow: 0 0 8px rgba(229, 57, 53, 0.7);
 }
+
+/* --- ESTILOS PARA O AUTOCOMPLETAR --- */
+
+/* Container que segura o input e os resultados */
+.search-container {
+    position: relative; /* Essencial para posicionar os resultados */
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo do campo de busca */
+.search-input {
+    padding: 12px;
+    border-radius: 0;
+    border: 2px solid #fff;
+    background-color: #000;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif; /* Garante que a fonte seja a mesma */
+}
+
+.search-input::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+/* Container dos resultados da busca */
+.results-container {
+    display: none; /* Começa escondido */
+    position: absolute;
+    top: 100%; /* Posiciona logo abaixo do input */
+    left: 0;
+    right: 0;
+    background-color: #111;
+    border: 2px solid #e53935;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10; /* Garante que fique sobre outros elementos */
+}
+
+/* Cada item individual na lista de resultados */
+.result-item {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item:hover {
+    background-color: #e53935;
+    color: #000;
+}

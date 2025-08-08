@@ -14,22 +14,20 @@
         <p>Selecione duas Personas para ver o resultado da fusão.</p>
 
         <div class="selection-area">
-            <div class="persona-selector">
-                <label for="persona1">Persona 1</label>
-                <select id="persona1">
-                    <option value="">Selecione...</option>
-                </select>
-            </div>
-            
-            <span class="plus-sign">+</span>
+    <div class="search-container">
+        <label for="search-input-1">Persona 1</label>
+        <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome da Persona..." autocomplete="off">
+        <div class="results-container" id="results-container-1"></div>
+    </div>
+    
+    <span class="plus-sign">+</span>
 
-            <div class="persona-selector">
-                <label for="persona2">Persona 2</label>
-                <select id="persona2">
-                    <option value="">Selecione...</option>
-                </select>
-            </div>
-        </div>
+    <div class="search-container">
+        <label for="search-input-2">Persona 2</label>
+        <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome da Persona..." autocomplete="off">
+        <div class="results-container" id="results-container-2"></div>
+    </div>
+    </div>
 
         <button id="calculateBtn">Calcular Fusão</button>
 
