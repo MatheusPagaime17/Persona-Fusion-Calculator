@@ -17,15 +17,19 @@ Update v1.1.2:
 °   Updated the fusion logic
     ¹   Some of the bugs the were happening, it was because of the fusion logic that basicly was ordering the arcana for the calculation using alphabet order, now each arcana has a number, so always the calculation will see like the fool arcana is the first and the other arcana is the next, always matching the calculation with the fusion chart.
 
+Update v1.1.3:
+
+°   Added a new Background
+°   Added a menu for future updates
+°   Now when you click on the result persona you will be redirected to the wiki of the persona
+
 
 Future updates:
 
 // Minor changes
 °   Fix the compabilite with mobile devices.
 °   Improve the identity (Style) of the web site.
-°   ̶A̶u̶t̶o̶c̶o̶m̶p̶l̶e̶t̶e̶ ̶S̶e̶a̶r̶c̶h̶ ̶F̶i̶e̶l̶d̶
 °   DLC Filters.
-°   Wiki link of the result persona.
 
 // Major changes
 °   Reverse Fusion Calculator.
