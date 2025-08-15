@@ -106,20 +106,39 @@ const specificFusions = [
     function handleCalculation() {
         const persona1 = selectedPersonas.persona1;
         const persona2 = selectedPersonas.persona2;
-
+    
         if (!persona1 || !persona2) {
             resultText.textContent = "Por favor, selecione duas Personas válidas.";
             return;
         }
+    
         if (persona1.name === persona2.name) {
             resultText.textContent = "Você não pode fundir uma Persona com ela mesma.";
             return;
         }
-
+    
         const result = calculateFusion(persona1, persona2);
-
+    
         if (result) {
-            resultText.textContent = `${result.name} (Arcana: ${result.arcana}, Nível: ${result.baseLevel})`;
+            // Prepara o nome para a URL (troca espaços por underscores)
+            const formattedName = result.name.replace(/ /g, '_');
+            // Constrói a URL completa da wiki
+            const wikiUrl = `https://megamitensei.fandom.com/wiki/${formattedName}`;
+    
+            // Limpa o resultado anterior e cria os novos elementos
+            resultText.innerHTML = '';
+    
+            const link = document.createElement('a');
+            link.href = wikiUrl;
+            link.textContent = result.name;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+    
+            const detailsText = document.createTextNode(` (Arcana: ${result.arcana}, Nível: ${result.baseLevel})`);
+    
+            resultText.appendChild(link);
+            resultText.appendChild(detailsText);
+    
         } else {
             resultText.textContent = "Combinação inválida ou sem resultado possível.";
         }

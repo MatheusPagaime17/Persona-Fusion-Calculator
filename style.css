@@ -15,15 +15,106 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden; /* Esconde as partes do padrão que saem da tela */
-    
-    /* Padrão de fundo inspirado no estilo P5 com listras diagonais */
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(229, 57, 53, 0.1),
-        rgba(229, 57, 53, 0.1) 10px,
-        transparent 10px,
-        transparent 20px
-    );
+    background-color: #111; /* Cor de fallback caso a imagem não carregue */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Camada 1: O overlay escuro */
+        url('./images/bg.png'); /* Camada 2: Sua imagem */
+    background-size: cover;
+    background-position: center;
+    animation: animateBackground 15s linear infinite; /* Animação suave do background */
+    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
+
+
+
+}
+
+@keyframes animateBackground {
+    0%, 100% {
+        background-size: 100%; /* Início e fim com tamanho normal */
+        
+    }
+    50% {
+        background-size: 105%; /* Meio da animação com tamanho aumentado */
+    }
+}
+
+/* --- ESTILOS PARA O HEADER E NAVEGAÇÃO --- */
+header {
+    background-color: #111;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #e53935;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0; /* Reseta margem padrão da lista */
+    padding: 0; /* Reseta padding padrão da lista */
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 15px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+nav a:hover {
+    color: #e53935;
+}
+
+nav a.active {
+    background-color: #e53935;
+    color: #000;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.dev-tag {
+    font-size: 0.7em;
+    background-color: #444;
+    color: #aaa;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Esconde o menu hamburguer no desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
 }
 
 /* --- Container Principal da Calculadora --- */
@@ -217,4 +308,80 @@ button:hover {
 .result-item:hover {
     background-color: #e53935;
     color: #000;
+}
+
+/* --- ESTILO PARA O LINK NO RESULTADO --- */
+
+#result-text a {
+    color: #fff; /* Mesma cor do texto normal */
+    font-weight: bold; /* Deixa o nome da persona em negrito */
+    text-decoration: underline; /* Mantém o sublinhado para indicar que é um link */
+    transition: color 0.2s ease-in-out; /* Adiciona uma transição suave na cor */
+    text-shadow: 0 0 5px rgba(229, 57, 53, 0.5); /* Adiciona um brilho sutil ao link */
+    font-family: 'Poppins', sans-serif; /* Garante que a fonte seja a mesma */
+    font-size: 1.2em; /* Aumenta um pouco o tamanho da fonte do link */
+    display: inline-block; /* Permite aplicar padding e background */
+    padding: 2px 5px; /* Adiciona um pouco de espaço ao redor do link */
+    border-radius: 3px; /* Bordas levemente arredondadas */
+    background-color: rgba(229, 57, 53, 0.1); /* Fundo leve para destacar o link */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidade */
+}
+
+/* Efeito ao passar o mouse por cima do link */
+#result-text a:hover {
+    color: #e53935; /* Muda a cor para o vermelho de Persona 5 */
+    text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+    text-shadow: 0 0 5px rgba(229, 57, 53, 0.7); /* Adiciona um brilho sutil ao link */
+}
+
+@media (max-width: 820px) {
+    body {
+        padding-top: 80px;
+        align-items: flex-start;
+        min-height: 100%; /* Garante que o body tenha pelo menos a altura da tela */
+        background-size: auto 100%; /* Ajusta o tamanho do background para cobrir a altura e se ajustar na largura */
+        background-repeat: no-repeat; /* Evita que a imagem se repita */
+    }
+    
+    header {
+        padding: 15px 20px;
+    }
+
+    .calculator-container {
+       margin-top: 0;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        width: 100%;
+        background-color: #111;
+        flex-direction: column;
+        text-align: center;
+        border-top: 3px solid #e53935;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #333;
+    }
+
+    nav a.active {
+        clip-path: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
 }
