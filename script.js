@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateBtn = document.getElementById('calculateBtn');
     const resultText = document.getElementById('result-text');
 
+    // Elementos do Modal
+    const modal = document.getElementById('persona-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
     let selectedPersonas = { persona1: null, persona2: null };
     let personas = [];
 
@@ -57,6 +61,10 @@ const specificFusions = [
         'Izanagi': 'Izanagi Picaro', 'Izanagi-no-Okami': 'Izanagi-no-Okami Picaro', 'Orpheus': 'Orpheus Picaro', 'Ariadne': 'Ariadne Picaro', 'Asterius': 'Asterius Picaro', 'Thanatos': 'Thanatos Picaro', 'Kaguya': 'Kaguya Picaro', 'Magatsu-Izanagi': 'Magatsu-Izanagi Picaro', 'Tsukiyomi': 'Tsukiyomi Picaro', 'Messiah': 'Messiah Picaro'
     };
 
+    // --- FUNÇÕES DE CONTROLE DO MODAL ---
+    function openModal() { modal.classList.add('open'); }
+    function closeModal() { modal.classList.remove('open'); }
+
     // --- LÓGICA PRINCIPAL ---
 
     async function loadPersonas() {
@@ -103,6 +111,7 @@ const specificFusions = [
         });
     }
 
+    // ATUALIZADO: para acionar o modal
     function handleCalculation() {
         const persona1 = selectedPersonas.persona1;
         const persona2 = selectedPersonas.persona2;
@@ -111,7 +120,6 @@ const specificFusions = [
             resultText.textContent = "Por favor, selecione duas Personas válidas.";
             return;
         }
-    
         if (persona1.name === persona2.name) {
             resultText.textContent = "Você não pode fundir uma Persona com ela mesma.";
             return;
@@ -119,28 +127,65 @@ const specificFusions = [
     
         const result = calculateFusion(persona1, persona2);
     
-        if (result) {
-            // Prepara o nome para a URL (troca espaços por underscores)
-            const formattedName = result.name.replace(/ /g, '_');
-            // Constrói a URL completa da wiki
-            const wikiUrl = `https://megamitensei.fandom.com/wiki/${formattedName}`;
-    
-            // Limpa o resultado anterior e cria os novos elementos
+        if (result) {       
+                 
             resultText.innerHTML = '';
-    
-            const link = document.createElement('a');
-            link.href = wikiUrl;
-            link.textContent = result.name;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-    
+            
+            const personaNameSpan = document.createElement('span');
+            personaNameSpan.textContent = result.name;
+            personaNameSpan.style.cursor = 'pointer';
+            personaNameSpan.style.textDecoration = 'underline';
+            personaNameSpan.style.fontWeight = 'bold';
+            personaNameSpan.classList.add('result-trigger');
+            personaNameSpan.addEventListener('click', () => {
+                populateModal(result);
+                openModal();
+            });
+            
             const detailsText = document.createTextNode(` (Arcana: ${result.arcana}, Nível: ${result.baseLevel})`);
-    
-            resultText.appendChild(link);
+
+            resultText.appendChild(personaNameSpan);
             resultText.appendChild(detailsText);
     
         } else {
             resultText.textContent = "Combinação inválida ou sem resultado possível.";
+        }
+    }
+
+    function populateModal(persona) {
+        document.getElementById('modal-persona-name').textContent = `${persona.name} (Lvl ${persona.baseLevel} ${persona.arcana})`;
+
+        const wikiLink = document.getElementById('modal-wiki-link');
+        wikiLink.href = `https://megamitensei.fandom.com/wiki/${persona.name.replace(/ /g, '_')}`;
+
+        const statsList = document.querySelector('#modal-stats ul');
+        statsList.innerHTML = '';
+        if (persona.stats) {
+            for (const [stat, value] of Object.entries(persona.stats)) {
+                statsList.innerHTML += `<li>${stat.toUpperCase()}: <span>${value}</span></li>`;
+            }
+        } else {
+             statsList.innerHTML = `<li>Dados não disponíveis.</li>`;
+        }
+
+        const elementsList = document.querySelector('#modal-elements ul');
+        elementsList.innerHTML = '';
+        if (persona.elements) {
+            for (const [element, affinity] of Object.entries(persona.elements)) {
+                elementsList.innerHTML += `<li>${element}: <span class="${affinity}">${affinity.toUpperCase()}</span></li>`;
+            }
+        } else {
+             elementsList.innerHTML = `<li>Dados não disponíveis.</li>`;
+        }
+        
+        const skillsList = document.querySelector('#modal-skills ul');
+        skillsList.innerHTML = '';
+        if (persona.skills && persona.skills.length > 0) {
+            persona.skills.forEach(skill => {
+                skillsList.innerHTML += `<li>${skill.name} <span>(Lvl ${skill.level})</span></li>`;
+            });
+        } else {
+            skillsList.innerHTML = `<li>Nenhuma skill para listar.</li>`;
         }
     }
 
@@ -217,6 +262,12 @@ const specificFusions = [
 
     // --- EVENT LISTENERS ---
     calculateBtn.addEventListener('click', handleCalculation);
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
 
     window.addEventListener('click', (e) => {
         if (!e.target.matches('.search-input')) {
