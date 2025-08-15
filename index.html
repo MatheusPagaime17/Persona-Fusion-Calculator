@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Calculadora de Fusão - Persona 5</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -31,20 +33,22 @@
         <p>Selecione duas Personas para ver o resultado da fusão.</p>
 
         <div class="selection-area">
-    <div class="search-container">
-        <label for="search-input-1">Persona 1</label>
-        <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome da Persona..." autocomplete="off">
-        <div class="results-container" id="results-container-1"></div>
-    </div>
-    
-    <span class="plus-sign">+</span>
+            <div class="search-container">
+                <label for="search-input-1">Persona 1</label>
+                <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome da Persona..."
+                    autocomplete="off">
+                <div class="results-container" id="results-container-1"></div>
+            </div>
 
-    <div class="search-container">
-        <label for="search-input-2">Persona 2</label>
-        <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome da Persona..." autocomplete="off">
-        <div class="results-container" id="results-container-2"></div>
-    </div>
-    </div>
+            <span class="plus-sign">+</span>
+
+            <div class="search-container">
+                <label for="search-input-2">Persona 2</label>
+                <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome da Persona..."
+                    autocomplete="off">
+                <div class="results-container" id="results-container-2"></div>
+            </div>
+        </div>
 
         <button id="calculateBtn">Calcular Fusão</button>
 
@@ -53,7 +57,33 @@
             <p id="result-text">O resultado aparecerá aqui.</p>
         </div>
     </div>
+    <div class="modal-overlay" id="persona-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal-btn">&times;</button>
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-persona-name">Nome da Persona</h2>
+                    <a id="modal-wiki-link" href="#" target="_blank" rel="noopener noreferrer">Ver na Wiki ↗</a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section" id="modal-stats">
+                    <h3>Stats Iniciais</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-section" id="modal-elements">
+                    <h3>Afinidades Elementais</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-section" id="modal-skills">
+                    <h3>Skills</h3>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

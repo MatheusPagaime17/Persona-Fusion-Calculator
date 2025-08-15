@@ -23,6 +23,11 @@ Update v1.1.3:
 °   Added a menu for future updates
 °   Now when you click on the result persona you will be redirected to the wiki of the persona
 
+Update v1.2
+
+°   Added a Pop-Up of the persona with more information
+°   Huge update on the Json file
+
 
 Future updates:
 
