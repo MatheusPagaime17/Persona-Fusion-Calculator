@@ -2323,6 +2323,25 @@
       { "name": "Repel Elec", "level": 77 }
     ]
   },
+   {
+    "name": "Alice",
+    "arcana": "Death",
+    "baseLevel": 83,
+    "special": true,
+    "dlc": false,
+    "image": "alice.png",
+    "stats": { "st": 45, "ma": 61, "en": 49, "ag": 54, "lu": 47 },
+    "elements": { "physical": "-", "gun": "-", "fire": "-", "ice": "-", "electric": "-", "wind": "-", "psychic": "rs", "nuclear": "rs", "bless": "wk", "curse": "rp" },
+    "skills": [
+      { "name": "Mamudoon", "level": 83 },
+      { "name": "Mudo Boost", "level": 83 },
+      { "name": "Maeigaon", "level": 83 },
+      { "name": "Die For Me!", "level": 85 },
+      { "name": "Megidolaon", "level": 86 },
+      { "name": "Concentrate", "level": 87 },
+      { "name": "Survival Trick", "level": 88 }
+    ]
+  },
   {
     "name": "Belphegor",
     "arcana": "Tower",
@@ -3312,6 +3331,150 @@
       { "name": "Agneyastra", "level": 87 },
       { "name": "Auto-Masuku", "level": 88 },
       { "name": "Fortified Moxy", "level": 90 }
+    ]
+  },
+  {
+    "name": "Incubus",
+    "arcana": "Devil",
+    "baseLevel": 5,
+    "special": false,
+    "dlc": false,
+    "image": "incubus.png",
+    "stats": { "st": 4, "ma": 6, "en": 4, "ag": 5, "lu": 3 },
+    "elements": { "physical": "-", "gun": "wk", "fire": "-", "ice": "wk", "electric": "rs", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "-", "curse": "-" },
+    "skills": [
+      { "name": "Eiha", "level": 5 },
+      { "name": "Dormina", "level": 5 },
+      { "name": "Tarunda", "level": 7 },
+      { "name": "Life Drain", "level": 8 },
+      { "name": "Dodge Curse", "level": 10 }
+    ]
+  },
+  {
+    "name": "Andras",
+    "arcana": "Devil",
+    "baseLevel": 10,
+    "special": false,
+    "dlc": false,
+    "image": "andras.png",
+    "stats": { "st": 6, "ma": 9, "en": 7, "ag": 9, "lu": 6 },
+    "elements": { "physical": "-", "gun": "-", "fire": "wk", "ice": "rs", "electric": "-", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "wk", "curse": "-" },
+    "skills": [
+      { "name": "Bufu", "level": 10 },
+      { "name": "Rakunda", "level": 10 },
+      { "name": "Apt Pupil", "level": 11 },
+      { "name": "Terror Claw", "level": 13 },
+      { "name": "Fear Boost", "level": 15 },
+      { "name": "Mabufu", "level": 16 }
+    ]
+  },
+  {
+    "name": "Lilim",
+    "arcana": "Devil",
+    "baseLevel": 32,
+    "special": false,
+    "dlc": false,
+    "image": "lilim.png",
+    "stats": { "st": 17, "ma": 25, "en": 20, "ag": 24, "lu": 19 },
+    "elements": { "physical": "-", "gun": "-", "fire": "-", "ice": "rs", "electric": "-", "wind": "wk", "psychic": "-", "nuclear": "-", "bless": "wk", "curse": "-" },
+    "skills": [
+      { "name": "Bufula", "level": 32 },
+      { "name": "Masukunda", "level": 32 },
+      { "name": "Freeze Boost", "level": 34 },
+      { "name": "Devil Smile", "level": 35 },
+      { "name": "Mabufula", "level": 37 },
+      { "name": "Spirit Drain", "level": 38 }
+    ]
+  },
+  {
+    "name": "Pazuzu",
+    "arcana": "Devil",
+    "baseLevel": 47,
+    "special": false,
+    "dlc": false,
+    "image": "pazuzu.png",
+    "stats": { "st": 28, "ma": 34, "en": 30, "ag": 33, "lu": 25 },
+    "elements": { "physical": "-", "gun": "-", "fire": "-", "ice": "-", "electric": "-", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "wk", "curse": "nl" },
+    "skills": [
+      { "name": "Maeigaon", "level": 47 },
+      { "name": "Mudoon", "level": 47 },
+      { "name": "Ominous Words", "level": 48 },
+      { "name": "Curse Amp", "level": 50 },
+      { "name": "Ambient Aid", "level": 51 },
+      { "name": "Demonic Decree", "level": 53 }
+    ]
+  },
+  {
+    "name": "Baphomet",
+    "arcana": "Devil",
+    "baseLevel": 58,
+    "special": false,
+    "dlc": false,
+    "image": "baphomet.png",
+    "stats": { "st": 35, "ma": 42, "en": 36, "ag": 39, "lu": 31 },
+    "elements": { "physical": "-", "gun": "-", "fire": "rs", "ice": "-", "electric": "-", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "wk", "curse": "rp" },
+    "skills": [
+      { "name": "Agidyne", "level": 58 },
+      { "name": "Evade Fire", "level": 58 },
+      { "name": "Bufudyne", "level": 60 },
+      { "name": "Burn Boost", "level": 61 },
+      { "name": "Shock Boost", "level": 62 },
+      { "name": "Ziodyne", "level": 63 },
+      { "name": "Concentrate", "level": 64 }
+    ]
+  },
+  {
+    "name": "Nebiros",
+    "arcana": "Devil",
+    "baseLevel": 68,
+    "special": false,
+    "dlc": false,
+    "image": "nebiros.png",
+    "stats": { "st": 40, "ma": 49, "en": 43, "ag": 44, "lu": 37 },
+    "elements": { "physical": "-", "gun": "-", "fire": "-", "ice": "-", "electric": "-", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "wk", "curse": "rp" },
+    "skills": [
+      { "name": "Maeigaon", "level": 68 },
+      { "name": "Mamudoon", "level": 68 },
+      { "name": "Eigaon", "level": 70 },
+      { "name": "Curse Amp", "level": 72 },
+      { "name": "Megidolaon", "level": 73 }
+    ]
+  },
+  {
+    "name": "Belial",
+    "arcana": "Devil",
+    "baseLevel": 82,
+    "special": false,
+    "dlc": false,
+    "image": "belial.png",
+    "stats": { "st": 54, "ma": 52, "en": 51, "ag": 53, "lu": 45 },
+    "elements": { "physical": "-", "gun": "-", "fire": "-", "ice": "-", "electric": "-", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "-", "curse": "nl" },
+    "skills": [
+      { "name": "Eigaon", "level": 82 },
+      { "name": "Mamudoon", "level": 82 },
+      { "name": "Heat Riser", "level": 84 },
+      { "name": "Myriad Slashes", "level": 85 },
+      { "name": "Curse Amp", "level": 86 },
+      { "name": "Demonic Decree", "level": 87 }
+    ]
+  },
+  {
+    "name": "Beelzebub",
+    "arcana": "Devil",
+    "baseLevel": 87,
+    "special": true,
+    "dlc": false,
+    "image": "beelzebub.png",
+    "stats": { "st": 54, "ma": 61, "en": 56, "ag": 54, "lu": 45 },
+    "elements": { "physical": "-", "gun": "-", "fire": "dr", "ice": "wk", "electric": "-", "wind": "-", "psychic": "-", "nuclear": "-", "bless": "-", "curse": "nl" },
+    "skills": [
+      { "name": "Maeigaon", "level": 87 },
+      { "name": "Curse Amp", "level": 87 },
+      { "name": "Concentrate", "level": 89 },
+      { "name": "Mamudoon", "level": 90 },
+      { "name": "Megidolaon", "level": 91 },
+      { "name": "Repel Ice", "level": 92 },
+      { "name": "Demonic Decree", "level": 93 }
     ]
   },
   {

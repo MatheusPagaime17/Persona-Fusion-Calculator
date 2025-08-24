@@ -1,7 +1,8 @@
 // Aguarda o conteúdo da página carregar completamente antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. DEFINIÇÃO DE DADOS E CONSTANTES ---
+    // --- 1. REFERÊNCIAS AOS ELEMENTOS DO HTML ---
+    // Calculadora Normal
     const searchInput1 = document.getElementById('search-input-1');
     const resultsContainer1 = document.getElementById('results-container-1');
     const searchInput2 = document.getElementById('search-input-2');
@@ -9,12 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateBtn = document.getElementById('calculateBtn');
     const resultText = document.getElementById('result-text');
 
-    // Elementos do Modal
+    // Modal de Detalhes
     const modal = document.getElementById('persona-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
+    
+    // Calculadora Reversa
+    const reverseSearchInput = document.getElementById('reverse-search-input');
+    const reverseResultsContainer = document.getElementById('reverse-results-container');
+    const reverseCalculateBtn = document.getElementById('reverse-calculate-btn');
+    const reverseModal = document.getElementById('reverse-results-modal');
+    const closeReverseModalBtn = document.getElementById('close-reverse-modal-btn');
+    const reverseModalPersonaName = document.getElementById('reverse-modal-persona-name');
+    const reverseRecipeList = document.getElementById('reverse-recipe-list');
+    const reverseNoResults = document.getElementById('reverse-no-results');
 
+    // --- 2. VARIÁVEIS DE ESTADO E DADOS ---
     let selectedPersonas = { persona1: null, persona2: null };
-    let personas = [];
+    let targetPersona = null; // Para a fusão reversa
+    let personas = []; // Será preenchido com o JSON
 
         // NOVO: Objeto que define a ordem numérica das Arcanas
     const arcanaOrder = {
@@ -74,8 +87,12 @@ const specificFusions = [
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             personas = await response.json();
+            
+            // Configura os autocompletes DEPOIS que os dados foram carregados
             setupAutocomplete(searchInput1, resultsContainer1, 'persona1');
             setupAutocomplete(searchInput2, resultsContainer2, 'persona2');
+            setupReverseAutocomplete(); // <-- ESTA LINHA ESTAVA FALTANDO
+            
         } catch (error) {
             console.error("Não foi possível carregar o arquivo de personas:", error);
             resultText.textContent = "Erro ao carregar dados das Personas.";
@@ -273,6 +290,143 @@ const specificFusions = [
         if (!e.target.matches('.search-input')) {
             resultsContainer1.style.display = 'none';
             resultsContainer2.style.display = 'none';
+        }
+    });
+  // --- 6. LÓGICA DA FUSÃO REVERSA ---
+    function openReverseModal() { reverseModal.classList.add('open'); }
+    function closeReverseModal() { reverseModal.classList.remove('open'); }
+
+    // ATUALIZADO: Removemos o filtro '!p.special' para permitir a busca de qualquer Persona
+    function setupReverseAutocomplete() {
+        reverseSearchInput.addEventListener('input', () => {
+            const query = reverseSearchInput.value.toLowerCase();
+            reverseResultsContainer.innerHTML = '';
+            reverseResultsContainer.style.display = 'none';
+            targetPersona = null;
+
+            if (query.length < 2) return;
+
+            // Agora busca em TODAS as personas
+            const matches = personas.filter(p => p.name.toLowerCase().includes(query));
+            
+            if (matches.length > 0) {
+                reverseResultsContainer.style.display = 'block';
+                matches.forEach(persona => {
+                    const item = document.createElement('div');
+                    item.classList.add('result-item');
+                    item.textContent = `${persona.name} (Lvl ${persona.baseLevel})`;
+                    item.addEventListener('click', () => {
+                        reverseSearchInput.value = persona.name;
+                        targetPersona = persona;
+                        reverseResultsContainer.innerHTML = '';
+                        reverseResultsContainer.style.display = 'none';
+                    });
+                    reverseResultsContainer.appendChild(item);
+                });
+            }
+        });
+    }
+
+    function handleReverseCalculation() {
+        if (!targetPersona) {
+            alert("Por favor, selecione uma Persona válida da lista.");
+            return;
+        }
+        
+        let recipes = [];
+
+        // Verificação 1: É uma receita específica como Alice?
+        const specialRecipe = specificFusions.find(recipe => recipe.result === targetPersona.name);
+        if (specialRecipe) {
+            const parent1 = personas.find(p => p.name === specialRecipe.parents[0]);
+            const parent2 = personas.find(p => p.name === specialRecipe.parents[1]);
+            if (parent1 && parent2) {
+                recipes.push({ parent1, parent2 });
+            }
+        }
+
+        // Verificação 2: É uma Persona Picaro?
+        // Precisamos "inverter" o mapa de upgrades para encontrar a base
+        const baseDlcName = Object.keys(specialDlcUpgrades).find(key => specialDlcUpgrades[key] === targetPersona.name);
+        if (baseDlcName) {
+            const parent1 = personas.find(p => p.name === baseDlcName);
+            // Adiciona uma "Persona genérica" para representar qualquer Demônio do Tesouro
+            const parent2 = { name: "Qualquer", arcana: "Demônio do Tesouro", baseLevel: "N/A" };
+            recipes.push({ parent1, parent2 });
+        }
+
+        // Verificação 3: Se não for especial, busca por força bruta
+        if (recipes.length === 0 && !targetPersona.special) {
+            // Usamos TODAS as personas como ingredientes, pois a função calculateFusion já trata as exceções
+            const fusablePersonas = personas; 
+            for (let i = 0; i < fusablePersonas.length; i++) {
+                for (let j = i + 1; j < fusablePersonas.length; j++) {
+                    const p1 = fusablePersonas[i];
+                    const p2 = fusablePersonas[j];
+
+                    // Evita combinações inúteis, como 2 Demônios do Tesouro
+                    if (p1.treasureDemonModifier && p2.treasureDemonModifier) {
+                        continue;
+                    }
+
+                    const result = calculateFusion(p1, p2);
+                    if (result && result.name === targetPersona.name) {
+                        recipes.push({ parent1: p1, parent2: p2 });
+                    }
+                }
+            }
+        }
+        
+        displayReverseResults(recipes);
+    }
+        
+
+    function displayReverseResults(recipes) {
+        reverseModalPersonaName.textContent = targetPersona.name;
+        reverseRecipeList.innerHTML = '';
+
+        if (recipes.length > 0) {
+            reverseNoResults.style.display = 'none';
+            recipes.forEach(recipe => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div>
+                        <div class="recipe-persona">${recipe.parent1.name}</div>
+                        <div class="recipe-arcana">${recipe.parent1.arcana} (Lvl ${recipe.parent1.baseLevel})</div>
+                    </div>
+                    <span class="recipe-plus">+</span>
+                    <div>
+                        <div class="recipe-persona">${recipe.parent2.name}</div>
+                        <div class="recipe-arcana">${recipe.parent2.arcana} (Lvl ${recipe.parent2.baseLevel})</div>
+                    </div>
+                `;
+                reverseRecipeList.appendChild(li);
+            });
+        } else {
+            reverseNoResults.style.display = 'block';
+        }
+
+        openReverseModal();
+    }
+
+    // --- 7. EVENT LISTENERS (TODOS JUNTOS) ---
+    calculateBtn.addEventListener('click', handleCalculation);
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    reverseCalculateBtn.addEventListener('click', handleReverseCalculation);
+    closeReverseModalBtn.addEventListener('click', closeReverseModal);
+    reverseModal.addEventListener('click', (e) => {
+        if (e.target === reverseModal) closeReverseModal();
+    });
+
+    window.addEventListener('click', (e) => {
+        if (!e.target.matches('.search-input')) {
+            resultsContainer1.style.display = 'none';
+            resultsContainer2.style.display = 'none';
+            reverseResultsContainer.style.display = 'none';
         }
     });
 
