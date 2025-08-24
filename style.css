@@ -459,6 +459,109 @@ button:hover {
     text-transform: uppercase;
 }
 
+/* --- ESTILOS PARA A SEÇÃO REVERSA --- */
+.reverse-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px 40px;
+    border: 3px solid #fff;
+    margin-left: 50px;
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+    margin-top: 50px;
+    /* Adiciona uma leve rotação para um visual mais dinâmico */
+    transform: rotate(1.5deg);
+    transition: transform 0.3s ease;
+
+}
+
+.reverse-container:hover {
+    transform: rotate(0deg); /* O container fica reto ao passar o mouse */
+    transform: rotate(-1deg);
+}
+
+.reverse-container .search-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+#reverse-calculate-btn {
+    background-color: #fff;
+    color: #000;
+    border: 3px solid #000;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: 900;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    margin-top: 10px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+#reverse-calculate-btn:hover {
+    background-color: #e53935;
+    color: #fff;
+}
+
+/* --- ESTILOS PARA O MODAL DE RESULTADOS REVERSOS --- */
+#reverse-modal-title {
+    color: #fff;
+    font-size: 1.8em;
+}
+
+#reverse-modal-title span {
+    color: #e53935;
+    font-weight: 900;
+}
+
+#reverse-recipe-list {
+    list-style: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#reverse-recipe-list li {
+    display: flex;
+    justify-content: space-between; /* <-- MUDANÇA PRINCIPAL AQUI */
+    align-items: center;
+    font-size: 1.1em; /* Leve ajuste para caber melhor */
+    padding: 12px 5px; /* Mais padding vertical */
+    border-bottom: 1px solid #333;
+    margin: 0 auto;
+}
+
+/* NOVO: Define o container de cada Persona */
+#reverse-recipe-list li > div {
+    flex-basis: 45%; /* Define que cada lado ocupa 45% do espaço */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Espaçamento entre nome e arcana */
+}
+
+.recipe-persona {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.recipe-arcana {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.recipe-plus {
+    font-size: 2em; /* Aumenta o tamanho */
+    font-weight: 700;
+    color: #e53935;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
 /* Cores para afinidades */
 span.wk { color: #ff5555; } /* Weak */
 span.rs { color: #88aaff; } /* Resist */
@@ -522,4 +625,5 @@ span.rp { color: #ffff88; } /* Repel */
     #modal-persona-name {
         font-size: 1.5em;
     }
+
 }

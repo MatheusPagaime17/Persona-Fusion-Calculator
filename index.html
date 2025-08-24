@@ -57,6 +57,31 @@
             <p id="result-text">O resultado aparecerá aqui.</p>
         </div>
     </div>
+    <div class="reverse-container">
+        <h2>Calculadora de Fusão Reversa</h2>
+        <p>Selecione uma Persona para ver todas as combinações que podem criá-la.</p>
+        <div class="search-container">
+            <input type="text" id="reverse-search-input" class="search-input"
+                placeholder="Digite o nome da Persona-alvo..." autocomplete="off">
+            <div class="results-container" id="reverse-results-container"></div>
+        </div>
+        <button id="reverse-calculate-btn">Encontrar Receitas</button>
+    </div>
+
+    <div class="modal-overlay" id="reverse-results-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-reverse-modal-btn">&times;</button>
+            <div class="modal-header">
+                <h2 id="reverse-modal-title">Receitas para <span id="reverse-modal-persona-name"></span></h2>
+            </div>
+            <div class="modal-body" id="reverse-modal-body">
+                <ul id="reverse-recipe-list">
+                </ul>
+                <p id="reverse-no-results" style="display: none;">Esta Persona não pode ser criada por uma fusão normal
+                    de 2 Personas.</p>
+            </div>
+        </div>
+    </div>
     <div class="modal-overlay" id="persona-modal">
         <div class="modal-content">
             <button class="close-modal" id="close-modal-btn">&times;</button>
