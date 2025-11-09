@@ -469,6 +469,9 @@ button:hover {
     max-width: 700px;
     width: 90%;
     margin-top: 50px;
+    position: relative;
+
+    
     /* Adiciona uma leve rotação para um visual mais dinâmico */
     transform: rotate(1.5deg);
     transition: transform 0.3s ease;
