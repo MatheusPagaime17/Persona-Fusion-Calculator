@@ -14,30 +14,54 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Esconde as partes do padrão que saem da tela */
-    background-color: #111; /* Cor de fallback caso a imagem não carregue */
+    overflow-x: hidden; /* Esconde as partes do padrão que saem da tela */
+    overflow-y: auto; /* Permite scroll vertical se necessário */
+/* --- NOVO BACKGROUND CORRIGIDO --- */
+    background-color: #e53935; /* Cor de base: Vermelho P5 */
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Camada 1: O overlay escuro */
-        url('./images/bg.png'); /* Camada 2: Sua imagem */
-    background-size: cover;
-    background-position: center;
-    animation: animateBackground 15s linear infinite; /* Animação suave do background */
-    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
-    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
+        /* Camada 1: Padrão de estrelas/pontos brancos */
+        radial-gradient(
+            circle at 20% 20%, 
+            rgba(255, 255, 255, 0.2) 2%, /* Ponto branco sutil */
+            transparent 3%
+        ),
+        radial-gradient(
+            circle at 70% 80%, 
+            rgba(255, 255, 255, 0.3) 3%, /* Ponto branco sutil (maior) */
+            transparent 4%
+        ),
+        
+        /* Camada 2: Padrão de linhas diagonais pretas */
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0, 0, 0, 0.2) 0%, 
+            rgba(0, 0, 0, 0.2) 1px, /* Linha preta sutil */
+            transparent 1px, 
+            transparent 20px /* Espaço */
+        );
+    
+    /* Define o tamanho de repetição de cada padrão */
+    background-size: 
+        50px 50px, /* Tamanho do "azulejo" da estrela 1 */
+        60px 60px, /* Tamanho do "azulejo" da estrela 2 */
+        40px 40px; /* Tamanho do "azulejo" das linhas */
 
-
-
+    background-position: 0 0; /* Posição inicial */
+    background-attachment: fixed; /* Fundo fixo, não rola com o conteúdo */
+    
+    /* Animação que já tínhamos (ajustei a velocidade) */
+    animation: animateBackground 10s linear infinite;
 }
 
+/* --- ANIMAÇÃO DO BACKGROUND --- */
 @keyframes animateBackground {
-    0%, 100% {
-        background-size: 100%; /* Início e fim com tamanho normal */
-        
-    }
-    50% {
-        background-size: 105%; /* Meio da animação com tamanho aumentado */
-    }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    /* Move todos os padrões (40px é um bom valor de loop) */
+    background-position: 40px 40px;
+  }
 }
 
 /* --- ESTILOS PARA O HEADER E NAVEGAÇÃO --- */
@@ -125,6 +149,7 @@ nav a.active {
     text-align: center;
     max-width: 700px;
     width: 90%;
+    margin-top: 5px;
     /* Adiciona uma leve rotação para um visual mais dinâmico */
     transform: rotate(-1.5deg);
     transition: transform 0.3s ease;
@@ -579,6 +604,7 @@ span.rp { color: #ffff88; } /* Repel */
         min-height: 100%; /* Garante que o body tenha pelo menos a altura da tela */
         background-size: auto 100%; /* Ajusta o tamanho do background para cobrir a altura e se ajustar na largura */
         background-repeat: no-repeat; /* Evita que a imagem se repita */
+        flex-direction: column;
     }
     
     header {
@@ -587,6 +613,9 @@ span.rp { color: #ffff88; } /* Repel */
 
     .calculator-container {
        margin-top: 0;
+    }
+    .reverse-container {
+        margin-bottom: 10px;
     }
 
     nav ul {
@@ -628,5 +657,29 @@ span.rp { color: #ffff88; } /* Repel */
     #modal-persona-name {
         font-size: 1.5em;
     }
+    /* --- MEDIA QUERY PARA TELAS GRANDES (DESKTOP) --- */
+@media (min-width: 992px) {
+    body {
+        /* Faz os containers voltarem a ficar lado a lado */
+
+        /* Alinha os containers no topo (em vez de no centro) */
+        align-items: center;
+        
+        /* Adiciona um espaço entre eles */
+        gap: 30px;
+
+        /* Ajusta o padding para dar espaço ao conteúdo */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Garante que os containers tenham uma largura base */
+    .calculator-container,
+    .reverse-container {
+        width: 45%;
+        max-width: 700px;
+        margin-top: 0; /* Remove a margem que o body pode ter */
+    }
+}
 
 }
