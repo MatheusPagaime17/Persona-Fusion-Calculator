@@ -1,6 +1,41 @@
 // Aguarda o conteúdo da página carregar completamente antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- LÓGICA DO LOADER PERSONA 5 ---
+    const loader = document.getElementById('p5-loader');
+    const loaderBar = document.getElementById('loader-bar');
+    const loaderPercent = document.getElementById('loader-percent');
+    
+    let progress = 0;
+    const interval = setInterval(() => {
+        // Incrementa o progresso aleatoriamente para parecer "processando"
+        progress += Math.random() * 15; 
+        
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            
+            // Finaliza visualmente
+            loaderBar.style.width = '100%';
+            loaderPercent.textContent = '100%';
+            
+            // Pequeno delay antes de sair
+            setTimeout(() => {
+                loader.classList.add('slide-out'); // Ativa a animação de saída CSS
+                
+                // Remove do DOM após a animação terminar
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500); // Tempo igual ao transition do CSS
+            }, 500);
+            
+        } else {
+            // Atualiza a barra e o texto
+            loaderBar.style.width = `${progress}%`;
+            loaderPercent.textContent = `${Math.floor(progress)}%`;
+        }
+    }, 100); // Roda a cada 100ms
+
     // --- 1. REFERÊNCIAS AOS ELEMENTOS DO HTML ---
     // Calculadora Normal
     const searchInput1 = document.getElementById('search-input-1');

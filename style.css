@@ -1,4 +1,15 @@
-/* --- Reset Básico e Configurações Gerais --- */
+/* --- FONTE CUSTOMIZADA --- */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* --- VARIÁVEIS DE COR P5 (Ajustadas para leitura) --- */
+:root {
+    --p5-red: #d60012; /* Vermelho um pouco menos saturado */
+    --p5-black: #111111; /* Preto suave */
+    --p5-white: #f4f4f4; /* Off-white (menos agressivo aos olhos) */
+    --p5-gray: #333333;
+    --p5-yellow: #ffee00;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,102 +17,122 @@
 }
 
 body {
-    /* Usando a fonte Poppins importada, com alternativas seguras */
-    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
-    background-color: #111;
-    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: var(--p5-black);
+    padding-top: 140px; /* Mais espaço para o header inclinado */
+    padding-bottom: 50px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     min-height: 100vh;
-    overflow: hidden; /* Esconde as partes do padrão que saem da tela */
-    background-color: #111; /* Cor de fallback caso a imagem não carregue */
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    /* --- BACKGROUND SUAVIZADO --- */
+    background-color: var(--p5-red);
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Camada 1: O overlay escuro */
-        url('./images/bg.png'); /* Camada 2: Sua imagem */
-    background-size: cover;
-    background-position: center;
-    animation: animateBackground 15s linear infinite; /* Animação suave do background */
-    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
-    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
-
-
-
+        /* Estrelas mais sutis */
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.4) 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.4) 2px, transparent 3px),
+        /* Listras com menos contraste */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 20px,
+            rgba(0, 0, 0, 0.05) 20px, /* Opacidade reduzida */
+            rgba(0, 0, 0, 0.05) 40px
+        );
+    
+    background-size: 300px 300px, 300px 300px, 100% 100%;
+    background-attachment: fixed;
+    animation: backgroundMove 30s linear infinite; /* Animação mais lenta */
 }
 
-@keyframes animateBackground {
-    0%, 100% {
-        background-size: 100%; /* Início e fim com tamanho normal */
-        
-    }
-    50% {
-        background-size: 105%; /* Meio da animação com tamanho aumentado */
-    }
+@keyframes backgroundMove {
+    from { background-position: 0 0, 0 0, 0 0; }
+    to { background-position: -300px 300px, -300px 300px, 0 0; }
 }
 
-/* --- ESTILOS PARA O HEADER E NAVEGAÇÃO --- */
+/* --- HEADER CORRIGIDO --- */
 header {
-    background-color: #111;
-    padding: 15px 40px;
+    background-color: var(--p5-black);
+    padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #e53935;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    top: -15px; /* Sobe um pouco para garantir cobertura */
+    left: -5%; /* Move para a esquerda para cobrir o canto cortado pela rotação */
+    width: 110%; /* Aumenta a largura para compensar */
+    height: 100px; /* Altura fixa */
     z-index: 100;
+    transform: rotate(-1deg); /* A inclinação */
+    border-bottom: 4px solid var(--p5-white);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Ajusta o conteúdo do header para ficar reto */
+.header-content { 
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transform: rotate(1deg); /* Contra-rotação para o texto ficar reto */
+    padding: 0 5%; /* Padding interno para compensar o width 110% */
 }
 
 .logo {
-    font-size: 1.5em;
-    font-weight: 900;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8em;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--p5-white);
+    letter-spacing: 1px;
 }
 
+/* --- NAVEGAÇÃO --- */
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0; /* Reseta margem padrão da lista */
-    padding: 0; /* Reseta padding padrão da lista */
     gap: 20px;
 }
 
 nav a {
-    color: #fff;
+    color: var(--p5-white);
     text-decoration: none;
     font-weight: 700;
-    padding: 8px 15px;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 5px 10px;
     position: relative;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease;
 }
 
-nav a:hover {
-    color: #e53935;
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--p5-red);
+    transition: width 0.3s;
+    transform: skewX(-20deg);
 }
 
-nav a.active {
-    background-color: #e53935;
-    color: #000;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+nav a:hover, nav a.active {
+    color: var(--p5-red);
+    background-color: var(--p5-white);
+    transform: skewX(-10deg);
+    padding: 5px 15px; /* Efeito de expansão */
 }
 
-.dev-tag {
-    font-size: 0.7em;
-    background-color: #444;
-    color: #aaa;
-    padding: 2px 5px;
-    border-radius: 4px;
-    margin-left: 5px;
-    vertical-align: middle;
+nav a:hover::after, nav a.active::after {
+    width: 100%;
 }
 
-/* Esconde o menu hamburguer no desktop */
 .hamburger {
-    display: none;
+    display: none; /* <-- ISSO É CRUCIAL */
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
@@ -110,523 +141,453 @@ nav a.active {
     padding: 0;
 }
 
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-}
-
-/* --- Container Principal da Calculadora --- */
-.calculator-container {
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 30px 40px;
-    border: 3px solid #fff;
-    text-align: center;
-    max-width: 700px;
-    width: 90%;
-    /* Adiciona uma leve rotação para um visual mais dinâmico */
-    transform: rotate(-1.5deg);
-    transition: transform 0.3s ease;
-}
-
-.calculator-container:hover {
-    transform: rotate(0deg); /* O container fica reto ao passar o mouse */
-}
-
-h1 {
-    font-size: 2.5em;
-    font-weight: 900; /* Super negrito */
-    color: #000;
-    background-color: #e53935; /* Vermelho P5 */
-    text-transform: uppercase;
-    padding: 5px 20px;
-    display: inline-block; /* Permite aplicar padding e background */
-    margin-bottom: 20px;
-    /* Inclinação contrária à do container para criar contraste */
-    transform: rotate(1deg);
-}
-
-p {
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-
-/* --- Área de Seleção das Personas --- */
-.selection-area {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 25px 0;
-    gap: 15px; /* Espaçamento entre os seletores e o sinal de mais */
-}
-
-.persona-selector {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-}
-
-label {
-    margin-bottom: 8px;
-    font-size: 0.9em;
+.dev-tag {
+    font-size: 0.6em;
+    background-color: var(--p5-gray);
     color: #aaa;
-    text-transform: uppercase;
-    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-left: 5px;
+    vertical-align: middle;
 }
 
-select {
-    /* Remove o estilo padrão do navegador */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    
-    padding: 12px;
-    border-radius: 0; /* Bordas retas */
-    border: 2px solid #fff;
-    background-color: #000;
-    color: #fff;
-    font-size: 1em;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    
-    /* Seta customizada para o dropdown */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e53935'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 2em;
-}
-
-.plus-sign {
-    font-size: 3em;
-    font-weight: 900;
-    color: #e53935;
-    text-shadow: 2px 2px #000;
-}
-
-/* --- Botão e Resultado --- */
-button {
-    background-color: #e53935;
-    color: #fff;
-    border: 3px solid #000;
-    padding: 15px 35px;
-    font-size: 1.2em;
-    font-weight: 900;
-    border-radius: 0;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-transform: uppercase;
-    margin-top: 20px;
-    
-    /* clip-path cria uma forma de paralelogramo, muito comum no estilo P5 */
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-}
-
-button:hover {
-    background-color: #fff;
-    color: #e53935;
-    transform: scale(1.1);
-}
-
-#result-area {
-    margin-top: 30px;
-    background-color: #000;
-    padding: 20px;
-    border: 2px dashed #e53935; /* Borda tracejada para um visual diferente */
-}
-
-#result-area h2 {
-    text-transform: uppercase;
-    color: #e53935;
-    font-weight: 900;
-    margin-bottom: 10px;
-}
-
-#result-text {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: #fff;
-    /* Sombra vermelha para dar um brilho sutil */
-    text-shadow: 0 0 8px rgba(229, 57, 53, 0.7);
-}
-
-/* --- ESTILOS PARA O AUTOCOMPLETAR --- */
-
-/* Container que segura o input e os resultados */
-.search-container {
-    position: relative; /* Essencial para posicionar os resultados */
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Estilo do campo de busca */
-.search-input {
-    padding: 12px;
-    border-radius: 0;
-    border: 2px solid #fff;
-    background-color: #000;
-    color: #fff;
-    font-size: 1em;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif; /* Garante que a fonte seja a mesma */
-}
-
-.search-input::placeholder {
-    color: #888;
-    font-weight: 400;
-}
-
-/* Container dos resultados da busca */
-.results-container {
-    display: none; /* Começa escondido */
-    position: absolute;
-    top: 100%; /* Posiciona logo abaixo do input */
-    left: 0;
-    right: 0;
-    background-color: #111;
-    border: 2px solid #e53935;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10; /* Garante que fique sobre outros elementos */
-}
-
-/* Cada item individual na lista de resultados */
-.result-item {
-    padding: 10px;
-    color: #fff;
-    cursor: pointer;
-    text-align: left;
-    border-bottom: 1px solid #333;
-}
-
-.result-item:last-child {
-    border-bottom: none;
-}
-
-.result-item:hover {
-    background-color: #e53935;
-    color: #000;
-}
-
-/* --- ESTILO PARA O LINK NO RESULTADO --- */
-
-/* --- ESTILO PARA O GATILHO DO MODAL NO RESULTADO --- */
-#result-text .result-trigger {
-    color: #fff;
-    font-weight: bold;
-    text-decoration: underline;
-    transition: color 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-#result-text .result-trigger:hover {
-    color: #e53935; /* O efeito de hover que tinha sumido! */
-    text-shadow: 0 0 8px rgba(229, 57, 53, 0.7); /* Adiciona um brilho sutil ao passar o mouse */
-    transform: scale(1.05); /* Leve aumento ao passar o mouse */
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-/* --- ESTILOS PARA O MODAL DE DETALHES --- */
-
-.modal-overlay {
+/* --- LOADER PERSONA 5 --- */
+#p5-loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Mais escuro para focar no modal */
-    display: none; /* Começa escondido */
+    background-color: var(--p5-red);
+    z-index: 9999;
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    opacity: 0; /* Começa transparente para a animação */
-    transition: opacity 0.3s ease;
-    padding: 20px;
+    overflow: hidden;
+    /* Transição para a saída do loader (deslizar para baixo) */
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
 }
 
-/* Classe adicionada via JS para mostrar o modal */
-.modal-overlay.open {
-    display: flex;
-    opacity: 1;
+#p5-loader.slide-out {
+    transform: translateY(100%); /* Desliza para baixo como guardar o celular */
 }
 
-.modal-content {
-    background-color: #1a1a1a;
-    padding: 25px 35px;
-    border: 3px solid #e53935;
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
-    /* Animação de entrada */
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.modal-overlay.open .modal-content {
-    transform: scale(1);
-}
-
-
-.close-modal {
+/* Padrão de fundo do loader */
+.loader-bg-pattern {
     position: absolute;
-    top: 5px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: #aaa;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 40px,
+            rgba(0, 0, 0, 0.1) 40px,
+            rgba(0, 0, 0, 0.1) 80px
+        );
+    z-index: -1;
+    animation: loaderBgMove 2s linear infinite;
+}
+
+@keyframes loaderBgMove {
+    from { background-position: 0 0; }
+    to { background-position: 113px 113px; } /* Movimento diagonal */
+}
+
+.loader-content {
+    position: relative;
+    width: 300px;
+    transform: rotate(-5deg); /* A inclinação clássica do P5 */
+}
+
+.loader-text {
+    font-family: 'Anton', sans-serif;
     font-size: 2.5em;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.2s ease;
+    color: var(--p5-white);
+    text-shadow: 4px 4px 0 var(--p5-black);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
-.close-modal:hover {
-    color: #e53935;
-    transform: scale(1.1);
-    text-shadow: 0 0 5px rgba(229, 57, 53, 0.7); /* Adiciona um brilho sutil ao botão */
-    /* Adiciona uma leve rotação ao passar o mouse */
+.loader-bar-container {
+    width: 100%;
+    height: 30px;
+    background-color: var(--p5-black);
+    border: 3px solid var(--p5-white);
+    padding: 3px;
+    transform: skewX(-20deg); /* Caixa torta */
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.loader-bar {
+    width: 0%; /* Começa vazio */
+    height: 100%;
+    background-color: var(--p5-yellow); /* Amarelo destaque */
+    /* Padrão de listras na barra de progresso */
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.3) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.3) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 20px 20px;
+    transition: width 0.1s linear; /* Animação fluida via JS */
+}
+
+.loader-percent {
+    font-family: 'Anton', sans-serif;
+    font-size: 4em;
+    color: var(--p5-black);
+    text-shadow: 2px 2px 0 var(--p5-white);
+    position: absolute;
+    right: -20px;
+    bottom: -50px;
     transform: rotate(5deg);
-    transition: transform 0.2s ease, color 0.2s ease;
+}
+/* --- CONTAINERS LIMPOS --- */
+.calculator-container, .reverse-calculator-container {
+    background-color: var(--p5-white);
+    padding: 35px 40px;
+    border: 3px solid var(--p5-black);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    margin-bottom: 40px;
+    position: relative;
+    /* Sombra sólida estilo HQ */
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.8); 
+    /* Removemos a rotação do container para facilitar a leitura */
+    transform: none; 
 }
 
-.modal-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border-bottom: 2px solid #555;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+/* Detalhe de "fita" no canto */
+.calculator-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--p5-red);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-#modal-persona-name {
+h1, h2 {
+    font-family: 'Anton', sans-serif;
+    color: var(--p5-black);
+    text-transform: uppercase;
     font-size: 2.2em;
-    color: #e53935;
-    margin: 0;
-    text-shadow: 1px 1px #000;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    /* Fundo preto no título para destaque */
+    background: var(--p5-black);
+    color: var(--p5-white);
+    display: inline-block;
+    padding: 5px 20px;
+    transform: skewX(-10deg);
 }
 
-#modal-wiki-link {
-    color: #aaa;
+p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* --- INPUTS E SELECTS --- */
+.selection-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+    gap: 15px;
+}
+
+.search-container {
+    position: relative;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container label {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: var(--p5-red);
+}
+
+.search-input {
+    padding: 12px;
+    background-color: #fff;
+    border: 2px solid var(--p5-black);
+    color: var(--p5-black);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    /* Canto cortado apenas no input */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+}
+
+.search-input:focus {
+    outline: none;
+    background-color: var(--p5-black);
+    color: var(--p5-white);
+    border-color: var(--p5-red);
+}
+
+.search-input::placeholder { color: #999; text-transform: none; font-weight: 400; }
+
+.plus-sign {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5em;
+    color: var(--p5-black);
+}
+
+/* --- BOTÕES --- */
+button {
+    background-color: var(--p5-black);
+    color: var(--p5-white);
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    margin-top: 25px;
+    transform: skewX(-15deg);
+    transition: all 0.2s;
+    box-shadow: 4px 4px 0 var(--p5-red); /* Sombra vermelha */
+}
+
+button:hover {
+    background-color: var(--p5-red);
+    color: var(--p5-white);
+    box-shadow: 4px 4px 0 var(--p5-black);
+    transform: skewX(-15deg) translateY(-2px);
+}
+
+button:active {
+    transform: skewX(-15deg) translateY(2px);
+    box-shadow: 0 0 0;
+}
+
+/* --- DROPDOWN --- */
+.results-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--p5-white);
+    border: 2px solid var(--p5-black);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 20;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+}
+
+.result-item {
+    padding: 10px 15px;
+    color: var(--p5-black);
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-weight: 700;
+}
+
+.result-item:hover {
+    background-color: var(--p5-red);
+    color: var(--p5-white);
+}
+
+/* --- RESULTADO --- */
+#result-area, #reverse-result-area {
+    margin-top: 40px;
+    background-color: var(--p5-black);
+    padding: 20px;
+    color: var(--p5-white);
+    border: 3px solid var(--p5-white);
+    outline: 3px solid var(--p5-black); /* Borda dupla */
+}
+
+#result-text {
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+#result-text span, #result-text a {
+    color: var(--p5-red);
+    background-color: var(--p5-white);
+    padding: 2px 8px;
     text-decoration: none;
-    font-weight: normal;
-    font-size: 0.8em;
+    margin-right: 5px;
+    transform: skewX(-10deg);
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
 }
 
-#modal-wiki-link:hover {
-    text-decoration: underline;
-    color: #fff;
+#result-text span:hover {
+    background-color: var(--p5-red);
+    color: var(--p5-white);
 }
 
-.modal-body {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Coluna de stats/elementos menor, skills maior */
-    gap: 30px;
-}
-
-.modal-section {
+/* Lista Reversa */
+#reverse-recipes-list {
+    list-style: none;
+    padding: 0;
     text-align: left;
 }
 
-.modal-section h3 {
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #444;
-    padding-bottom: 5px;
-    color: #e53935;
+#reverse-recipes-list li {
+    padding: 10px;
+    border-bottom: 2px solid var(--p5-gray);
+    font-weight: 700;
+    color: var(--p5-white);
 }
 
-.modal-section ul {
-    list-style: none;
-    padding: 0;
+/* --- MODAL ESTILO "CONFIDANT" --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(230, 0, 18, 0.9); /* Fundo vermelho forte */
+    display: none; justify-content: center; align-items: center; z-index: 2000;
+    opacity: 0; transition: opacity 0.2s;
+}
+.modal-overlay.open { display: flex; opacity: 1; }
+
+.modal-content {
+    background-color: var(--p5-white);
+    padding: 40px;
+    border: 5px solid var(--p5-black);
+    width: 90%; max-width: 800px;
+    position: relative; max-height: 90vh; overflow-y: auto;
+    box-shadow: 20px 20px 0 var(--p5-black);
+    transform: rotate(2deg);
+}
+
+.close-modal {
+    position: absolute; top: 10px; right: 15px; background: var(--p5-black);
+    border: 2px solid var(--p5-white); color: var(--p5-white); 
+    font-size: 2em; cursor: pointer; width: 50px; height: 50px;
+    display: flex; justify-content: center; align-items: center;
+    transition: 0.2s;
+}
+.close-modal:hover { background-color: var(--p5-red); transform: rotate(90deg); }
+
+.modal-header {
+    display: flex; align-items: center; gap: 30px;
+    border-bottom: 5px solid var(--p5-black); padding-bottom: 20px; margin-bottom: 30px;
+    background-color: var(--p5-gray);
+    margin: -40px -40px 30px -40px; /* Estende até as bordas */
+    padding: 30px 40px;
+}
+
+#modal-persona-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 3em; color: var(--p5-white);
+    text-shadow: 4px 4px 0 var(--p5-black);
+    transform: skewX(-10deg);
+}
+
+.modal-body {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+
+.modal-section h3 {
+    color: var(--p5-white); background-color: var(--p5-black);
+    padding: 5px 15px; transform: skewX(-15deg); display: inline-block;
+    border: 2px solid var(--p5-white); box-shadow: 3px 3px 0 var(--p5-gray);
 }
 
 .modal-section li {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    border-bottom: 1px solid #2a2a2a;
+    display: flex; justify-content: space-between; padding: 10px;
+    border-bottom: 2px solid var(--p5-black);
+    font-weight: 700; color: var(--p5-black); font-size: 1.1em;
 }
-.modal-section li:last-child {
-    border-bottom: none;
-}
-
-#modal-elements span, #modal-stats span {
-    font-weight: bold;
-    text-transform: uppercase;
+.modal-section li:hover { 
+    background-color: var(--p5-black); color: var(--p5-white); 
+    transform: translateX(10px); transition: 0.2s;
 }
 
-/* --- ESTILOS PARA A SEÇÃO REVERSA --- */
-.reverse-container {
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 30px 40px;
-    border: 3px solid #fff;
-    margin-left: 50px;
-    text-align: center;
-    max-width: 700px;
-    width: 90%;
-    margin-top: 50px;
-    position: relative;
+/* Cores de afinidade P5 */
+#modal-elements span { 
+    background: var(--p5-black); color: var(--p5-white); padding: 2px 6px; 
+    font-family: 'Anton', sans-serif;
+}
 
+/* --- RESPONSIVIDADE --- */
+@media (min-width: 992px) {
+    body {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 50px;
+        padding-left: 40px; padding-right: 40px;
+    }
     
-    /* Adiciona uma leve rotação para um visual mais dinâmico */
-    transform: rotate(1.5deg);
-    transition: transform 0.3s ease;
-
+    .calculator-container, .reverse-calculator-container {
+        width: 45%;
+        margin-top: 0;
+    }
 }
-
-.reverse-container:hover {
-    transform: rotate(0deg); /* O container fica reto ao passar o mouse */
-    transform: rotate(-1deg);
-}
-
-.reverse-container .search-container {
-    width: 80%;
-    margin: 20px auto;
-}
-
-#reverse-calculate-btn {
-    background-color: #fff;
-    color: #000;
-    border: 3px solid #000;
-    padding: 15px 35px;
-    font-size: 1.2em;
-    font-weight: 900;
-    border-radius: 0;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-transform: uppercase;
-    margin-top: 10px;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-}
-
-#reverse-calculate-btn:hover {
-    background-color: #e53935;
-    color: #fff;
-}
-
-/* --- ESTILOS PARA O MODAL DE RESULTADOS REVERSOS --- */
-#reverse-modal-title {
-    color: #fff;
-    font-size: 1.8em;
-}
-
-#reverse-modal-title span {
-    color: #e53935;
-    font-weight: 900;
-}
-
-#reverse-recipe-list {
-    list-style: none;
-    padding: 0;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-#reverse-recipe-list li {
-    display: flex;
-    justify-content: space-between; /* <-- MUDANÇA PRINCIPAL AQUI */
-    align-items: center;
-    font-size: 1.1em; /* Leve ajuste para caber melhor */
-    padding: 12px 5px; /* Mais padding vertical */
-    border-bottom: 1px solid #333;
-    margin: 0 auto;
-}
-
-/* NOVO: Define o container de cada Persona */
-#reverse-recipe-list li > div {
-    flex-basis: 45%; /* Define que cada lado ocupa 45% do espaço */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px; /* Espaçamento entre nome e arcana */
-}
-
-.recipe-persona {
-    font-weight: bold;
-    color: #fff;
-    font-size: 1.1em;
-}
-
-.recipe-arcana {
-    font-size: 0.8em;
-    color: #aaa;
-}
-
-.recipe-plus {
-    font-size: 2em; /* Aumenta o tamanho */
-    font-weight: 700;
-    color: #e53935;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
-/* Cores para afinidades */
-span.wk { color: #ff5555; } /* Weak */
-span.rs { color: #88aaff; } /* Resist */
-span.nl { color: #bbddbb; } /* Null */
-span.dr { color: #88ff88; } /* Drain */
-span.rp { color: #ffff88; } /* Repel */
 
 @media (max-width: 820px) {
-    body {
-        padding-top: 80px;
-        align-items: flex-start;
-        min-height: 100%; /* Garante que o body tenha pelo menos a altura da tela */
-        background-size: auto 100%; /* Ajusta o tamanho do background para cobrir a altura e se ajustar na largura */
-        background-repeat: no-repeat; /* Evita que a imagem se repita */
-    }
+    body { padding-top: 120px; justify-content: flex-start; }
     
     header {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: auto;
         padding: 15px 20px;
+        transform: none; /* Remove rotação no mobile para não cortar */
+        clip-path: none;
+        border-bottom: 4px solid var(--p5-red);
     }
-
-    .calculator-container {
-       margin-top: 0;
+    
+    .header-content { 
+        transform: none; 
+        padding: 0;
     }
 
     nav ul {
-        display: none;
+        display: none; /* Esconde menu padrão */
         position: absolute;
-        top: 74px;
-        left: 0;
-        width: 100%;
-        background-color: #111;
+        top: 100%; left: 0; width: 100%;
+        background: var(--p5-black);
         flex-direction: column;
-        text-align: center;
-        border-top: 3px solid #e53935;
+        padding: 20px 0;
+        border-bottom: 4px solid var(--p5-red);
     }
-
-    nav ul.open {
-        display: flex;
+    nav ul.open { display: flex; }
+    nav a { 
+        display: block; border: none; padding: 15px; 
+        border-bottom: 1px dashed var(--p5-gray); clip-path: none;
     }
-
-    nav li {
-        width: 100%;
-    }
-
-    nav a {
-        display: block;
-        padding: 15px;
-        border-bottom: 1px solid #333;
-    }
-
-    nav a.active {
-        clip-path: none;
-    }
-
+    
+    .selection-area { flex-direction: column; gap: 30px; }
+    .search-container { width: 100%; }
+    .modal-body { grid-template-columns: 1fr; }
+    .modal-header { flex-direction: column; text-align: center; }
+    
+    /* Hambuger Menu */
     .hamburger {
-        display: flex;
+        display: flex; flex-direction: column; gap: 5px;
+        background: none; border: none; cursor: pointer;
     }
-    .modal-body {
-        grid-template-columns: 1fr; /* Uma coluna só no mobile */
-    }
-    #modal-persona-name {
-        font-size: 1.5em;
-    }
-
+    .hamburger span { width: 30px; height: 4px; background: var(--p5-white); }
 }

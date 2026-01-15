@@ -8,24 +8,38 @@
     <title>Calculadora de Fusão - Persona 5</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-    <header>
-        <div class="logo">
-            Persona Fusion Hub
+ <!-- ================== LOADER PERSONA 5 ================== -->
+    <div id="p5-loader">
+        <div class="loader-content">
+            <div class="loader-text">CONNECTING...</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar" id="loader-bar"></div>
+            </div>
+            <div class="loader-percent" id="loader-percent">0%</div>
         </div>
-        <nav>
-            <button class="hamburger" id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul id="nav-list">
-                <li><a href="#" class="active">Persona 5 Royal</a></li>
-                <li><a href="#">Persona 3 Reload <span class="dev-tag">Em Breve</span></a></li>
-                <li><a href="#">Persona 4 Golden <span class="dev-tag">Em Breve</span></a></li>
-            </ul>
-        </nav>
+        <!-- Elementos decorativos de fundo (estrelas/padrões) -->
+        <div class="loader-bg-pattern"></div>
+    </div>
+<body>
+    <!-- HEADER CORRIGIDO (Sem duplicação de tags e com a estrutura correta) -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                Persona Fusion Hub
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-list">
+                    <li><a href="#" class="active">Persona 5 Royal</a></li>
+                    <li><a href="p3r.html">Persona 3 Reload</a></li>
+                    <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div class="calculator-container">
@@ -57,10 +71,12 @@
             <p id="result-text">O resultado aparecerá aqui.</p>
         </div>
     </div>
-    <div class="reverse-container">
+
+    <!-- NOME DA CLASSE CORRIGIDO PARA 'reverse-calculator-container' -->
+    <div class="reverse-calculator-container">
         <h2>Calculadora de Fusão Reversa</h2>
         <p>Selecione uma Persona para ver todas as combinações que podem criá-la.</p>
-        <div class="search-container">
+        <div class="search-container" style="width: 100%;">
             <input type="text" id="reverse-search-input" class="search-input"
                 placeholder="Digite o nome da Persona-alvo..." autocomplete="off">
             <div class="results-container" id="reverse-results-container"></div>
