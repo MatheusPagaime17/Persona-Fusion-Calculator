@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FUNÇÕES DE CARREGAMENTO ---
     async function loadPersonas() {
         try {
-            const response = await fetch('p3r-personas.json'); // Carrega o JSON específico do P3R
+            const response = await fetch('data.json'); // Carrega o JSON específico do P3R
             personas = await response.json();
             setupAutocomplete(searchInput1, resultsContainer1, 'persona1');
             setupAutocomplete(searchInput2, resultsContainer2, 'persona2');

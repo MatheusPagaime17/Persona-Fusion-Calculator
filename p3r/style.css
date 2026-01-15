@@ -330,6 +330,24 @@ nav a:hover::after, nav a.active::after {
     pointer-events: none;
 }
 
+.reverse-calculator-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: glassShine 6s infinite;
+    pointer-events: none;
+}
+
 @keyframes glassShine {
     0% { left: -100%; }
     20% { left: 200%; }

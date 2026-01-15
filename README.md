@@ -28,16 +28,17 @@ Update v1.2
 °   Added a Pop-Up of the persona with more information
 °   Huge update on the Json file
 
+Update v2.0
+
+°   Added Reverse calculation
+°   Persona Detail Pop-Up showing skills, stats, affinitys and more details.
+°   Persona Hub, Now Persona Calculator by Mappa isn't just a persona 5 calculator, But a whole persona tool, you can now choose beetween using calculator of Persona 5 Royal and Persona 3 Reload, and Persona 4 Revival when it comes out.
+°   Major changes to the site design, now the page should reflect more the games interface, and also change somethigs so P3R and P5R look very similar but with it own design for each page.
+
 
 Future updates:
 
-// Minor changes
-°   Fix the compabilite with mobile devices.
-°   Improve the identity (Style) of the web site.
-°   DLC Filters.
-
-// Major changes
-°   Reverse Fusion Calculator.
-°   Content Updates (Show the persona "pfp😜​" image of the persona)
-°   Persona detail Pop-Up (IMO this one can be the coolest update)
-°   Change the game menu (Create a way to select between P5, P3R and P4R when it release.)
+Transform this Hub into a complete tool for players:
+°   Add Planitum Guides
+°   Add a activites tab, where you can see all the activits that you can do into the games and what u can earn with each one.
+°   Add interactivite maps of the games

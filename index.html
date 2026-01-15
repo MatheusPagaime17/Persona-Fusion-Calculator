@@ -1,130 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-    <title>Calculadora de Fusão - Persona 5</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Persona Fusion Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #111;
+            font-family: sans-serif;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Metade Esquerda - Persona 5 */
+        .split {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            transition: all 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .split-p5 {
+            background-color: #e60012;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Corte diagonal */
+            z-index: 2;
+        }
+
+        .split-p3 {
+            background-color: #0055ff;
+            position: absolute;
+            right: 0;
+            width: 60%; /* Um pouco maior para compensar o corte */
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        /* Imagens de fundo (opcional - adicione suas imagens) */
+        .bg-image {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            transition: transform 0.5s;
+        }
+        
+        /* Padrões geométricos */
+        .split-p5 .bg-image {
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 40px);
+        }
+        .split-p3 .bg-image {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 3px);
+            background-size: 30px 30px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            transform: skewX(-10deg);
+            transition: transform 0.3s;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+        }
+
+        .p5-font { font-family: 'Anton', sans-serif; }
+        .p3-font { font-family: 'Exo 2', sans-serif; font-style: italic; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #fff;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+        }
+
+        /* Efeitos de Hover */
+        .split:hover { width: 55%; z-index: 10; }
+        .split:hover .bg-image { transform: scale(1.1); opacity: 0.5; }
+        .split:hover .content { transform: skewX(-10deg) scale(1.1); }
+        .split:hover + .split { width: 45%; } /* Quando mexe no esquerdo, o direito diminui */
+
+        /* Responsividade Mobile */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .split { width: 100%; height: 50%; }
+            .split-p5 { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+            .split-p3 { width: 100%; height: 55%; bottom: 0; top: auto; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+            .split:hover { height: 60%; width: 100%; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
- <!-- ================== LOADER PERSONA 5 ================== -->
-    <div id="p5-loader">
-        <div class="loader-content">
-            <div class="loader-text">CONNECTING...</div>
-            <div class="loader-bar-container">
-                <div class="loader-bar" id="loader-bar"></div>
-            </div>
-            <div class="loader-percent" id="loader-percent">0%</div>
-        </div>
-        <!-- Elementos decorativos de fundo (estrelas/padrões) -->
-        <div class="loader-bg-pattern"></div>
-    </div>
 <body>
-    <!-- HEADER CORRIGIDO (Sem duplicação de tags e com a estrutura correta) -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                Persona Fusion Hub
-            </div>
-            <nav>
-                <button class="hamburger" id="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul id="nav-list">
-                    <li><a href="#" class="active">Persona 5 Royal</a></li>
-                    <li><a href="p3r.html">Persona 3 Reload</a></li>
-                    <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
-                </ul>
-            </nav>
+
+    <!-- Lado P5 -->
+    <a href="p5r/index.html" class="split split-p5">
+        <div class="bg-image"></div>
+        <div class="content">
+            <h1 class="p5-font">Persona 5<br>Royal</h1>
+            <div class="btn" style="color: #e60012;">Fusion Calc</div>
         </div>
-    </header>
+    </a>
 
-    <div class="calculator-container">
-        <h1>Calculadora de Fusão de Personas</h1>
-        <p>Selecione duas Personas para ver o resultado da fusão.</p>
-
-        <div class="selection-area">
-            <div class="search-container">
-                <label for="search-input-1">Persona 1</label>
-                <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome da Persona..."
-                    autocomplete="off">
-                <div class="results-container" id="results-container-1"></div>
-            </div>
-
-            <span class="plus-sign">+</span>
-
-            <div class="search-container">
-                <label for="search-input-2">Persona 2</label>
-                <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome da Persona..."
-                    autocomplete="off">
-                <div class="results-container" id="results-container-2"></div>
-            </div>
+    <!-- Lado P3 -->
+    <a href="p3r/index.html" class="split split-p3">
+        <div class="bg-image"></div>
+        <div class="content">
+            <h1 class="p3-font">Persona 3<br>Reload</h1>
+            <div class="btn" style="color: #0055ff;">Fusion Calc</div>
         </div>
+    </a>
 
-        <button id="calculateBtn">Calcular Fusão</button>
-
-        <div id="result-area">
-            <h2>Resultado</h2>
-            <p id="result-text">O resultado aparecerá aqui.</p>
-        </div>
-    </div>
-
-    <!-- NOME DA CLASSE CORRIGIDO PARA 'reverse-calculator-container' -->
-    <div class="reverse-calculator-container">
-        <h2>Calculadora de Fusão Reversa</h2>
-        <p>Selecione uma Persona para ver todas as combinações que podem criá-la.</p>
-        <div class="search-container" style="width: 100%;">
-            <input type="text" id="reverse-search-input" class="search-input"
-                placeholder="Digite o nome da Persona-alvo..." autocomplete="off">
-            <div class="results-container" id="reverse-results-container"></div>
-        </div>
-        <button id="reverse-calculate-btn">Encontrar Receitas</button>
-    </div>
-
-    <div class="modal-overlay" id="reverse-results-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-reverse-modal-btn">&times;</button>
-            <div class="modal-header">
-                <h2 id="reverse-modal-title">Receitas para <span id="reverse-modal-persona-name"></span></h2>
-            </div>
-            <div class="modal-body" id="reverse-modal-body">
-                <ul id="reverse-recipe-list">
-                </ul>
-                <p id="reverse-no-results" style="display: none;">Esta Persona não pode ser criada por uma fusão normal
-                    de 2 Personas.</p>
-            </div>
-        </div>
-    </div>
-    <div class="modal-overlay" id="persona-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal-btn">&times;</button>
-            <div class="modal-header">
-                <div>
-                    <h2 id="modal-persona-name">Nome da Persona</h2>
-                    <a id="modal-wiki-link" href="#" target="_blank" rel="noopener noreferrer">Ver na Wiki ↗</a>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="modal-section" id="modal-stats">
-                    <h3>Stats Iniciais</h3>
-                    <ul></ul>
-                </div>
-                <div class="modal-section" id="modal-elements">
-                    <h3>Afinidades Elementais</h3>
-                    <ul></ul>
-                </div>
-                <div class="modal-section" id="modal-skills">
-                    <h3>Skills</h3>
-                    <ul></ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
