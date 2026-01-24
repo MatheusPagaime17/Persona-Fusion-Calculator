@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Fusão - Persona 3 Reload</title>
+    <!-- Importando a fonte Poppins (padrão do projeto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p3r-theme">
+    <!-- ================== LOADER DARK HOUR ================== -->
+    <div id="loader-overlay">
+        <div class="clock-container">
+            <div class="clock-circle">
+                <!-- Números do relógio (Simbolizados) -->
+                <div class="clock-number n12">XII</div>
+                <div class="clock-number n3">III</div>
+                <div class="clock-number n6">VI</div>
+                <div class="clock-number n9">IX</div>
+                
+                <!-- Ponteiros -->
+                <div class="hand hour-hand"></div>
+                <div class="hand minute-hand"></div>
+                <div class="center-dot"></div>
+            </div>
+            <div class="loading-text">LOADING...</div>
+        </div>
+    </div>
+
+    <!-- ================== MENU DE NAVEGAÇÃO ================== -->
+    <header>
+        <div class="logo">
+            Persona Fusion Hub
+        </div>
+        <nav>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-list">
+                <!-- Links para navegar entre os jogos -->
+                <li><a href="../p5r/index.html">Persona 5 Royal</a></li>
+                <li><a href="#" class="active">Persona 3 Reload</a></li>
+                <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================== CALCULADORA ================== -->
+    <div class="calculator-container">
+        <h1>Persona 3 Reload Fusion</h1>
+        <p>Selecione duas Personas para ver o resultado da fusão.</p>
+
+        <div class="selection-area">
+            <div class="search-container">
+                <label for="search-input-1">Persona 1</label>
+                <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome..." autocomplete="off">
+                <div class="results-container" id="results-container-1"></div>
+            </div>
+            
+            <span class="plus-sign">+</span>
+
+            <div class="search-container">
+                <label for="search-input-2">Persona 2</label>
+                <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome..." autocomplete="off">
+                <div class="results-container" id="results-container-2"></div>
+            </div>
+        </div>
+
+        <button id="calculateBtn">Calcular Fusão</button>
+
+        <div id="result-area">
+            <h2>Resultado</h2>
+            <p id="result-text">O resultado aparecerá aqui.</p>
+        </div>
+    </div>
+
+    <!-- ================== CALCULADORA REVERSA ================== -->
+    <div class="reverse-calculator-container">
+        <h2>Calculadora Reversa</h2>
+        <p>Descubra como criar uma Persona específica.</p>
+        
+        <div class="search-container" style="width: 100%;">
+            <label for="search-input-target">Persona Alvo</label>
+            <input type="text" id="search-input-target" class="search-input" placeholder="Quem você quer criar?" autocomplete="off">
+            <div class="results-container" id="results-container-target"></div>
+        </div>
+
+        <button id="calculateReverseBtn">Encontrar Receitas</button>
+
+        <div id="reverse-result-area">
+            <ul id="reverse-recipes-list"></ul>
+        </div>
+    </div>
+
+    <!-- ================== MODAL DE DETALHES ================== -->
+    <div class="modal-overlay" id="persona-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal-btn">&times;</button>
+            <div class="modal-header">
+                <img id="modal-persona-image" src="" alt="Persona Image">
+                <h2 id="modal-persona-name">Nome da Persona</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section" id="modal-stats">
+                    <h3>Stats</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-section" id="modal-elements">
+                    <h3>Afinidades</h3>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

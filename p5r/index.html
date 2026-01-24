@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Calculadora de Fusão - Persona 5</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+ <!-- ================== LOADER PERSONA 5 ================== -->
+    <div id="p5-loader">
+        <div class="loader-content">
+            <div class="loader-text">CONNECTING...</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar" id="loader-bar"></div>
+            </div>
+            <div class="loader-percent" id="loader-percent">0%</div>
+        </div>
+        <!-- Elementos decorativos de fundo (estrelas/padrões) -->
+        <div class="loader-bg-pattern"></div>
+    </div>
+<body>
+    <!-- HEADER CORRIGIDO (Sem duplicação de tags e com a estrutura correta) -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                Persona Fusion Hub
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-list">
+                    <li><a href="#" class="active">Persona 5 Royal</a></li>
+                    <li><a href="../p3r/index.html">Persona 3 Reload</a></li>
+                    <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="calculator-container">
+        <h1>Calculadora de Fusão de Personas</h1>
+        <p>Selecione duas Personas para ver o resultado da fusão.</p>
+
+        <div class="selection-area">
+            <div class="search-container">
+                <label for="search-input-1">Persona 1</label>
+                <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome da Persona..."
+                    autocomplete="off">
+                <div class="results-container" id="results-container-1"></div>
+            </div>
+
+            <span class="plus-sign">+</span>
+
+            <div class="search-container">
+                <label for="search-input-2">Persona 2</label>
+                <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome da Persona..."
+                    autocomplete="off">
+                <div class="results-container" id="results-container-2"></div>
+            </div>
+        </div>
+
+        <button id="calculateBtn">Calcular Fusão</button>
+
+        <div id="result-area">
+            <h2>Resultado</h2>
+            <p id="result-text">O resultado aparecerá aqui.</p>
+        </div>
+    </div>
+
+    <!-- NOME DA CLASSE CORRIGIDO PARA 'reverse-calculator-container' -->
+    <div class="reverse-calculator-container">
+        <h2>Calculadora de Fusão Reversa</h2>
+        <p>Selecione uma Persona para ver todas as combinações que podem criá-la.</p>
+        <div class="search-container" style="width: 100%;">
+            <input type="text" id="reverse-search-input" class="search-input"
+                placeholder="Digite o nome da Persona-alvo..." autocomplete="off">
+            <div class="results-container" id="reverse-results-container"></div>
+        </div>
+        <button id="reverse-calculate-btn">Encontrar Receitas</button>
+    </div>
+
+    <div class="modal-overlay" id="reverse-results-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-reverse-modal-btn">&times;</button>
+            <div class="modal-header">
+                <h2 id="reverse-modal-title">Receitas para <span id="reverse-modal-persona-name"></span></h2>
+            </div>
+            <div class="modal-body" id="reverse-modal-body">
+                <ul id="reverse-recipe-list">
+                </ul>
+                <p id="reverse-no-results" style="display: none;">Esta Persona não pode ser criada por uma fusão normal
+                    de 2 Personas.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="persona-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal-btn">&times;</button>
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-persona-name">Nome da Persona</h2>
+                    <a id="modal-wiki-link" href="#" target="_blank" rel="noopener noreferrer">Ver na Wiki ↗</a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section" id="modal-stats">
+                    <h3>Stats Iniciais</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-section" id="modal-elements">
+                    <h3>Afinidades Elementais</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-section" id="modal-skills">
+                    <h3>Skills</h3>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

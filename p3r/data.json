@@ -1,0 +1,1469 @@
+[
+  {
+    "name": "Orpheus Telos",
+    "arcana": "Fool",
+    "baseLevel": 91,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 63, "ma": 63, "en": 63, "ag": 63, "lu": 63 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "rs", "ice": "rs", "elec": "rs", "wind": "rs", "light": "rs", "dark": "rs" }
+  },
+  {
+    "name": "Susano-o",
+    "arcana": "Fool",
+    "baseLevel": 77,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 71, "ma": 35, "en": 43, "ag": 49, "lu": 55 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "rp", "fire": "-", "ice": "-", "elec": "wk", "wind": "nu", "light": "wk", "dark": "-" }
+  },
+  {
+    "name": "Loki",
+    "arcana": "Fool",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 48, "ma": 60, "en": 45, "ag": 42, "lu": 28 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "ab", "light": "-", "dark": "rs" }
+  },
+  {
+    "name": "Decarabia",
+    "arcana": "Fool",
+    "baseLevel": 54,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 35, "en": 35, "ag": 35, "lu": 35 },
+    "elements": { "slash": "wk", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Ose",
+    "arcana": "Fool",
+    "baseLevel": 41,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 23, "en": 28, "ag": 25, "lu": 22 },
+    "elements": { "slash": "-", "strike": "rs", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "wk", "light": "nu", "dark": "-" }
+  },
+  {
+    "name": "Black Frost",
+    "arcana": "Fool",
+    "baseLevel": 37,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 22, "ma": 34, "en": 23, "ag": 25, "lu": 20 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "ab", "elec": "-", "wind": "-", "light": "wk", "dark": "rp" }
+  },
+  {
+    "name": "Legion",
+    "arcana": "Fool",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 16, "ma": 14, "en": 26, "ag": 9, "lu": 20 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "wk", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Slime",
+    "arcana": "Fool",
+    "baseLevel": 12,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 9, "ma": 8, "en": 10, "ag": 6, "lu": 7 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "wk", "ice": "-", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Orpheus",
+    "arcana": "Fool",
+    "baseLevel": 1,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 2, "ma": 2, "en": 2, "ag": 2, "lu": 2 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Futsunushi",
+    "arcana": "Magician",
+    "baseLevel": 74,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 58, "ma": 42, "en": 48, "ag": 52, "lu": 40 },
+    "elements": { "slash": "nu", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Surt",
+    "arcana": "Magician",
+    "baseLevel": 52,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 42, "en": 33, "ag": 30, "lu": 27 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "ab", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Rangda",
+    "arcana": "Magician",
+    "baseLevel": 40,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 22, "ma": 32, "en": 25, "ag": 28, "lu": 20 },
+    "elements": { "slash": "rp", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Orobas",
+    "arcana": "Magician",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 21, "ma": 25, "en": 22, "ag": 24, "lu": 18 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "-", "wind": "nu", "light": "-", "dark": "rs" }
+  },
+  {
+    "name": "Sarti",
+    "arcana": "Magician",
+    "baseLevel": 28,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 17, "ma": 22, "en": 18, "ag": 19, "lu": 15 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "nu", "light": "wk", "dark": "-" }
+  },
+  {
+    "name": "Hua Po",
+    "arcana": "Magician",
+    "baseLevel": 20,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 11, "ma": 16, "en": 12, "ag": 14, "lu": 12 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Jack-o'-Lantern",
+    "arcana": "Magician",
+    "baseLevel": 15,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 9, "ma": 13, "en": 10, "ag": 11, "lu": 7 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "ab", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Jack Frost",
+    "arcana": "Magician",
+    "baseLevel": 8,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 5, "ma": 8, "en": 6, "ag": 6, "lu": 4 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Nekomata",
+    "arcana": "Magician",
+    "baseLevel": 5,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 4, "ma": 4, "en": 4, "ag": 5, "lu": 3 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Scathach",
+    "arcana": "Priestess",
+    "baseLevel": 64,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 48, "en": 40, "ag": 42, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "nu", "fire": "wk", "ice": "rp", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Kikuri-Hime",
+    "arcana": "Priestess",
+    "baseLevel": 53,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 42, "en": 35, "ag": 34, "lu": 28 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "wk", "wind": "-", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Parvati",
+    "arcana": "Priestess",
+    "baseLevel": 43,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 25, "ma": 36, "en": 27, "ag": 28, "lu": 24 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "-", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Ganga",
+    "arcana": "Priestess",
+    "baseLevel": 35,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 20, "ma": 29, "en": 23, "ag": 21, "lu": 20 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "dr", "elec": "-", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Sarasvati",
+    "arcana": "Priestess",
+    "baseLevel": 27,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 16, "ma": 23, "en": 18, "ag": 17, "lu": 15 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "-", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "High Pixie",
+    "arcana": "Priestess",
+    "baseLevel": 21,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 12, "ma": 18, "en": 14, "ag": 15, "lu": 13 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "rs", "elec": "wk", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Unicorn",
+    "arcana": "Priestess",
+    "baseLevel": 11,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 6, "ma": 9, "en": 8, "ag": 9, "lu": 6 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Apsaras",
+    "arcana": "Priestess",
+    "baseLevel": 3,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 2, "ma": 4, "en": 3, "ag": 3, "lu": 2 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "rs", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Alilat",
+    "arcana": "Empress",
+    "baseLevel": 84,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 50, "ma": 68, "en": 55, "ag": 52, "lu": 45 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Skadi",
+    "arcana": "Empress",
+    "baseLevel": 75,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 50, "ma": 52, "en": 48, "ag": 45, "lu": 42 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rp", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Mother Harlot",
+    "arcana": "Empress",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 42, "ma": 58, "en": 45, "ag": 35, "lu": 38 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rp", "wind": "wk", "light": "-", "dark": "nu" }
+  },
+  {
+    "name": "Gabriel",
+    "arcana": "Empress",
+    "baseLevel": 62,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 48, "en": 35, "ag": 40, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "-", "wind": "rs", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Hariti",
+    "arcana": "Empress",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 38, "en": 33, "ag": 32, "lu": 30 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "rs", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Yakshini",
+    "arcana": "Empress",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 28, "ma": 32, "en": 25, "ag": 29, "lu": 24 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "wk", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Leanan Sidhe",
+    "arcana": "Empress",
+    "baseLevel": 33,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 18, "ma": 28, "en": 20, "ag": 22, "lu": 20 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Odin",
+    "arcana": "Emperor",
+    "baseLevel": 74,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 55, "ma": 60, "en": 48, "ag": 45, "lu": 42 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "ab", "wind": "wk", "light": "rp", "dark": "-" }
+  },
+  {
+    "name": "Barong",
+    "arcana": "Emperor",
+    "baseLevel": 63,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 42, "en": 48, "ag": 38, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "nu", "wind": "wk", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Naga Raja",
+    "arcana": "Emperor",
+    "baseLevel": 49,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 32, "en": 35, "ag": 28, "lu": 25 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "rs", "fire": "-", "ice": "wk", "elec": "nu", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Thoth",
+    "arcana": "Emperor",
+    "baseLevel": 41,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 25, "ma": 35, "en": 28, "ag": 26, "lu": 24 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "rs", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Take-Mikazuchi",
+    "arcana": "Emperor",
+    "baseLevel": 30,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 22, "ma": 18, "en": 25, "ag": 15, "lu": 16 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rs", "wind": "wk", "light": "rs", "dark": "wk" }
+  },
+  {
+    "name": "Oberon",
+    "arcana": "Emperor",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 10, "ma": 12, "en": 11, "ag": 9, "lu": 8 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "rs", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Forneus",
+    "arcana": "Emperor",
+    "baseLevel": 7,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 6, "ma": 5, "en": 7, "ag": 4, "lu": 4 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Kohryu",
+    "arcana": "Hierophant",
+    "baseLevel": 71,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 48, "ma": 52, "en": 45, "ag": 42, "lu": 38 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rp", "wind": "-", "light": "nu", "dark": "-" }
+  },
+  {
+    "name": "Daisoujou",
+    "arcana": "Hierophant",
+    "baseLevel": 58,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 48, "en": 38, "ag": 32, "lu": 40 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "rs", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Hokuto Seikun",
+    "arcana": "Hierophant",
+    "baseLevel": 45,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 35, "en": 28, "ag": 30, "lu": 25 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "rs", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Flauros",
+    "arcana": "Hierophant",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 25, "ma": 22, "en": 24, "ag": 20, "lu": 18 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "rs", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Shiisaa",
+    "arcana": "Hierophant",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 16, "ma": 14, "en": 15, "ag": 18, "lu": 12 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rs", "elec": "rs", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Berith",
+    "arcana": "Hierophant",
+    "baseLevel": 13,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 10, "ma": 8, "en": 9, "ag": 11, "lu": 6 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Omoikane",
+    "arcana": "Hierophant",
+    "baseLevel": 7,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 4, "ma": 7, "en": 5, "ag": 6, "lu": 4 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rs", "elec": "rs", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Cybele",
+    "arcana": "Lovers",
+    "baseLevel": 73,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 55, "en": 48, "ag": 42, "lu": 40 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "rs", "elec": "wk", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Raphael",
+    "arcana": "Lovers",
+    "baseLevel": 60,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 45, "en": 38, "ag": 42, "lu": 35 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Titania",
+    "arcana": "Lovers",
+    "baseLevel": 49,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 42, "en": 35, "ag": 30, "lu": 28 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "wk", "fire": "rs", "ice": "nu", "elec": "rs", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Saki Mitama",
+    "arcana": "Lovers",
+    "baseLevel": 38,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 25, "ma": 28, "en": 26, "ag": 24, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "rs", "elec": "-", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Queen Medb",
+    "arcana": "Lovers",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 18, "ma": 22, "en": 19, "ag": 20, "lu": 16 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "rs", "elec": "-", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Narcissus",
+    "arcana": "Lovers",
+    "baseLevel": 19,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 12, "ma": 15, "en": 13, "ag": 14, "lu": 10 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "wk", "fire": "-", "ice": "wk", "elec": "nu", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Alp",
+    "arcana": "Lovers",
+    "baseLevel": 6,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 4, "ma": 5, "en": 4, "ag": 5, "lu": 4 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "rs", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Pixie",
+    "arcana": "Lovers",
+    "baseLevel": 2,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 1, "ma": 3, "en": 2, "ag": 2, "lu": 2 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rs", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Thor",
+    "arcana": "Chariot",
+    "baseLevel": 64,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 55, "ma": 38, "en": 48, "ag": 40, "lu": 35 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "-", "ice": "-", "elec": "ab", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Koumokuten",
+    "arcana": "Chariot",
+    "baseLevel": 52,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 42, "ma": 30, "en": 38, "ag": 35, "lu": 28 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Ooe-No-Sadanushi",
+    "arcana": "Chariot",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 25, "en": 30, "ag": 28, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "nu", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Nata Taishi",
+    "arcana": "Chariot",
+    "baseLevel": 31,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 22, "ma": 18, "en": 20, "ag": 24, "lu": 16 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "rs", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Ares",
+    "arcana": "Chariot",
+    "baseLevel": 18,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 14, "ma": 10, "en": 13, "ag": 12, "lu": 9 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Chimera",
+    "arcana": "Chariot",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 8, "ma": 5, "en": 7, "ag": 6, "lu": 5 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Ara Mitama",
+    "arcana": "Chariot",
+    "baseLevel": 6,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 6, "ma": 4, "en": 5, "ag": 5, "lu": 4 },
+    "elements": { "slash": "-", "strike": "rs", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Melchizedek",
+    "arcana": "Justice",
+    "baseLevel": 66,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 50, "ma": 42, "en": 48, "ag": 45, "lu": 38 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Throne",
+    "arcana": "Justice",
+    "baseLevel": 53,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 35, "en": 40, "ag": 36, "lu": 30 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "-", "wind": "-", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Dominion",
+    "arcana": "Justice",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 30, "ma": 32, "en": 28, "ag": 29, "lu": 25 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Virtue",
+    "arcana": "Justice",
+    "baseLevel": 32,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 22, "ma": 25, "en": 23, "ag": 21, "lu": 18 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "rs", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Power",
+    "arcana": "Justice",
+    "baseLevel": 25,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 18, "ma": 15, "en": 19, "ag": 17, "lu": 14 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "rs", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Principality",
+    "arcana": "Justice",
+    "baseLevel": 16,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 10, "ma": 12, "en": 11, "ag": 10, "lu": 9 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Archangel",
+    "arcana": "Justice",
+    "baseLevel": 10,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 8, "ma": 7, "en": 8, "ag": 7, "lu": 6 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "rs", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Angel",
+    "arcana": "Justice",
+    "baseLevel": 4,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 3, "ma": 4, "en": 3, "ag": 4, "lu": 3 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rs", "wind": "wk", "light": "rs", "dark": "wk" }
+  },
+  {
+    "name": "Arahabaki",
+    "arcana": "Hermit",
+    "baseLevel": 68,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 50, "en": 52, "ag": 40, "lu": 35 },
+    "elements": { "slash": "rp", "strike": "rp", "pierce": "rp", "fire": "wk", "ice": "wk", "elec": "-", "wind": "-", "light": "rs", "dark": "rs" }
+  },
+  {
+    "name": "Kumbhanda",
+    "arcana": "Hermit",
+    "baseLevel": 55,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 38, "en": 35, "ag": 42, "lu": 30 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Kurama Tengu",
+    "arcana": "Hermit",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 30, "ma": 35, "en": 28, "ag": 38, "lu": 25 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "wk", "wind": "rp", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Taraka",
+    "arcana": "Hermit",
+    "baseLevel": 38,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 28, "ma": 32, "en": 25, "ag": 26, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rs", "elec": "-", "wind": "rs", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Mothman",
+    "arcana": "Hermit",
+    "baseLevel": 31,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 20, "ma": 24, "en": 22, "ag": 25, "lu": 18 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "nu", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Lamia",
+    "arcana": "Hermit",
+    "baseLevel": 24,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 16, "ma": 18, "en": 15, "ag": 19, "lu": 14 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "wk", "elec": "rs", "wind": "wk", "light": "-", "dark": "nu" }
+  },
+  {
+    "name": "Naga",
+    "arcana": "Hermit",
+    "baseLevel": 17,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 14, "ma": 12, "en": 13, "ag": 11, "lu": 9 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "nu", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Yomotsu-Shikome",
+    "arcana": "Hermit",
+    "baseLevel": 9,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 6, "ma": 8, "en": 7, "ag": 9, "lu": 5 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rs", "elec": "-", "wind": "rs", "light": "-", "dark": "rs" }
+  },
+  {
+    "name": "Lakshmi",
+    "arcana": "Fortune",
+    "baseLevel": 73,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 60, "en": 48, "ag": 42, "lu": 50 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rs", "elec": "-", "wind": "nu", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Atropos",
+    "arcana": "Fortune",
+    "baseLevel": 60,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 45, "en": 40, "ag": 42, "lu": 35 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Lachesis",
+    "arcana": "Fortune",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 28, "ma": 35, "en": 30, "ag": 32, "lu": 26 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "rs", "elec": "wk", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Clotho",
+    "arcana": "Fortune",
+    "baseLevel": 37,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 24, "ma": 28, "en": 25, "ag": 26, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Kusi Mitama",
+    "arcana": "Fortune",
+    "baseLevel": 28,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 18, "ma": 22, "en": 20, "ag": 21, "lu": 17 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Empusa",
+    "arcana": "Fortune",
+    "baseLevel": 22,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 14, "ma": 18, "en": 15, "ag": 16, "lu": 12 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "rs", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Fortuna",
+    "arcana": "Fortune",
+    "baseLevel": 15,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 9, "ma": 13, "en": 10, "ag": 11, "lu": 8 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Siegfried",
+    "arcana": "Strength",
+    "baseLevel": 54,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 32, "en": 40, "ag": 38, "lu": 28 },
+    "elements": { "slash": "nu", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "rs", "dark": "wk" }
+  },
+  {
+    "name": "Narasimha",
+    "arcana": "Strength",
+    "baseLevel": 45,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 28, "en": 35, "ag": 32, "lu": 25 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "rs", "dark": "wk" }
+  },
+  {
+    "name": "Hanuman",
+    "arcana": "Strength",
+    "baseLevel": 36,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 30, "ma": 22, "en": 28, "ag": 26, "lu": 20 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Jikokuten",
+    "arcana": "Strength",
+    "baseLevel": 28,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 24, "ma": 18, "en": 22, "ag": 20, "lu": 16 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "rs", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Rakshasa",
+    "arcana": "Strength",
+    "baseLevel": 15,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 14, "ma": 9, "en": 12, "ag": 11, "lu": 8 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "wk", "light": "wk", "dark": "-" }
+  },
+  {
+    "name": "Valkyrie",
+    "arcana": "Strength",
+    "baseLevel": 10,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 9, "ma": 6, "en": 8, "ag": 7, "lu": 6 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "wk", "ice": "rs", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Attis",
+    "arcana": "Hanged",
+    "baseLevel": 67,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 52, "en": 48, "ag": 42, "lu": 40 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "nu", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Hell Biker",
+    "arcana": "Hanged",
+    "baseLevel": 61,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 42, "ma": 45, "en": 40, "ag": 48, "lu": 35 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rp", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Hecatoncheires",
+    "arcana": "Hanged",
+    "baseLevel": 47,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 32, "en": 38, "ag": 30, "lu": 25 },
+    "elements": { "slash": "-", "strike": "rs", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Vasuki",
+    "arcana": "Hanged",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 28, "ma": 32, "en": 30, "ag": 26, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "-", "wind": "wk", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Orthrus",
+    "arcana": "Hanged",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 22, "ma": 18, "en": 20, "ag": 24, "lu": 16 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "rs" }
+  },
+  {
+    "name": "Take-Minakata",
+    "arcana": "Hanged",
+    "baseLevel": 20,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 15, "ma": 12, "en": 14, "ag": 16, "lu": 10 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "-", "elec": "rp", "wind": "wk", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Inugami",
+    "arcana": "Hanged",
+    "baseLevel": 10,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 8, "ma": 7, "en": 8, "ag": 9, "lu": 5 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "-", "wind": "wk", "light": "-", "dark": "nu" }
+  },
+  {
+    "name": "Thanatos",
+    "arcana": "Death",
+    "baseLevel": 78,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 58, "ma": 62, "en": 55, "ag": 50, "lu": 45 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rp" }
+  },
+  {
+    "name": "Alice",
+    "arcana": "Death",
+    "baseLevel": 68,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 42, "ma": 60, "en": 45, "ag": 48, "lu": 40 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rp" }
+  },
+  {
+    "name": "Mot",
+    "arcana": "Death",
+    "baseLevel": 59,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 48, "en": 42, "ag": 35, "lu": 38 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "rs", "light": "-", "dark": "nu" }
+  },
+  {
+    "name": "Samael",
+    "arcana": "Death",
+    "baseLevel": 46,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 38, "en": 35, "ag": 30, "lu": 28 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "-", "wind": "wk", "light": "-", "dark": "nu" }
+  },
+  {
+    "name": "Loa",
+    "arcana": "Death",
+    "baseLevel": 37,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 26, "ma": 30, "en": 28, "ag": 25, "lu": 22 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "wk", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Pale Rider",
+    "arcana": "Death",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 18, "ma": 20, "en": 19, "ag": 17, "lu": 15 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "rs", "elec": "-", "wind": "rs", "light": "wk", "dark": "rp" }
+  },
+  {
+    "name": "Matador",
+    "arcana": "Death",
+    "baseLevel": 23,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 17, "ma": 15, "en": 16, "ag": 22, "lu": 12 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "nu", "light": "-", "dark": "rs" }
+  },
+  {
+    "name": "Mokoi",
+    "arcana": "Death",
+    "baseLevel": 18,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 14, "ma": 12, "en": 13, "ag": 11, "lu": 10 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rs", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Ghoul",
+    "arcana": "Death",
+    "baseLevel": 13,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 10, "ma": 9, "en": 11, "ag": 8, "lu": 7 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Pisaca",
+    "arcana": "Death",
+    "baseLevel": 13,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 10, "ma": 11, "en": 9, "ag": 8, "lu": 7 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Yurlungur",
+    "arcana": "Temperance",
+    "baseLevel": 71,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 55, "en": 48, "ag": 42, "lu": 40 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "rs", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Byakko",
+    "arcana": "Temperance",
+    "baseLevel": 63,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 42, "en": 40, "ag": 48, "lu": 35 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "wk", "ice": "ab", "elec": "-", "wind": "-", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Suzaku",
+    "arcana": "Temperance",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 45, "en": 38, "ag": 40, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "ab", "ice": "wk", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Seiryu",
+    "arcana": "Temperance",
+    "baseLevel": 46,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 35, "en": 30, "ag": 34, "lu": 28 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "nu", "elec": "-", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Okuninushi",
+    "arcana": "Temperance",
+    "baseLevel": 37,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 28, "ma": 26, "en": 25, "ag": 27, "lu": 22 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "-", "wind": "wk", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Genbu",
+    "arcana": "Temperance",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 20, "ma": 18, "en": 24, "ag": 16, "lu": 15 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "rp", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Mitra",
+    "arcana": "Temperance",
+    "baseLevel": 22,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 16, "ma": 18, "en": 15, "ag": 17, "lu": 14 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "wk", "wind": "-", "light": "nu", "dark": "-" }
+  },
+  {
+    "name": "Beelzebub",
+    "arcana": "Devil",
+    "baseLevel": 81,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 58, "ma": 65, "en": 55, "ag": 50, "lu": 48 },
+    "elements": { "slash": "-", "strike": "rs", "pierce": "-", "fire": "wk", "ice": "rp", "elec": "-", "wind": "rs", "light": "wk", "dark": "rp" }
+  },
+  {
+    "name": "Abaddon",
+    "arcana": "Devil",
+    "baseLevel": 67,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 48, "ma": 45, "en": 50, "ag": 40, "lu": 38 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "wk", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Lilith",
+    "arcana": "Devil",
+    "baseLevel": 61,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 50, "en": 42, "ag": 45, "lu": 35 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "rp", "wind": "dr", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Pazuzu",
+    "arcana": "Devil",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 40, "en": 35, "ag": 36, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "-", "wind": "-", "light": "wk", "dark": "rp" }
+  },
+  {
+    "name": "Succubus",
+    "arcana": "Devil",
+    "baseLevel": 43,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 28, "ma": 35, "en": 30, "ag": 32, "lu": 26 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Incubus",
+    "arcana": "Devil",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 24, "ma": 22, "en": 20, "ag": 25, "lu": 18 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Vetala",
+    "arcana": "Devil",
+    "baseLevel": 24,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 18, "ma": 16, "en": 17, "ag": 19, "lu": 14 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Lilim",
+    "arcana": "Devil",
+    "baseLevel": 8,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 6, "ma": 9, "en": 7, "ag": 8, "lu": 6 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "nu", "wind": "wk", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Shiva",
+    "arcana": "Tower",
+    "baseLevel": 82,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 60, "ma": 55, "en": 58, "ag": 52, "lu": 48 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "nu", "elec": "rp", "wind": "wk", "light": "nu", "dark": "nu" }
+  },
+  {
+    "name": "Mara",
+    "arcana": "Tower",
+    "baseLevel": 75,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 55, "ma": 48, "en": 52, "ag": 45, "lu": 40 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "rp", "fire": "ab", "ice": "wk", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Masakado",
+    "arcana": "Tower",
+    "baseLevel": 65,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 50, "ma": 42, "en": 48, "ag": 45, "lu": 38 },
+    "elements": { "slash": "nu", "strike": "nu", "pierce": "nu", "fire": "rs", "ice": "rs", "elec": "wk", "wind": "rs", "light": "rs", "dark": "rp" }
+  },
+  {
+    "name": "Bishamonten",
+    "arcana": "Tower",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 42, "ma": 35, "en": 40, "ag": 38, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "rs", "fire": "wk", "ice": "rs", "elec": "-", "wind": "-", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Cu Chulainn",
+    "arcana": "Tower",
+    "baseLevel": 45,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 28, "en": 32, "ag": 34, "lu": 26 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "nu", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Eligor",
+    "arcana": "Tower",
+    "baseLevel": 34,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 26, "ma": 22, "en": 24, "ag": 25, "lu": 20 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "rs", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "rs" }
+  },
+  {
+    "name": "Lucifer",
+    "arcana": "Star",
+    "baseLevel": 89,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 60, "ma": 68, "en": 62, "ag": 58, "lu": 55 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "rs", "ice": "rs", "elec": "rs", "wind": "rs", "light": "-", "dark": "rp" }
+  },
+  {
+    "name": "Helel",
+    "arcana": "Star",
+    "baseLevel": 82,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 55, "ma": 62, "en": 58, "ag": 52, "lu": 50 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "wk", "elec": "-", "wind": "-", "light": "nu", "dark": "nu" }
+  },
+  {
+    "name": "Garuda",
+    "arcana": "Star",
+    "baseLevel": 70,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 48, "ma": 52, "en": 45, "ag": 55, "lu": 40 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "rp", "light": "rs", "dark": "-" }
+  },
+  {
+    "name": "Kartikeya",
+    "arcana": "Star",
+    "baseLevel": 62,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 42, "en": 40, "ag": 48, "lu": 35 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rp", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Ganesha",
+    "arcana": "Star",
+    "baseLevel": 53,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 38, "en": 42, "ag": 32, "lu": 35 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "-", "ice": "-", "elec": "wk", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Kaiwan",
+    "arcana": "Star",
+    "baseLevel": 42,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 30, "ma": 35, "en": 32, "ag": 28, "lu": 25 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Nandi",
+    "arcana": "Star",
+    "baseLevel": 35,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 25, "ma": 28, "en": 26, "ag": 24, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "nu", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Setanta",
+    "arcana": "Star",
+    "baseLevel": 26,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 20, "ma": 18, "en": 19, "ag": 22, "lu": 16 },
+    "elements": { "slash": "rs", "strike": "-", "pierce": "rs", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Neko Shogun",
+    "arcana": "Star",
+    "baseLevel": 19,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 14, "ma": 12, "en": 13, "ag": 15, "lu": 11 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rs", "wind": "wk", "light": "nu", "dark": "nu" }
+  },
+  {
+    "name": "Sandalphon",
+    "arcana": "Moon",
+    "baseLevel": 80,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 55, "ma": 62, "en": 58, "ag": 52, "lu": 50 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "-", "fire": "-", "ice": "-", "elec": "wk", "wind": "-", "light": "rp", "dark": "nu" }
+  },
+  {
+    "name": "Baal Zebul",
+    "arcana": "Moon",
+    "baseLevel": 74,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 50, "ma": 58, "en": 52, "ag": 48, "lu": 45 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "ab", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Seth",
+    "arcana": "Moon",
+    "baseLevel": 62,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 42, "en": 40, "ag": 48, "lu": 38 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Chernobog",
+    "arcana": "Moon",
+    "baseLevel": 56,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 42, "ma": 38, "en": 40, "ag": 35, "lu": 32 },
+    "elements": { "slash": "nu", "strike": "-", "pierce": "rs", "fire": "wk", "ice": "-", "elec": "-", "wind": "-", "light": "-", "dark": "ab" }
+  },
+  {
+    "name": "Dionysus",
+    "arcana": "Moon",
+    "baseLevel": 49,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 35, "ma": 40, "en": 38, "ag": 32, "lu": 36 },
+    "elements": { "slash": "-", "strike": "rs", "pierce": "-", "fire": "-", "ice": "-", "elec": "rp", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Girimekhala",
+    "arcana": "Moon",
+    "baseLevel": 39,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 30, "ma": 25, "en": 28, "ag": 26, "lu": 22 },
+    "elements": { "slash": "rp", "strike": "-", "pierce": "rp", "fire": "-", "ice": "-", "elec": "-", "wind": "wk", "light": "wk", "dark": "-" }
+  },
+  {
+    "name": "Yamata-no-Orochi",
+    "arcana": "Moon",
+    "baseLevel": 25,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 19, "ma": 17, "en": 20, "ag": 16, "lu": 14 },
+    "elements": { "slash": "wk", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "nu", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Gurulu",
+    "arcana": "Moon",
+    "baseLevel": 14,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 10, "ma": 8, "en": 11, "ag": 9, "lu": 7 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "wk", "ice": "-", "elec": "-", "wind": "rs", "light": "wk", "dark": "nu" }
+  },
+  {
+    "name": "Asura",
+    "arcana": "Sun",
+    "baseLevel": 85,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 60, "ma": 65, "en": 58, "ag": 55, "lu": 50 },
+    "elements": { "slash": "-", "strike": "nu", "pierce": "-", "fire": "ab", "ice": "-", "elec": "-", "wind": "wk", "light": "nu", "dark": "-" }
+  },
+  {
+    "name": "Vishnu",
+    "arcana": "Sun",
+    "baseLevel": 78,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 55, "ma": 60, "en": 52, "ag": 50, "lu": 45 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "nu", "elec": "nu", "wind": "-", "light": "ab", "dark": "wk" }
+  },
+  {
+    "name": "Horus",
+    "arcana": "Sun",
+    "baseLevel": 67,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 52, "en": 48, "ag": 42, "lu": 40 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "rs", "wind": "-", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Jatayu",
+    "arcana": "Sun",
+    "baseLevel": 58,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 38, "en": 35, "ag": 45, "lu": 30 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "ab", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Quetzalcoatl",
+    "arcana": "Sun",
+    "baseLevel": 44,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 32, "ma": 35, "en": 30, "ag": 34, "lu": 28 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "rs", "light": "-", "dark": "wk" }
+  },
+  {
+    "name": "Thunderbird",
+    "arcana": "Sun",
+    "baseLevel": 35,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 25, "ma": 28, "en": 26, "ag": 24, "lu": 22 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "ab", "wind": "wk", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Yatagarasu",
+    "arcana": "Sun",
+    "baseLevel": 29,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 20, "ma": 18, "en": 19, "ag": 22, "lu": 16 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "nu", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Messiah",
+    "arcana": "Judgement",
+    "baseLevel": 90,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 65, "ma": 65, "en": 65, "ag": 65, "lu": 65 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rs", "ice": "rs", "elec": "rs", "wind": "rs", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Lucifer",
+    "arcana": "Judgement",
+    "baseLevel": 89,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 60, "ma": 68, "en": 62, "ag": 58, "lu": 55 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "rs", "ice": "rs", "elec": "rs", "wind": "rs", "light": "-", "dark": "rp" }
+  },
+  {
+    "name": "Michael",
+    "arcana": "Judgement",
+    "baseLevel": 73,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 50, "ma": 55, "en": 48, "ag": 45, "lu": 42 },
+    "elements": { "slash": "-", "strike": "rs", "pierce": "-", "fire": "rs", "ice": "-", "elec": "-", "wind": "-", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Trumpeter",
+    "arcana": "Judgement",
+    "baseLevel": 65,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 42, "en": 48, "ag": 40, "lu": 35 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "ab", "ice": "ab", "elec": "rp", "wind": "-", "light": "rp", "dark": "-" }
+  },
+  {
+    "name": "Anubis",
+    "arcana": "Judgement",
+    "baseLevel": 58,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 40, "ma": 38, "en": 42, "ag": 35, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "-", "elec": "-", "wind": "-", "light": "nu", "dark": "nu" }
+  },
+  {
+    "name": "Metatron",
+    "arcana": "Aeon",
+    "baseLevel": 87,
+    "special": true,
+    "dlc": false,
+    "stats": { "st": 65, "ma": 70, "en": 62, "ag": 60, "lu": 55 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "rp", "ice": "wk", "elec": "wk", "wind": "rp", "light": "rp", "dark": "wk" }
+  },
+  {
+    "name": "Atavaka",
+    "arcana": "Aeon",
+    "baseLevel": 76,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 60, "ma": 42, "en": 55, "ag": 45, "lu": 38 },
+    "elements": { "slash": "rs", "strike": "rs", "pierce": "rs", "fire": "rp", "ice": "wk", "elec": "-", "wind": "-", "light": "nu", "dark": "wk" }
+  },
+  {
+    "name": "Ananta",
+    "arcana": "Aeon",
+    "baseLevel": 69,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 48, "ma": 45, "en": 50, "ag": 40, "lu": 36 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "ab", "elec": "wk", "wind": "-", "light": "-", "dark": "-" }
+  },
+  {
+    "name": "Nidhoggr",
+    "arcana": "Aeon",
+    "baseLevel": 63,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 45, "ma": 40, "en": 48, "ag": 35, "lu": 33 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "-", "ice": "wk", "elec": "-", "wind": "-", "light": "wk", "dark": "rs" }
+  },
+  {
+    "name": "Uriel",
+    "arcana": "Aeon",
+    "baseLevel": 57,
+    "special": false,
+    "dlc": false,
+    "stats": { "st": 38, "ma": 42, "en": 35, "ag": 36, "lu": 32 },
+    "elements": { "slash": "-", "strike": "-", "pierce": "-", "fire": "nu", "ice": "-", "elec": "-", "wind": "wk", "light": "rp", "dark": "wk" }
+  }
+]
