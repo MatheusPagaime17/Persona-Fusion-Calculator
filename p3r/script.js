@@ -164,11 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadPersonas() {
         const CACHE_KEY = 'p3r_compendium_data';
         
-        // 1. Tenta carregar do cache local primeiro (Instantâneo)
         const cachedData = localStorage.getItem(CACHE_KEY);
         
         if (cachedData) {
-            console.log("Dados carregados do cache local (rápido!)");
             personas = JSON.parse(cachedData);
             setupAutocomplete(searchInput1, resultsContainer1, 'persona1');
             setupAutocomplete(searchInput2, resultsContainer2, 'persona2');
@@ -177,16 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return; 
         }
 
-        // 2. Se não tem cache, mostra o Loader e usa o Proxy para evitar bloqueio CORS
         loadingText.textContent = "WAKING UP SERVER & BYPASSING CORS...";
         await fetchAPIAndUpdateCache(CACHE_KEY);
     }
 
     async function fetchAPIAndUpdateCache(cacheKey) {
         try {
-            // URL original da API
             const apiUrl = 'https://persona-compendium.onrender.com/personas/';
-            // PROXY: corsproxy.io é mais estável e rápido para lidar com CORS
             const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
             
             const response = await fetch(proxyUrl);
@@ -195,13 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const apiData = await response.json();
 
-            // Mapeia os dados da API
             const processedData = apiData.map(p => ({
                 ...p,
                 special: specialFusionNames.includes(p.name)
             }));
 
-            // Salva na memória do navegador para as próximas vezes
             localStorage.setItem(cacheKey, JSON.stringify(processedData));
 
             personas = processedData;
@@ -209,8 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setupAutocomplete(searchInput2, resultsContainer2, 'persona2');
             setupAutocomplete(searchInputTarget, resultsContainerTarget, 'target');
             hideLoader(); 
-            
-            console.log("Cache criado com sucesso a partir da API via Proxy.");
 
         } catch (error) {
             console.error("Erro ao buscar a API:", error);
@@ -374,6 +365,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (persona.image) {
             imgElement.src = persona.image;
             imgElement.style.display = 'block';
+            
+            // Fallback de segurança se a imagem falhar mesmo com o bypass
+            imgElement.onerror = function() {
+                this.style.display = 'none';
+            };
         } else {
             imgElement.style.display = 'none';
         }

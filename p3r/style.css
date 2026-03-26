@@ -202,7 +202,12 @@ button:hover::before { left: 0; }
     clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px);
 }
 
-.close-modal { position: absolute; top: 20px; right: 30px; background: none; border: none; color: var(--p3-blue-mid); font-size: 3em; cursor: pointer; transition: 0.3s; z-index: 10;}
+/* Ajuste fino do botão de fechar para não sobrepor o texto */
+.close-modal { 
+    position: absolute; top: 15px; right: 20px; background: none; border: none; 
+    color: var(--p3-blue-mid); font-size: 2.8em; cursor: pointer; transition: 0.3s; 
+    z-index: 100; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;
+}
 .close-modal:hover { color: var(--p3-blue-glow); transform: rotate(90deg); }
 
 /* Organização Imagem e Lore */
@@ -226,7 +231,12 @@ button:hover::before { left: 0; }
     border: 1px solid var(--p3-blue-mid);
 }
 
-.modal-header-text { flex: 1; text-align: left; }
+/* O padding-right aqui empurra o texto para longe da área do 'X' */
+.modal-header-text { 
+    flex: 1; 
+    text-align: left; 
+    padding-right: 50px; 
+}
 
 #modal-persona-name { font-size: 2.5em; text-shadow: 0 0 20px rgba(0, 170, 255, 0.5); font-style: italic; display: inline-block; margin-right: 15px;}
 .level-badge { 
@@ -265,5 +275,6 @@ button:hover::before { left: 0; }
     .search-container { width: 100%; }
     .modal-body { grid-template-columns: 1fr; }
     .modal-header-content { flex-direction: column; align-items: center; text-align: center; }
-    .modal-header-text { text-align: center; }
+    .modal-header-text { text-align: center; padding-right: 0; } /* Remove padding no mobile */
+    .close-modal { top: 10px; right: 10px; }
 }
