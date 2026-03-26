@@ -202,13 +202,19 @@ button:hover::before { left: 0; }
     clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px);
 }
 
-/* Ajuste fino do botão de fechar para não sobrepor o texto */
+/* NOVO ESTILO DO BOTÃO X: Círculo Brilhante no Hover */
 .close-modal { 
-    position: absolute; top: 15px; right: 20px; background: none; border: none; 
-    color: var(--p3-blue-mid); font-size: 2.8em; cursor: pointer; transition: 0.3s; 
-    z-index: 100; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;
+    position: absolute; top: 15px; right: 20px; background: transparent; border: none; 
+    color: var(--p3-blue-bright); font-size: 2.8em; cursor: pointer; transition: all 0.3s ease; 
+    z-index: 100; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;
+    border-radius: 50%;
 }
-.close-modal:hover { color: var(--p3-blue-glow); transform: rotate(90deg); }
+.close-modal:hover { 
+    color: var(--p3-blue-dark); /* O 'X' fica escuro */
+    background-color: var(--p3-blue-glow); /* Fundo fica azul claro e brilhante */
+    transform: rotate(90deg); 
+    box-shadow: 0 0 15px var(--p3-blue-glow);
+}
 
 /* Organização Imagem e Lore */
 .modal-header-content {
@@ -226,12 +232,12 @@ button:hover::before { left: 0; }
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
     object-fit: contain;
-    background: rgba(0, 0, 0, 0.5); /* Contraste para a imagem transparente */
+    background: rgba(0, 0, 0, 0.5); 
     padding: 10px;
     border: 1px solid var(--p3-blue-mid);
 }
 
-/* O padding-right aqui empurra o texto para longe da área do 'X' */
+/* Mantendo o padding para distanciar do botão X */
 .modal-header-text { 
     flex: 1; 
     text-align: left; 
@@ -275,6 +281,6 @@ button:hover::before { left: 0; }
     .search-container { width: 100%; }
     .modal-body { grid-template-columns: 1fr; }
     .modal-header-content { flex-direction: column; align-items: center; text-align: center; }
-    .modal-header-text { text-align: center; padding-right: 0; } /* Remove padding no mobile */
+    .modal-header-text { text-align: center; padding-right: 0; }
     .close-modal { top: 10px; right: 10px; }
 }

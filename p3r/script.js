@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingText = document.querySelector('.loading-text');
     
     function hideLoader() {
-        loader.classList.add('hidden');
+        if(loader) loader.classList.add('hidden');
     }
 
     // --- ELEMENTOS DOM ---
@@ -163,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CARREGAMENTO DA API COM PROXY E CACHE ---
     async function loadPersonas() {
         const CACHE_KEY = 'p3r_compendium_data';
-        
         const cachedData = localStorage.getItem(CACHE_KEY);
         
         if (cachedData) {
@@ -175,21 +174,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return; 
         }
 
-        loadingText.textContent = "WAKING UP SERVER & BYPASSING CORS...";
+        if(loadingText) loadingText.textContent = "WAKING UP SERVER & BYPASSING CORS...";
         await fetchAPIAndUpdateCache(CACHE_KEY);
     }
 
     async function fetchAPIAndUpdateCache(cacheKey) {
         try {
             const apiUrl = 'https://persona-compendium.onrender.com/personas/';
+            // Continuamos a usar o proxy apenas para o JSON (para evitar CORS)
             const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
             
             const response = await fetch(proxyUrl);
-            
             if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
             
             const apiData = await response.json();
-
             const processedData = apiData.map(p => ({
                 ...p,
                 special: specialFusionNames.includes(p.name)
@@ -205,8 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Erro ao buscar a API:", error);
-            loadingText.textContent = "ERROR FETCHING API";
-            loadingText.style.color = "red";
+            if(loadingText) {
+                loadingText.textContent = "ERROR FETCHING API";
+                loadingText.style.color = "red";
+            }
             alert(`Bloqueio ou Timeout: A API demorou demasiado a acordar.\nDica: Abra https://persona-compendium.onrender.com/personas no navegador para acordar a API manualmente, e depois atualize esta página.`);
         }
     }
@@ -356,25 +356,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- PREENCHIMENTO DO MODAL COMPENDIUM ---
+    // --- PREENCHIMENTO DO MODAL COMPENDIUM (Alta Performance / Sem Imagem) ---
     function populateModal(persona) {
         document.getElementById('modal-persona-name').textContent = persona.name;
-        document.getElementById('modal-persona-level').textContent = `Lvl ${persona.level}`;
         
+        let levelBadge = document.getElementById('modal-persona-level');
+        if(levelBadge) levelBadge.textContent = `Lvl ${persona.level}`;
+        
+        // Remove a imagem instantaneamente
         const imgElement = document.getElementById('modal-persona-image');
-        if (persona.image) {
-            imgElement.src = persona.image;
-            imgElement.style.display = 'block';
-            
-            // Fallback de segurança se a imagem falhar mesmo com o bypass
-            imgElement.onerror = function() {
-                this.style.display = 'none';
-            };
-        } else {
+        if (imgElement) {
             imgElement.style.display = 'none';
         }
 
-        document.getElementById('modal-persona-desc').textContent = persona.description || "Nenhuma descrição disponível nos arquivos do Compêndio.";
+        let descElement = document.getElementById('modal-persona-desc');
+        if(descElement) descElement.textContent = persona.description || "Nenhuma descrição disponível nos arquivos do Compêndio.";
 
         const statsList = document.querySelector('#modal-stats ul');
         statsList.innerHTML = `
