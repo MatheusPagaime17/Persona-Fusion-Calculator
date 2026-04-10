@@ -12,7 +12,7 @@
 body {
     font-family: 'Exo 2', sans-serif;
     color: var(--p3-moon-white);
-    padding-top: 140px;
+    padding-top: 120px;
     padding-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -131,8 +131,49 @@ nav a.active {
 }
 nav a.active::after { width: 100%; background-color: var(--p3-blue-glow); }
 
+.minigame-nav-link {
+    color: var(--p3-blue-glow) !important;
+}
+
 .hamburger { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; }
 .hamburger span { width: 30px; height: 3px; background: var(--p3-white); box-shadow: 0 0 5px var(--p3-blue-glow); }
+
+/* --- BOTÃO BANNER MINIGAME --- */
+.minigame-banner-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(0, 51, 102, 0.8), rgba(0, 26, 51, 0.9));
+    color: var(--p3-blue-glow);
+    border: 2px solid var(--p3-blue-glow);
+    padding: 15px 40px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2em;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin: 10px auto 30px auto; 
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+}
+.minigame-banner-btn:hover {
+    background: var(--p3-blue-glow);
+    color: var(--p3-blue-dark);
+    box-shadow: 0 0 25px var(--p3-blue-glow);
+    transform: scale(1.03) translateY(-3px);
+}
+
+/* --- WRAPPER DAS CALCULADORAS (NOVO) --- */
+.calculators-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
 /* --- CONTAINERS E INPUTS --- */
 .calculator-container, .reverse-calculator-container {
@@ -202,7 +243,6 @@ button:hover::before { left: 0; }
     clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px);
 }
 
-/* NOVO ESTILO DO BOTÃO X: Círculo Brilhante no Hover */
 .close-modal { 
     position: absolute; top: 15px; right: 20px; background: transparent; border: none; 
     color: var(--p3-blue-bright); font-size: 2.8em; cursor: pointer; transition: all 0.3s ease; 
@@ -210,8 +250,8 @@ button:hover::before { left: 0; }
     border-radius: 50%;
 }
 .close-modal:hover { 
-    color: var(--p3-blue-dark); /* O 'X' fica escuro */
-    background-color: var(--p3-blue-glow); /* Fundo fica azul claro e brilhante */
+    color: var(--p3-blue-dark) !important;
+    background-color: var(--p3-blue-glow);
     transform: rotate(90deg); 
     box-shadow: 0 0 15px var(--p3-blue-glow);
 }
@@ -237,7 +277,6 @@ button:hover::before { left: 0; }
     border: 1px solid var(--p3-blue-mid);
 }
 
-/* Mantendo o padding para distanciar do botão X */
 .modal-header-text { 
     flex: 1; 
     text-align: left; 
@@ -266,16 +305,34 @@ button:hover::before { left: 0; }
 
 /* Responsividade */
 @media (min-width: 992px) {
-    body { flex-direction: row; align-items: flex-start; justify-content: center; gap: 40px; padding-left: 40px; padding-right: 40px; }
-    .calculator-container, .reverse-calculator-container { width: 45%; margin-top: 0; }
+    /* No desktop, o wrapper coloca as calculadoras lado a lado */
+    .calculators-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 40px;
+        padding: 0 40px;
+        max-width: 1600px;
+    }
+    
+    .calculator-container, .reverse-calculator-container { 
+        width: 45%; 
+        margin-top: 0; 
+        margin-bottom: 0; /* Zera a margem embaixo para ficarem alinhados perfeitamente */
+    }
+    
+    .minigame-banner-btn { 
+        width: 100%; 
+    } 
 }
+
 @media (max-width: 820px) {
     body { padding-top: 100px; justify-content: flex-start; }
     header { padding: 15px 20px; clip-path: none; border-bottom: 2px solid var(--p3-blue-bright); }
     .hamburger { display: flex; }
     nav ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(0, 10, 20, 0.98); border-bottom: 2px solid var(--p3-blue-bright); flex-direction: column; text-align: center; padding: 20px 0; }
     nav ul.open { display: flex; }
-    nav a { display: block; border-radius: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    nav a { display: block; border-radius: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); margin: 0; }
     nav a::after { display: none; }
     .selection-area { flex-direction: column; gap: 30px; }
     .search-container { width: 100%; }
@@ -283,4 +340,5 @@ button:hover::before { left: 0; }
     .modal-header-content { flex-direction: column; align-items: center; text-align: center; }
     .modal-header-text { text-align: center; padding-right: 0; }
     .close-modal { top: 10px; right: 10px; }
+    .minigame-banner-btn { width: 90%; font-size: 1em; padding: 15px 20px; }
 }

@@ -3,26 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer"> 
     <title>Calculadora de Fusão - Persona 3 Reload</title>
-    <!-- Fontes Globais -->
+    <!-- Importando a fonte -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
-    
-    <!-- CSS Global (Hub) e CSS Local (P3R) -->
-    <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
-<!-- ================== ARRANQUE API ================== -->
-<script>
-        // Truque de "Pré-aquecimento" da API (Wake up Call)
-        // Quando o utilizador está na página inicial a escolher o jogo, 
-        // já estamos a mandar um sinal para a API do Render acordar.
-        fetch('https://persona-compendium.onrender.com/personas/orpheus')
-            .then(() => console.log("Enviando Sinal para a API! Isso pode demorar um pouco na primeira vez..."))
-            .catch(() => console.log("Ligando a API..."));
-    </script>
-</body>
-</html>
 <body class="p3r-theme">
 
     <!-- ================== LOADER DARK HOUR ================== -->
@@ -41,77 +27,93 @@
         </div>
     </div>
 
-    <!-- ================== HEADER E MENU ================== -->
+    <!-- ================== MENU DE NAVEGAÇÃO ================== -->
     <header>
-        <div class="logo">Persona Fusion Hub</div>
+        <div class="logo">
+            Persona Fusion Hub
+        </div>
         <nav>
             <button class="hamburger" id="hamburger-menu">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul id="nav-list">
-                <li><a href="../index.html">Início</a></li>
-                <li><a href="../p5r/index.html">Persona 5 Royal</a></li>
-                <li><a href="index.html" class="active">Persona 3 Reload</a></li>
+                <li><a href="index.html">Persona 5 Royal</a></li>
+                <li><a href="p3r.html" class="active">Persona 3 Reload</a></li>
+                <li><a href="p3r-guess.html" class="minigame-nav-link">🎮 Persona Guess</a></li>
                 <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- ================== CALCULADORA NORMAL ================== -->
-    <div class="calculator-container">
-        <h1>Persona 3 Reload Fusion</h1>
-        <p>Selecione duas Personas para ver o resultado da fusão.</p>
+    <!-- ================== BANNER DO MINIGAME ================== -->
+    <a href="p3r-guess.html" class="minigame-banner-btn">
+        Desafio Diário: Persona Guess (Wordle) 🎮
+    </a>
 
-        <div class="selection-area">
-            <div class="search-container">
-                <label for="search-input-1">Persona 1</label>
-                <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome..." autocomplete="off">
-                <div class="results-container" id="results-container-1"></div>
-            </div>
-            
-            <span class="plus-sign">+</span>
-
-            <div class="search-container">
-                <label for="search-input-2">Persona 2</label>
-                <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome..." autocomplete="off">
-                <div class="results-container" id="results-container-2"></div>
-            </div>
-        </div>
-
-        <button id="calculateBtn">Calcular Fusão</button>
-
-        <div id="result-area">
-            <h2>Resultado</h2>
-            <p id="result-text">O resultado aparecerá aqui.</p>
-        </div>
-    </div>
-
-    <!-- ================== CALCULADORA REVERSA ================== -->
-    <div class="reverse-calculator-container">
-        <h2>Calculadora Reversa</h2>
-        <p>Descubra como criar uma Persona específica.</p>
+    <!-- ================== CAIXA DAS CALCULADORAS ================== -->
+    <div class="calculators-wrapper">
         
-        <div class="search-container" style="width: 100%;">
-            <label for="search-input-target">Persona Alvo</label>
-            <input type="text" id="search-input-target" class="search-input" placeholder="Quem você quer criar?" autocomplete="off">
-            <div class="results-container" id="results-container-target"></div>
+        <!-- CALCULADORA NORMAL -->
+        <div class="calculator-container">
+            <h1>Persona 3 Reload Fusion</h1>
+            <p>Selecione duas Personas para ver o resultado da fusão.</p>
+
+            <div class="selection-area">
+                <div class="search-container">
+                    <label for="search-input-1">Persona 1</label>
+                    <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome..." autocomplete="off">
+                    <div class="results-container" id="results-container-1"></div>
+                </div>
+                
+                <span class="plus-sign">+</span>
+
+                <div class="search-container">
+                    <label for="search-input-2">Persona 2</label>
+                    <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome..." autocomplete="off">
+                    <div class="results-container" id="results-container-2"></div>
+                </div>
+            </div>
+
+            <button id="calculateBtn">Calcular Fusão</button>
+
+            <div id="result-area">
+                <h2>Resultado</h2>
+                <p id="result-text">O resultado aparecerá aqui.</p>
+            </div>
         </div>
 
-        <button id="calculateReverseBtn">Encontrar Receitas</button>
+        <!-- CALCULADORA REVERSA -->
+        <div class="reverse-calculator-container">
+            <h2>Calculadora Reversa</h2>
+            <p>Descubra como criar uma Persona específica.</p>
+            
+            <div class="search-container" style="width: 100%;">
+                <label for="search-input-target">Persona Alvo</label>
+                <input type="text" id="search-input-target" class="search-input" placeholder="Quem você quer criar?" autocomplete="off">
+                <div class="results-container" id="results-container-target"></div>
+            </div>
 
-        <div id="reverse-result-area">
-            <ul id="reverse-recipes-list"></ul>
+            <button id="calculateReverseBtn">Encontrar Receitas</button>
+
+            <div id="reverse-result-area">
+                <ul id="reverse-recipes-list"></ul>
+            </div>
         </div>
+
     </div>
 
-    <!-- ================== MODAL DO COMPÊNDIO (ATUALIZADO PARA API) ================== -->
+    <!-- ================== MODAL DE DETALHES ================== -->
     <div class="modal-overlay" id="persona-modal">
         <div class="modal-content">
             <button class="close-modal" id="close-modal-btn">&times;</button>
             
             <div class="modal-header">
                 <div class="modal-header-content">
-                    <img id="modal-persona-image" src="" alt="Imagem da Persona" referrerpolicy="no-referrer">
+                    <!-- O espaço da imagem que agora o JS esconde automaticamente -->
+                    <img id="modal-persona-image" src="" alt="Imagem da Persona">
+                    
                     <div class="modal-header-text">
                         <h2 id="modal-persona-name">Nome da Persona</h2>
                         <span id="modal-persona-level" class="level-badge">Lvl 0</span>
