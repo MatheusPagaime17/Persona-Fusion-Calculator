@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingText = document.querySelector('.loading-text');
     
     function hideLoader() {
-        if(loader) loader.classList.add('hidden');
+        if (loader) loader.classList.add('hidden');
+    }
+
+    function setLoaderMessage(msg, isError = false) {
+        if (loadingText) {
+            loadingText.textContent = msg;
+            loadingText.style.color = isError ? '#ff4444' : '';
+        }
     }
 
     // --- ELEMENTOS DOM ---
@@ -25,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('close-modal-btn');
 
     let selectedPersonas = { persona1: null, persona2: null, target: null };
-    let personas = []; 
+    let personas = [];
 
     // --- CONFIGURAÇÕES DE FUSÃO P3R ---
     const arcanaOrder = {
@@ -160,55 +167,214 @@ document.addEventListener('DOMContentLoaded', () => {
         { result: 'Messiah', parents: ['Orpheus', 'Thanatos'] }
     ];
 
-    // --- CARREGAMENTO DA API COM PROXY E CACHE ---
-    async function loadPersonas() {
-        const CACHE_KEY = 'p3r_compendium_data';
-        const cachedData = localStorage.getItem(CACHE_KEY);
-        
-        if (cachedData) {
-            personas = JSON.parse(cachedData);
-            setupAutocomplete(searchInput1, resultsContainer1, 'persona1');
-            setupAutocomplete(searchInput2, resultsContainer2, 'persona2');
-            setupAutocomplete(searchInputTarget, resultsContainerTarget, 'target');
-            hideLoader();
-            return; 
-        }
+    // =========================================================
+    // --- SISTEMA DE WARM-UP COM RETRY E BACKOFF ---
+    // =========================================================
 
-        if(loadingText) loadingText.textContent = "WAKING UP SERVER & BYPASSING CORS...";
-        await fetchAPIAndUpdateCache(CACHE_KEY);
+    const API_URL = 'https://persona-compendium.onrender.com/personas/';
+    const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(API_URL)}`;
+    const CACHE_KEY = 'p3r_compendium_data';
+    const CACHE_TIMESTAMP_KEY = 'p3r_compendium_timestamp';
+
+    // Tempo máximo de cache: 24 horas (em ms)
+    const CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+
+    // Mensagens de espera para a Dark Hour — aparecem enquanto o servidor acorda
+    const warmupMessages = [
+        'INICIANDO A DARK HOUR...',
+        'ACORDANDO O SERVIDOR...',
+        'O VELVET ROOM ESTÁ CARREGANDO...',
+        'AGUARDE, IGOR ESTÁ PREPARANDO TUDO...',
+        'COMPILANDO O COMPÊNDIO DE PERSONAS...',
+        'QUASE LÁ...',
+    ];
+
+    let warmupMsgIndex = 0;
+    let warmupMsgInterval = null;
+
+    function startWarmupMessages() {
+        setLoaderMessage(warmupMessages[0]);
+        warmupMsgInterval = setInterval(() => {
+            warmupMsgIndex = (warmupMsgIndex + 1) % warmupMessages.length;
+            setLoaderMessage(warmupMessages[warmupMsgIndex]);
+        }, 3500);
     }
 
-    async function fetchAPIAndUpdateCache(cacheKey) {
+    function stopWarmupMessages() {
+        if (warmupMsgInterval) {
+            clearInterval(warmupMsgInterval);
+            warmupMsgInterval = null;
+        }
+    }
+
+    /**
+     * Tenta fazer fetch com timeout configurável.
+     * Retorna a Response ou lança erro se demorar mais que `timeoutMs`.
+     */
+    async function fetchWithTimeout(url, timeoutMs = 15000) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
         try {
-            const apiUrl = 'https://persona-compendium.onrender.com/personas/';
-            // Continuamos a usar o proxy apenas para o JSON (para evitar CORS)
-            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`;
-            
-            const response = await fetch(proxyUrl);
-            if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
-            
+            const response = await fetch(url, { signal: controller.signal });
+            clearTimeout(timeoutId);
+            return response;
+        } catch (err) {
+            clearTimeout(timeoutId);
+            throw err;
+        }
+    }
+
+    /**
+     * Estratégia principal de warm-up:
+     * 1. Faz um ping rápido (HEAD ou GET) para acordar o servidor no Render.
+     * 2. Aguarda com mensagens informativas.
+     * 3. Faz o fetch real dos dados com retry + backoff exponencial.
+     *
+     * @param {number} maxRetries - Número máximo de tentativas após o warm-up
+     * @param {number} baseDelayMs - Delay inicial entre tentativas (dobra a cada retry)
+     */
+    async function fetchWithWarmupAndRetry(maxRetries = 4, baseDelayMs = 4000) {
+        // Passo 1: Ping de warm-up — não precisamos do resultado, só queremos acordar o servidor
+        setLoaderMessage('ENVIANDO SINAL PARA A DARK HOUR...');
+        try {
+            // Usamos o proxy também no ping para evitar CORS
+            await fetchWithTimeout(PROXY_URL, 8000);
+        } catch {
+            // O ping pode falhar (timeout/CORS no ping) — não é fatal, continuamos
+            console.warn('[WarmUp] Ping inicial falhou ou demorou demais, tentando o fetch completo...');
+        }
+
+        // Passo 2: Tentativas reais com backoff
+        let lastError = null;
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                setLoaderMessage(attempt === 1
+                    ? 'CARREGANDO DADOS DO COMPÊNDIO...'
+                    : `TENTATIVA ${attempt}/${maxRetries} — SERVIDOR AINDA ACORDANDO...`
+                );
+
+                const response = await fetchWithTimeout(PROXY_URL, 20000);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const apiData = await response.json();
+
+                const processedData = apiData.map(p => ({
+                    ...p,
+                    special: specialFusionNames.includes(p.name)
+                }));
+
+                // Salva no cache com timestamp
+                localStorage.setItem(CACHE_KEY, JSON.stringify(processedData));
+                localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+
+                return processedData;
+
+            } catch (err) {
+                lastError = err;
+                console.warn(`[WarmUp] Tentativa ${attempt} falhou:`, err.message);
+
+                if (attempt < maxRetries) {
+                    // Backoff exponencial: 4s → 8s → 16s → ...
+                    const delay = baseDelayMs * Math.pow(2, attempt - 1);
+                    setLoaderMessage(`SERVIDOR DORMINDO... PRÓXIMA TENTATIVA EM ${Math.round(delay / 1000)}s`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+        }
+
+        throw lastError || new Error('Todas as tentativas falharam.');
+    }
+
+    /**
+     * Verifica se o cache local ainda é válido (menos de 24h).
+     */
+    function isCacheValid() {
+        const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+        if (!timestamp) return false;
+        return (Date.now() - parseInt(timestamp, 10)) < CACHE_MAX_AGE_MS;
+    }
+
+    // --- CARREGAMENTO PRINCIPAL ---
+    async function loadPersonas() {
+        // Usa cache se ainda for válido
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        if (cachedData && isCacheValid()) {
+            try {
+                personas = JSON.parse(cachedData);
+                setupAllAutocomplete();
+                hideLoader();
+
+                // Revalida em background sem bloquear o utilizador
+                revalidateCacheInBackground();
+                return;
+            } catch {
+                // Cache corrompido — limpa e faz fetch normal
+                localStorage.removeItem(CACHE_KEY);
+                localStorage.removeItem(CACHE_TIMESTAMP_KEY);
+            }
+        }
+
+        // Sem cache válido: faz warm-up + fetch com retry
+        startWarmupMessages();
+        try {
+            personas = await fetchWithWarmupAndRetry();
+            setupAllAutocomplete();
+            setLoaderMessage('COMPÊNDIO CARREGADO!');
+            setTimeout(hideLoader, 800);
+        } catch (error) {
+            console.error('[LoadPersonas] Erro fatal:', error);
+            stopWarmupMessages();
+            setLoaderMessage('ERRO AO CARREGAR — TENTE RECARREGAR A PÁGINA', true);
+
+            // Último recurso: se tiver cache antigo (mesmo expirado), usa-o
+            if (cachedData) {
+                try {
+                    personas = JSON.parse(cachedData);
+                    setupAllAutocomplete();
+                    setLoaderMessage('USANDO DADOS DO CACHE (PODEM ESTAR DESATUALIZADOS)', true);
+                    setTimeout(hideLoader, 2000);
+                    return;
+                } catch { /* cache inválido mesmo */ }
+            }
+
+            // Sem fallback disponível — mostra alerta
+            alert(
+                'Não foi possível acordar o servidor após várias tentativas.\n\n' +
+                'Dica: Abra a URL abaixo numa aba para acordar a API manualmente e depois recarregue esta página:\n' +
+                'https://persona-compendium.onrender.com/personas/'
+            );
+        } finally {
+            stopWarmupMessages();
+        }
+    }
+
+    /**
+     * Revalida o cache silenciosamente em background.
+     * Só atualiza o localStorage — não afeta o utilizador.
+     */
+    async function revalidateCacheInBackground() {
+        try {
+            const response = await fetchWithTimeout(PROXY_URL, 25000);
+            if (!response.ok) return;
             const apiData = await response.json();
             const processedData = apiData.map(p => ({
                 ...p,
                 special: specialFusionNames.includes(p.name)
             }));
-
-            localStorage.setItem(cacheKey, JSON.stringify(processedData));
-
-            personas = processedData;
-            setupAutocomplete(searchInput1, resultsContainer1, 'persona1');
-            setupAutocomplete(searchInput2, resultsContainer2, 'persona2');
-            setupAutocomplete(searchInputTarget, resultsContainerTarget, 'target');
-            hideLoader(); 
-
-        } catch (error) {
-            console.error("Erro ao buscar a API:", error);
-            if(loadingText) {
-                loadingText.textContent = "ERROR FETCHING API";
-                loadingText.style.color = "red";
-            }
-            alert(`Bloqueio ou Timeout: A API demorou demasiado a acordar.\nDica: Abra https://persona-compendium.onrender.com/personas no navegador para acordar a API manualmente, e depois atualize esta página.`);
+            localStorage.setItem(CACHE_KEY, JSON.stringify(processedData));
+            localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+            console.log('[Cache] Revalidado em background com sucesso.');
+        } catch (err) {
+            console.warn('[Cache] Revalidação em background falhou (não crítico):', err.message);
         }
+    }
+
+    // =========================================================
+
+    function setupAllAutocomplete() {
+        setupAutocomplete(searchInput1, resultsContainer1, 'persona1');
+        setupAutocomplete(searchInput2, resultsContainer2, 'persona2');
+        setupAutocomplete(searchInputTarget, resultsContainerTarget, 'target');
     }
 
     // --- LÓGICA DE AUTOCOMPLETE ---
@@ -356,21 +522,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- PREENCHIMENTO DO MODAL COMPENDIUM (Alta Performance / Sem Imagem) ---
+    // --- PREENCHIMENTO DO MODAL COMPENDIUM ---
     function populateModal(persona) {
         document.getElementById('modal-persona-name').textContent = persona.name;
         
         let levelBadge = document.getElementById('modal-persona-level');
-        if(levelBadge) levelBadge.textContent = `Lvl ${persona.level}`;
+        if (levelBadge) levelBadge.textContent = `Lvl ${persona.level}`;
         
-        // Remove a imagem instantaneamente
         const imgElement = document.getElementById('modal-persona-image');
-        if (imgElement) {
-            imgElement.style.display = 'none';
-        }
+        if (imgElement) imgElement.style.display = 'none';
 
         let descElement = document.getElementById('modal-persona-desc');
-        if(descElement) descElement.textContent = persona.description || "Nenhuma descrição disponível nos arquivos do Compêndio.";
+        if (descElement) descElement.textContent = persona.description || "Nenhuma descrição disponível nos arquivos do Compêndio.";
 
         const statsList = document.querySelector('#modal-stats ul');
         statsList.innerHTML = `
@@ -405,15 +568,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Eventos
+    // --- EVENTOS ---
     closeModalBtn.addEventListener('click', () => modal.classList.remove('open'));
-    window.addEventListener('click', (e) => { if(e.target == modal) modal.classList.remove('open') });
+    window.addEventListener('click', (e) => { if (e.target == modal) modal.classList.remove('open'); });
     calculateBtn.addEventListener('click', handleCalculation);
     calculateReverseBtn.addEventListener('click', handleReverseCalculation);
     document.getElementById('hamburger-menu').addEventListener('click', () => {
         document.getElementById('nav-list').classList.toggle('open');
     });
-
     window.addEventListener('click', (e) => {
         if (!e.target.matches('.search-input')) {
             resultsContainer1.style.display = 'none';
