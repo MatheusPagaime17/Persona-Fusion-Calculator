@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedPersonas = { persona1: null, persona2: null, target: null };
     let personas = [];
 
-    // --- CONFIGURAÇÕES DE FUSÃO P3R ---
+    // --- CONFIGURAÇÕES DE FUSÃO P3R --- (NUNCA ALTERAR ESSA PARTE!!!!!)
     const arcanaOrder = {
         'Fool': 0, 'Magician': 1, 'Priestess': 2, 'Empress': 3, 'Emperor': 4, 'Hierophant': 5,
         'Lovers': 6, 'Chariot': 7, 'Justice': 8, 'Hermit': 9, 'Fortune': 10, 'Strength': 11,
@@ -176,10 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const CACHE_KEY = 'p3r_compendium_data';
     const CACHE_TIMESTAMP_KEY = 'p3r_compendium_timestamp';
 
-    // Tempo máximo de cache: 24 horas (em ms)
+    // Tempo máximo de cache: 24 horas (em ms) (Acho que seria meio errado usar um cache tão longo, apesar de funcionar kkkkkk)
     const CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
-    // Mensagens de espera para a Dark Hour — aparecem enquanto o servidor acorda
+    // Mensagens de API carregando para mostrar durante o warm-up e as tentativas (Mensagens inpiradas no jogo, MUITO SWAG)
     const warmupMessages = [
         'INICIANDO A DARK HOUR...',
         'ACORDANDO O SERVIDOR...',
