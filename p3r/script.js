@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let personas = [];
 
     // --- CONFIGURAÇÕES DE FUSÃO P3R --- (NUNCA ALTERAR ESSA PARTE!!!!!)
+    // TODA E QUALQUER ALTERAÇÃO NA ORDEM QUEBRA O SISTEMA DE FUSÃO!
+    // A ordem é baseada no número da arcana maior (mesma do jogo)
     const arcanaOrder = {
         'Fool': 0, 'Magician': 1, 'Priestess': 2, 'Empress': 3, 'Emperor': 4, 'Hierophant': 5,
         'Lovers': 6, 'Chariot': 7, 'Justice': 8, 'Hermit': 9, 'Fortune': 10, 'Strength': 11,
@@ -43,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const fusionChart = {
+        // Nomes em inglês por conta da API
         // --- Mesma Arcana ---
         'Fool+Fool': 'Fool', 'Magician+Magician': 'Magician', 'Priestess+Priestess': 'Priestess', 
         'Empress+Empress': 'Empress', 'Emperor+Emperor': 'Emperor', 'Hierophant+Hierophant': 'Hierophant',
@@ -158,13 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const specialFusionNames = [
         'Thanatos', 'Susano-o', 'Messiah', 'Orpheus Telos', 'Alice', 
-        'Black Frost', 'Shiva', 'Masakado', 'Beelzebub', 'Kohryu', 'Lucifer', 'Metatron'
+        'Black Frost', 'Shiva', 'Masakado', 'Beelzebub', 'Kohryu', 'Lucifer', 'Metatron', 'Daisoujou',
+        'Mara', 'Asura', 'Norn'
     ];
 
     const specificFusions = [
-        { result: 'Thanatos', parents: ['Alice', 'Pale Rider', 'Loa', 'Samael', 'Mot', 'Ghoul'] },
-        { result: 'Susano-o', parents: ['Orpheus', 'Legion', 'Ose', 'Black Frost', 'Decarabia', 'Loki'] },
-        { result: 'Messiah', parents: ['Orpheus', 'Thanatos'] }
+        { result: 'Thanatos', parents: ['Pisaca', 'Pale Rider', 'Loa', 'Samael', 'Mot', 'Alice'] },
+        { result: 'Susano-o', parents: ['Take-Minakata', 'Take-Mikazuchi', 'Okuninushi', 'Kikuri-Hime'] },
+        { result: 'Messiah', parents: ['Orpheus', 'Thanatos'] },
+        { result: 'Orpheus Telos', parents: ['Thanatos', 'Chi You', 'Asura', 'Metatron', 'Helel', 'Messiah'] },
+        { result: 'Alice', parents: ['Lilim', 'Pixie', 'Titania', 'Narcissus'] },
+        { result: 'Black Frost', parents: ["Jack-o'-Lantern", 'Jack Frost', 'King Frost', 'Queen Medb'] },
+        { result: 'Shiva', parents: ['Barong', 'Rangda'] },
+        { result: 'Masakado', parents: ['Bishamonten', 'Jikokuten', 'Koumokuten', 'Zouchouten'] },
+        { result: 'Beelzabub', parents: ['Baal Zebul', 'Incubus', 'Succubus', 'Pazuzu', 'Lilith', 'Abaddon'] },
+        { result: 'Kohryu', parents: ['Genbu', 'Seiryu', 'Byakko', 'Suzaku'] },
+        { result: 'Lucifer', parents: ['Helel', 'Satan', 'Beelzebub', 'Abaddon', 'Samael'] },
+        { result: 'Metatron', parents: ['Michael', 'Uriel', 'Raphael', 'Gabriel' ] },
+        { result: 'Daisoujou', parents: ['Mithra', 'Ara Mitama', 'Kusi Mitama', 'Saki Mitama', 'Nigi Mitama'] },
+        { result: 'Mara', parents: ['Incubus', 'Mot', 'Pazuzu', 'Kumbhanda', 'Attis'] },
+        { result: 'Asura', parents: ['Rakshasa', 'Bishamonten', 'Qitian Dasheng', 'Atavaka', 'Vishnu'] },
+        { result: 'Norn', parents: ['Clotho', 'Lachesis', 'Atropos'] }
     ];
 
     // =========================================================
@@ -237,10 +254,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Passo 1: Ping de warm-up — não precisamos do resultado, só queremos acordar o servidor
         setLoaderMessage('ENVIANDO SINAL PARA A DARK HOUR...');
         try {
-            // Usamos o proxy também no ping para evitar CORS
+            //proxy no ping para evitar CORS
             await fetchWithTimeout(PROXY_URL, 8000);
         } catch {
-            // O ping pode falhar (timeout/CORS no ping) — não é fatal, continuamos
+            // O ping deu timeout ou falhou por CORS.
             console.warn('[WarmUp] Ping inicial falhou ou demorou demais, tentando o fetch completo...');
         }
 
@@ -286,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Verifica se o cache local ainda é válido (menos de 24h).
+     * Validação de Cache atualizado, verifica se o timestamp de 24 horas ainda é valido.
      */
     function isCacheValid() {
         const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
@@ -348,10 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Revalida o cache silenciosamente em background.
-     * Só atualiza o localStorage — não afeta o utilizador.
-     */
+    // --- Revalidação de Cache em Background ---
     async function revalidateCacheInBackground() {
         try {
             const response = await fetchWithTimeout(PROXY_URL, 25000);
@@ -473,19 +487,68 @@ document.addEventListener('DOMContentLoaded', () => {
         return fusionChart[key] || null;
     }
 
-    // --- CÁLCULO REVERSO ---
+    // --- CÁLCULO REVERSO (ATUALIZADO COM LINKS) ---
     function handleReverseCalculation() {
         const target = selectedPersonas.target;
         if (!target) return;
 
-        reverseRecipesList.innerHTML = '<li>Calculando a Matrix da Dark Hour...</li>';
+        const reverseResultArea = document.getElementById('reverse-result-area');
+        
+        // Remove link do target anterior (se existir) para não acumular
+        const oldTargetBtn = document.getElementById('dynamic-target-link');
+        if (oldTargetBtn) oldTargetBtn.remove();
+
+        // 1. Cria um botão/link brilhante para abrir a Persona Alvo pesquisada
+        const targetLinkContainer = document.createElement('div');
+        targetLinkContainer.id = 'dynamic-target-link';
+        targetLinkContainer.style.marginBottom = '20px';
+        targetLinkContainer.style.textAlign = 'center';
+
+        const targetSpan = document.createElement('span');
+        targetSpan.className = 'clickable-persona';
+        targetSpan.style.fontSize = '1.3em';
+        targetSpan.style.fontWeight = '900';
+        targetSpan.textContent = `✨ Ver detalhes de ${target.name} ✨`;
+        
+        // Evento para abrir o modal da Persona pesquisada
+        targetSpan.addEventListener('click', () => {
+            populateModal(target);
+            modal.classList.add('open');
+        });
+
+        targetLinkContainer.appendChild(targetSpan);
+        // Insere o link logo antes da lista de receitas
+        reverseResultArea.insertBefore(targetLinkContainer, reverseRecipesList);
+
+        reverseRecipesList.innerHTML = '<li>I am Thou, Thou art I...</li>';
         
         if (target.special) {
             const recipe = specificFusions.find(r => r.result === target.name);
             reverseRecipesList.innerHTML = '';
+            
             if (recipe) {
                 const li = document.createElement('li');
-                li.textContent = `Fusão Especial (Avançada): Requer ${recipe.parents.join(' + ')}`;
+                li.textContent = `Fusão Especial (Avançada): Requer `;
+                
+                // Torna cada ingrediente da fusão especial clicável!
+                recipe.parents.forEach((parentName, index) => {
+                    const parentObj = personas.find(p => p.name === parentName);
+                    const span = document.createElement('span');
+                    span.textContent = parentName;
+                    
+                    if (parentObj) {
+                        span.className = 'clickable-persona';
+                        span.addEventListener('click', () => {
+                            populateModal(parentObj);
+                            modal.classList.add('open');
+                        });
+                    }
+                    
+                    li.appendChild(span);
+                    if (index < recipe.parents.length - 1) {
+                        li.appendChild(document.createTextNode(' + '));
+                    }
+                });
                 reverseRecipesList.appendChild(li);
             } else {
                 reverseRecipesList.innerHTML = '<li>Receita avançada não documentada para esta simulação.</li>';
