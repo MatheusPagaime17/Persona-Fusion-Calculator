@@ -201,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'INICIANDO A DARK HOUR...',
         'ACORDANDO O SERVIDOR...',
         'O VELVET ROOM ESTÁ CARREGANDO...',
-        'AGUARDE, IGOR ESTÁ PREPARANDO TUDO...',
-        'COMPILANDO O COMPÊNDIO DE PERSONAS...',
+        'IGOR ESTÁ PREPARANDO TUDO...',
+        'COMPILANDO O COMPÊNDIO...',
         'QUASE LÁ...',
     ];
 
