@@ -93,7 +93,7 @@ body::after {
     background-color: #ccff00; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 10px #ccff00;
 }
 .loading-text {
-    position: absolute; bottom: -40px; width: 100%; text-align: center;
+    position: absolute; bottom: -70px; width: 100%; text-align: center;
     color: #ccff00; font-family: 'Exo 2', sans-serif; font-weight: 700;
     letter-spacing: 3px; animation: blinkText 1s infinite alternate;
 }
@@ -167,7 +167,7 @@ nav a.active::after { width: 100%; background-color: var(--p3-blue-glow); }
     transform: scale(1.03) translateY(-3px);
 }
 
-/* --- WRAPPER DAS CALCULADORAS (NOVO) --- */
+/* --- WRAPPER DAS CALCULADORAS --- */
 .calculators-wrapper {
     display: flex;
     flex-direction: column;
@@ -225,8 +225,20 @@ button:hover::before { left: 0; }
     margin-top: 40px; background: rgba(0, 0, 0, 0.3); padding: 25px; border-left: 3px solid var(--p3-blue-bright); position: relative;
 }
 #result-text { font-size: 1.4em; font-weight: 700; color: var(--p3-white); }
-#result-text span { color: var(--p3-blue-glow); border-bottom: 1px dashed var(--p3-blue-glow); transition: all 0.3s; cursor: pointer; }
-#result-text span:hover { background: var(--p3-blue-glow); color: #000; box-shadow: 0 0 15px var(--p3-blue-glow); }
+
+/* CLASSE UNIFICADA PARA PERSONAS CLICÁVEIS (Novo) */
+.clickable-persona, #result-text span { 
+    color: var(--p3-blue-glow); 
+    border-bottom: 1px dashed var(--p3-blue-glow); 
+    transition: all 0.3s; 
+    cursor: pointer; 
+}
+.clickable-persona:hover, #result-text span:hover { 
+    background: var(--p3-blue-glow); 
+    color: #000; 
+    box-shadow: 0 0 15px var(--p3-blue-glow); 
+}
+
 #reverse-recipes-list { list-style: none; padding: 0; text-align: left; }
 #reverse-recipes-list li { padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); color: #ccc; }
 
@@ -305,7 +317,6 @@ button:hover::before { left: 0; }
 
 /* Responsividade */
 @media (min-width: 992px) {
-    /* No desktop, o wrapper coloca as calculadoras lado a lado */
     .calculators-wrapper {
         flex-direction: row;
         align-items: flex-start;
@@ -318,7 +329,7 @@ button:hover::before { left: 0; }
     .calculator-container, .reverse-calculator-container { 
         width: 45%; 
         margin-top: 0; 
-        margin-bottom: 0; /* Zera a margem embaixo para ficarem alinhados perfeitamente */
+        margin-bottom: 0;
     }
     
     .minigame-banner-btn { 
