@@ -43,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let selectedPersonas = { persona1: null, persona2: null, target: null };
             let personas = [];
 
-            // =====================================================================
-            // REGRAS DE FUSÃO EXATAS DO ARQUIVO ENVIADO PELO USUÁRIO
-            // =====================================================================
+   
             const arcanaOrder = {
                 'Fool': 0, 'Magician': 1, 'Priestess': 2, 'Empress': 3, 'Emperor': 4, 'Hierophant': 5,
                 'Lovers': 6, 'Chariot': 7, 'Justice': 8, 'Hermit': 9, 'Fortune': 10, 'Strength': 11,
@@ -54,35 +52,83 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             const fusionChart = {
+                //Mesmo Arcana
                 'Fool+Fool': 'Fool', 'Magician+Magician': 'Magician', 'Priestess+Priestess': 'Priestess', 'Empress+Empress': 'Empress', 'Emperor+Emperor': 'Emperor', 'Hierophant+Hierophant': 'Hierophant', 'Lovers+Lovers': 'Lovers', 'Chariot+Chariot': 'Chariot', 'Justice+Justice': 'Justice', 'Hermit+Hermit': 'Hermit', 'Fortune+Fortune': 'Fortune', 'Strength+Strength': 'Strength', 'Hanged+Hanged': 'Hanged', 'Death+Death': 'Death', 'Temperance+Temperance': 'Temperance', 'Devil+Devil': 'Devil', 'Tower+Tower': 'Tower', 'Star+Star': 'Star', 'Moon+Moon': 'Moon', 'Sun+Sun': 'Sun', 'Judgement+Judgement': 'Judgement', 'Faith+Faith': 'Faith', 'Councillor+Councillor': 'Councillor',
+                //Combinações de Arcana Diferentes
+                // --- Fool (0) + ... ---
                 'Fool+Magician': 'Death', 'Fool+Priestess': 'Moon', 'Fool+Empress': 'Hanged', 'Fool+Emperor': 'Temperance', 'Fool+Hierophant': 'Hermit', 'Fool+Lovers': 'Chariot', 'Fool+Chariot': 'Moon', 'Fool+Justice': 'Star', 'Fool+Hermit': 'Priestess', 'Fool+Fortune': 'Justice', 'Fool+Strength': 'Death', 'Fool+Hanged': 'Tower', 'Fool+Death': 'Strength', 'Fool+Temperance': 'Hierophant', 'Fool+Devil': 'Strength', 'Fool+Tower': 'Empress', 'Fool+Star': 'Magician', 'Fool+Moon': 'Justice', 'Fool+Sun': 'Judgement', 'Fool+Judgement': 'Sun', 'Fool+Faith': 'Priestess', 'Fool+Councillor': 'Hierophant',
+                // --- Magician (1) + ... ---
                 'Magician+Priestess': 'Justice', 'Magician+Empress': 'Death', 'Magician+Emperor': 'Faith', 'Magician+Hierophant': 'Death', 'Magician+Lovers': 'Devil', 'Magician+Chariot': 'Priestess', 'Magician+Justice': 'Emperor', 'Magician+Hermit': 'Lovers', 'Magician+Fortune': 'Faith', 'Magician+Strength': 'Devil', 'Magician+Hanged': 'Empress', 'Magician+Death': 'Hermit', 'Magician+Temperance': 'Chariot', 'Magician+Devil': 'Hierophant', 'Magician+Tower': 'Temperance', 'Magician+Star': 'Priestess', 'Magician+Moon': 'Lovers', 'Magician+Sun': 'Hierophant', 'Magician+Judgement': 'Strength', 'Magician+Faith': 'Tower', 'Magician+Councillor': 'Priestess',
+                // --- Priestess (2) + ... ---
                 'Priestess+Empress': 'Emperor', 'Priestess+Emperor': 'Empress', 'Priestess+Hierophant': 'Fortune', 'Priestess+Lovers': 'Star', 'Priestess+Chariot': 'Hierophant', 'Priestess+Justice': 'Star', 'Priestess+Hermit': 'Temperance', 'Priestess+Fortune': 'Lovers', 'Priestess+Strength': 'Chariot', 'Priestess+Hanged': 'Death', 'Priestess+Death': 'Magician', 'Priestess+Temperance': 'Moon', 'Priestess+Devil': 'Faith', 'Priestess+Tower': 'Hanged', 'Priestess+Star': 'Moon', 'Priestess+Moon': 'Hierophant', 'Priestess+Sun': 'Hermit', 'Priestess+Judgement': 'Justice', 'Priestess+Faith': 'Hanged',
+                // --- Empress (3) + ... ---
                 'Empress+Emperor': 'Justice', 'Empress+Hierophant': 'Fortune', 'Empress+Lovers': 'Judgement', 'Empress+Chariot': 'Star', 'Empress+Justice': 'Star', 'Empress+Hermit': 'Strength', 'Empress+Fortune': 'Hermit', 'Empress+Strength': 'Hanged', 'Empress+Hanged': 'Priestess', 'Empress+Death': 'Fool', 'Empress+Temperance': 'Faith', 'Empress+Devil': 'Hierophant', 'Empress+Tower': 'Faith', 'Empress+Star': 'Justice', 'Empress+Moon': 'Sun', 'Empress+Sun': 'Moon', 'Empress+Judgement': 'Priestess', 'Empress+Faith': 'Magician',
+                // --- Emperor (4) + ... ---
                 'Emperor+Hierophant': 'Fortune', 'Emperor+Lovers': 'Faith', 'Emperor+Chariot': 'Faith', 'Emperor+Justice': 'Chariot', 'Emperor+Hermit': 'Hierophant', 'Emperor+Fortune': 'Sun', 'Emperor+Strength': 'Sun', 'Emperor+Hanged': 'Devil', 'Emperor+Death': 'Hermit', 'Emperor+Temperance': 'Devil', 'Emperor+Devil': 'Justice', 'Emperor+Tower': 'Star', 'Emperor+Star': 'Lovers', 'Emperor+Moon': 'Tower', 'Emperor+Sun': 'Judgement', 'Emperor+Judgement': 'Magician', 'Emperor+Faith': 'Chariot', 'Emperor+Councillor': 'Lovers',
+                // --- Hierophant (5) + ... ---
                 'Hierophant+Lovers': 'Strength', 'Hierophant+Chariot': 'Star', 'Hierophant+Justice': 'Hanged', 'Hierophant+Hermit': 'Councillor', 'Hierophant+Fortune': 'Justice', 'Hierophant+Strength': 'Fool', 'Hierophant+Hanged': 'Sun', 'Hierophant+Death': 'Councillor', 'Hierophant+Temperance': 'Strength', 'Hierophant+Devil': 'Moon', 'Hierophant+Tower': 'Judgement', 'Hierophant+Star': 'Tower', 'Hierophant+Moon': 'Death', 'Hierophant+Sun': 'Lovers', 'Hierophant+Faith': 'Justice', 'Hierophant+Councillor': 'Chariot',
+                // --- Lovers (6) + ... ---
                 'Lovers+Chariot': 'Temperance', 'Lovers+Justice': 'Judgement', 'Lovers+Hermit': 'Chariot', 'Lovers+Fortune': 'Priestess', 'Lovers+Strength': 'Temperance', 'Lovers+Hanged': 'Death', 'Lovers+Death': 'Councillor', 'Lovers+Temperance': 'Strength', 'Lovers+Devil': 'Moon', 'Lovers+Tower': 'Fool', 'Lovers+Star': 'Faith', 'Lovers+Moon': 'Devil', 'Lovers+Sun': 'Strength', 'Lovers+Faith': 'Judgement', 'Lovers+Councillor': 'Emperor',
+                // --- Chariot (7) + ... ---
                 'Chariot+Justice': 'Moon', 'Chariot+Hermit': 'Councillor', 'Chariot+Fortune': 'Moon', 'Chariot+Strength': 'Devil', 'Chariot+Hanged': 'Fool', 'Chariot+Death': 'Devil', 'Chariot+Temperance': 'Strength', 'Chariot+Devil': 'Tower', 'Chariot+Tower': 'Faith', 'Chariot+Star': 'Moon', 'Chariot+Moon': 'Fortune', 'Chariot+Sun': 'Lovers', 'Chariot+Judgement': 'Lovers', 'Chariot+Faith': 'Devil',
+                // --- Justice (8) + ... ---
                 'Justice+Hermit': 'Magician', 'Justice+Fortune': 'Sun', 'Justice+Strength': 'Councillor', 'Justice+Hanged': 'Lovers', 'Justice+Death': 'Fool', 'Justice+Temperance': 'Priestess', 'Justice+Devil': 'Fool', 'Justice+Tower': 'Sun', 'Justice+Star': 'Emperor', 'Justice+Moon': 'Devil', 'Justice+Sun': 'Hanged', 'Justice+Judgement': 'Hanged', 'Justice+Faith': 'Star', 'Justice+Councillor': 'Star',
+                // --- Hermit (9) + ... ---
                 'Hermit+Fortune': 'Star', 'Hermit+Strength': 'Faith', 'Hermit+Hanged': 'Star', 'Hermit+Death': 'Star', 'Hermit+Temperance': 'Strength', 'Hermit+Devil': 'Priestess', 'Hermit+Tower': 'Judgement', 'Hermit+Star': 'Priestess', 'Hermit+Moon': 'Devil', 'Hermit+Sun': 'Devil', 'Hermit+Judgement': 'Emperor', 'Hermit+Faith': 'Councillor',
+                // --- Fortune (10) + ... ---
                 'Fortune+Strength': 'Faith', 'Fortune+Hanged': 'Priestess', 'Fortune+Death': 'Emperor', 'Fortune+Temperance': 'Star', 'Fortune+Devil': 'Hanged', 'Fortune+Tower': 'Sun', 'Fortune+Star': 'Sun', 'Fortune+Moon': 'Judgement', 'Fortune+Sun': 'Star', 'Fortune+Judgement': 'Tower', 'Fortune+Faith': 'Sun', 'Fortune+Councillor': 'Star',
+                // --- Strength (11) + ... ---
                 'Strength+Hanged': 'Temperance', 'Strength+Death': 'Hierophant', 'Strength+Temperance': 'Chariot', 'Strength+Devil': 'Faith', 'Strength+Tower': 'Hanged', 'Strength+Star': 'Moon', 'Strength+Moon': 'Magician', 'Strength+Sun': 'Star', 'Strength+Judgement': 'Fool', 'Strength+Faith': 'Chariot', 'Strength+Councillor': 'Faith',
+                // --- Hanged (12) + ... ---
                 'Hanged+Death': 'Moon', 'Hanged+Temperance': 'Death', 'Hanged+Devil': 'Hermit', 'Hanged+Tower': 'Sun', 'Hanged+Star': 'Councillor', 'Hanged+Moon': 'Hierophant', 'Hanged+Sun': 'Star', 'Hanged+Judgement': 'Star', 'Hanged+Faith': 'Councillor',
+                // --- Death (13) + ... ---
                 'Death+Temperance': 'Hanged', 'Death+Devil': 'Moon', 'Death+Tower': 'Sun', 'Death+Star': 'Councillor', 'Death+Moon': 'Hermit', 'Death+Sun': 'Fool', 'Death+Judgement': 'Hanged', 'Death+Faith': 'Strength', 'Death+Councillor': 'Hermit',
+                // --- Temperance (14) + ... ---
                 'Temperance+Devil': 'Fool', 'Temperance+Tower': 'Fool', 'Temperance+Star': 'Sun', 'Temperance+Moon': 'Councillor', 'Temperance+Sun': 'Magician', 'Temperance+Judgement': 'Fortune', 'Temperance+Faith': 'Moon', 'Temperance+Councillor': 'Chariot',
+                // --- Devil (15) + ... ---
                 'Devil+Tower': 'Magician', 'Devil+Star': 'Hermit', 'Devil+Moon': 'Chariot', 'Devil+Sun': 'Hermit', 'Devil+Judgement': 'Death', 'Devil+Faith': 'Fortune', 'Devil+Councillor': 'Death',
+                // --- Tower (16) + ... ---
                 'Tower+Star': 'Councillor', 'Tower+Moon': 'Hermit', 'Tower+Sun': 'Emperor', 'Tower+Judgement': 'Sun', 'Tower+Faith': 'Hanged',
+                // --- Star (17) + ... ---
                 'Star+Moon': 'Temperance', 'Star+Sun': 'Judgement', 'Star+Judgement': 'Fortune', 'Star+Faith': 'Moon', 'Star+Councillor': 'Fortune',
+                // --- Moon (18) + ... ---
                 'Moon+Sun': 'Empress', 'Moon+Judgement': 'Fool', 'Moon+Faith': 'Sun', 'Moon+Councillor': 'Sun',
+                // --- Sun (19) + ... ---
                 'Sun+Judgement': 'Fortune', 'Sun+Faith': 'Death', 'Sun+Councillor': 'Fortune',
+                // --- Judgement (20) + ... ---
                 'Judgement+Faith': 'Fortune', 'Judgement+Councillor': 'Devil',
+                // --- Faith (21) + ... ---
                 'Faith+Councillor': 'Priestess'
+                // Councillor não precisa porque já foi citada em todas
+                // World não participa de fusões
             };
 
+            const specialFusionNames = [
+            'Alice', 'Ardha', 'Asura', 'Black Frost', 'Bugs', 'Chi You', 'Flauros',
+            'Kohryu', 'Lucifer', 'Metatron', 'Michael', 'Neko Shogun', 'Ongyo-Ki',
+            'Satanael', 'Seth', 'Shiva', 'Sraosha', 'Trumpeter', 'Yoshitsune'
+            ];
+
             const specificFusions = [
-                { result: 'Alice', parents: ['Belial', 'Nebiros'] },
+                { result: 'Alice', parents: ['Nebiros', 'Belial'] },
                 { result: 'Ardha', parents: ['Parvati', 'Shiva'] },
-                { result: 'Shiva', parents: ['Barong', 'Rangda'] }
+                { result: 'Asura', parents: ['Zouchouten', 'Jikokuten', 'Koumokuten', 'Bishamonten'] },
+                { result: 'Black Frost', parents: ["Jack-o'-Lantern", 'Jack Frost', 'King Frost'] },
+                { result: 'Bugs', parents: ['Pixie', 'Pisaca', 'Hariti'] },
+                { result: 'Chi You', parents: ['Hecatoncheires', 'White Rider', 'Thor', 'Yoshitsune', 'Cu Chulainn'] },
+                { result: 'Flauros', parents: ['Berith', 'Andras', 'Eligor'] },
+                { result: 'Kohryu', parents: ['Genbu', 'Seiryu', 'Suzaku', 'Byakko'] },
+                { result: 'Lucifer', parents: ['Anubis', 'Ananta', 'Trumpeter', 'Michael', 'Metatron', 'Satan'] },
+                { result: 'Metatron', parents: ['Principality', 'Power', 'Dominion', 'Melchizedek', 'Sandalphon', 'Michael'] },
+                { result: 'Michael', parents: ['Uriel', 'Raphael', 'Gabriel'] },
+                { result: 'Neko Shogun', parents: ['Kodama', 'Sudama', 'Anzu'] },
+                { result: 'Ongyo-Ki', parents: ['Kin-Ki', 'Sui-Ki', 'Fuu-Ki'] },
+                { result: 'Satanael', parents: ['Arsene', 'Anzu', 'Ishtar', 'Satan', 'Lucifer', 'Michael'] },
+                { result: 'Seth', parents: ['Isis', 'Thoth', 'Anubis', 'Horus'] },
+                { result: 'Shiva', parents: ['Barong', 'Rangda'] },
+                { result: 'Sraosha', parents: ['Mithra', 'Mithras', 'Melchizedek', 'Lilith', 'Gabriel'] },
+                { result: 'Trumpeter', parents: ['White Rider', 'Red Rider', 'Black Rider', 'Pale Rider'] },
+                { result: 'Yoshitsune', parents: ['Shiki-Ouji', 'Arahabaki', 'Okuninushi', 'Yatagarasu', 'Futsunushi'] }
             ];
 
             const specialDlcUpgrades = {
