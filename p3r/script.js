@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- LOADER DARK HOUR ---
+    // --- LOADER RELÓGIO DARK HOUR ---
     const loader = document.getElementById('loader-overlay');
     const loadingText = document.querySelector('.loading-text');
     
@@ -157,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Judgement (20) + ... ---
         'Judgement+Aeon': 'Fool' 
+
+        // Combinações de Aeon+ são tratadas em todas as outras arcanas
     };
 
     const specialFusionNames = [
@@ -201,8 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'INICIANDO A DARK HOUR...',
         'ACORDANDO O SERVIDOR...',
         'O VELVET ROOM ESTÁ CARREGANDO...',
-        'AGUARDE, IGOR ESTÁ PREPARANDO TUDO...',
-        'COMPILANDO O COMPÊNDIO DE PERSONAS...',
+        'IGOR ESTÁ PREPARANDO TUDO...',
+        'COMPILANDO O COMPÊNDIO...',
         'QUASE LÁ...',
     ];
 
