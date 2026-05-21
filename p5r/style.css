@@ -621,6 +621,342 @@ button:active {
     color: var(--p5-gold);
 }
 
+/* --- Overlay --- */
+.tutorial-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: tut-fadeIn 0.5s 0.2s forwards;
+    overflow: hidden;
+}
+.tutorial-overlay.tut-hidden {
+    animation: tut-fadeOut 0.4s forwards;
+    pointer-events: none;
+}
+@keyframes tut-fadeIn  { to { opacity: 1; } }
+@keyframes tut-fadeOut { to { opacity: 0; } }
+
+/* --- Diamantes de fundo --- */
+.tut-bg-diamonds {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.tut-bg-diamonds span {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(232, 0, 27, 0.18);
+    transform: rotate(45deg);
+    animation: tut-diamond-drift 8s infinite linear;
+}
+.tut-bg-diamonds span:nth-child(1) { top: 10%; left:  5%; animation-delay:  0s;   width: 40px;  height: 40px; }
+.tut-bg-diamonds span:nth-child(2) { top: 70%; left: 90%; animation-delay: -3s;   width: 80px;  height: 80px; opacity: 0.5; }
+.tut-bg-diamonds span:nth-child(3) { top: 30%; left: 80%; animation-delay: -5s;   width: 30px;  height: 30px; }
+.tut-bg-diamonds span:nth-child(4) { top: 85%; left: 15%; animation-delay: -1.5s; width: 55px;  height: 55px; opacity: 0.4; }
+.tut-bg-diamonds span:nth-child(5) { top: 50%; left: 50%; animation-delay: -6s;   width: 100px; height: 100px; opacity: 0.1; }
+.tut-bg-diamonds span:nth-child(6) { top: 5%;  left: 50%; animation-delay: -2s;   width: 25px;  height: 25px; }
+@keyframes tut-diamond-drift {
+    0%   { transform: rotate(45deg) scale(1);   opacity: 0; }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { transform: rotate(45deg) scale(1.6); opacity: 0; }
+}
+
+/* --- Card principal --- */
+.tutorial-card {
+    position: relative;
+    width: min(680px, 94vw);
+    background: #0a0a0a;
+    border: 2px solid #e8001b;
+    clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+    box-shadow:
+        0 0 0 1px #1a0005,
+        0 0 60px rgba(232, 0, 27, 0.3),
+        inset 0 0 40px rgba(232, 0, 27, 0.04);
+    overflow: hidden;
+    transform: translateY(30px);
+    animation: tut-slideUp 0.5s 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+}
+@keyframes tut-slideUp {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Linha decorativa lateral esquerda */
+.tutorial-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, #e8001b, #ff6b6b, #e8001b);
+    animation: tut-pulse-line 2s infinite alternate;
+}
+@keyframes tut-pulse-line {
+    from { opacity: 0.6; }
+    to   { opacity: 1;   box-shadow: 0 0 12px #e8001b; }
+}
+
+/* --- Barra de progresso --- */
+.tut-progress-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    width: 100%;
+}
+.tut-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e8001b, #ff4444);
+    width: 20%; /* controlado por JS */
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0 8px #e8001b;
+}
+
+/* --- Indicador de dots --- */
+.tut-step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 0 0;
+}
+.tut-dot {
+    width: 8px; height: 8px;
+    background: rgba(255,255,255,0.15);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.tut-dot.active {
+    background: #e8001b;
+    box-shadow: 0 0 8px #e8001b;
+    transform: rotate(45deg) scale(1.3);
+}
+
+/* --- Slides --- */
+.tut-slides-wrapper {
+    padding: 28px 40px 20px;
+    min-height: 320px;
+    position: relative;
+}
+.tut-slide {
+    display: none;
+    animation: tut-slideIn 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.tut-slide.active { display: block; }
+.tut-slide.slide-out {
+    animation: tut-slideOut 0.25s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+@keyframes tut-slideIn  { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes tut-slideOut { to   { opacity: 0; transform: translateX(-20px); } }
+
+/* --- Speaker tag --- */
+.tut-speaker-tag {
+    display: inline-block;
+    background: #e8001b;
+    color: #fff;
+    font-family: 'Anton', 'Poppins', sans-serif;
+    font-size: 0.65em;
+    letter-spacing: 3px;
+    padding: 3px 12px;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    margin-bottom: 14px;
+}
+
+/* --- Ícone central --- */
+.tut-icon {
+    font-size: 2.4em;
+    color: #e8001b;
+    margin-bottom: 8px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(232,0,27,0.6));
+    animation: tut-icon-pulse 2.5s infinite alternate;
+}
+@keyframes tut-icon-pulse {
+    from { filter: drop-shadow(0 0 4px rgba(232,0,27,0.4));  }
+    to   { filter: drop-shadow(0 0 16px rgba(232,0,27,0.9)); }
+}
+
+/* --- Título --- */
+.tut-title {
+    font-family: 'Anton', 'Poppins', sans-serif;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 16px;
+    line-height: 1.1;
+}
+.tut-title span.cursor {
+    display: inline-block;
+    width: 3px;
+    background: #e8001b;
+    margin-left: 3px;
+    animation: tut-blink 0.7s infinite;
+    vertical-align: middle;
+    height: 1em;
+}
+@keyframes tut-blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* --- Corpo do texto --- */
+.tut-body {
+    font-family: 'Roboto Condensed', 'Poppins', sans-serif;
+    font-size: 0.97em;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+.tut-body strong { color: #fff; }
+
+/* --- Citação de flavour --- */
+.tut-flavor {
+    font-style: italic;
+    color: rgba(232, 0, 27, 0.8);
+    font-size: 0.85em;
+    border-left: 3px solid #e8001b;
+    padding-left: 12px;
+    margin-top: 14px;
+    line-height: 1.5;
+}
+
+/* --- Preview de arcanas (slide 1) --- */
+.tut-arcana-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+.tut-arcana-preview span {
+    background: rgba(232,0,27,0.12);
+    border: 1px solid rgba(232,0,27,0.35);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75em;
+    padding: 3px 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.5px;
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+
+/* --- Steps visuais (slides 2 e 3) --- */
+.tut-steps-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+.tut-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 10px 14px;
+    font-family: 'Roboto Condensed', 'Poppins', sans-serif;
+    font-size: 0.92em;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+}
+.tut-step-item em { color: #fff; font-style: normal; font-weight: 700; }
+.tut-step-item strong { color: #e8001b; }
+.tut-step-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1em;
+    color: #e8001b;
+    flex-shrink: 0;
+    min-width: 22px;
+}
+
+/* --- Checkbox "não mostrar" --- */
+.tut-remember-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-family: 'Roboto Condensed', 'Poppins', sans-serif;
+    font-size: 0.85em;
+    color: rgba(255,255,255,0.45);
+    cursor: pointer;
+    user-select: none;
+}
+.tut-remember-label input {
+    accent-color: #e8001b;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+.tut-remember-label:hover { color: rgba(255,255,255,0.7); }
+
+/* --- Barra de navegação --- */
+.tut-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    gap: 10px;
+}
+
+.tut-btn {
+    font-family: 'Anton', 'Poppins', sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.tut-btn-prev {
+    background: transparent;
+    color: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.tut-btn-prev:not(:disabled):hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.05);
+}
+.tut-btn-prev:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.tut-btn-skip {
+    background: transparent;
+    color: rgba(255,255,255,0.25);
+    border: none;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    clip-path: none;
+}
+.tut-btn-skip:hover { color: rgba(255,255,255,0.5); }
+
+.tut-btn-next {
+    background: #e8001b;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(232,0,27,0.4);
+}
+.tut-btn-next::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-100%) skewX(-20deg);
+    transition: transform 0.35s ease;
+}
+.tut-btn-next:hover { box-shadow: 0 0 30px rgba(232,0,27,0.7); }
+.tut-btn-next:hover::before { transform: translateX(120%) skewX(-20deg); }
+
+
 /* SCROLLBAR CUSTOMIZADA DARK */
 ::-webkit-scrollbar { width: 14px; }
 ::-webkit-scrollbar-track { background: var(--p5-black); border-left: 2px solid var(--p5-gray); }
@@ -662,4 +998,8 @@ button:active {
     .calculator-container, .reverse-calculator-container {
         padding: 25px 15px;
     }
+    .tut-slides-wrapper { padding: 22px 22px 16px; }
+    .tut-nav { padding: 14px 22px 22px; }
+    .tut-title { font-size: 1.3em; }
+    .tut-btn { padding: 9px 14px; font-size: 0.72em; }
 }
