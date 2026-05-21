@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calculateFusion(p1, p2) {
-        // 1. VERIFICA RECEITAS ESPECÍFICAS (Ordenado para não quebrar na Alice)
+        // 1. VERIFICA RECEITAS ESPECÍFICAS
         const parentNames = [p1.name, p2.name].sort();
         const specificRecipe = specificFusions.find(recipe => {
             if (recipe.parents.length !== 2) return false;
@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return fusionChart[key] || null;
     }
 
-    // --- LÓGICA DA CALCULADORA REVERSA (Força bruta da Receita) ---
+    // --- LÓGICA DA CALCULADORA REVERSA ---
     function handleReverseCalculation() {
         const targetPersona = selectedPersonas.target;
         if (!targetPersona) {
@@ -583,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let recipes = [];
 
-        // 1. Receita Específica?
+        // 1. Receita Específica
         const specialRecipe = specificFusions.find(recipe => recipe.result === targetPersona.name);
         if (specialRecipe) {
             const parent1 = personas.find(p => p.name === specialRecipe.parents[0]);
@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 2. É uma Persona Picaro de DLC?
+        // 2. É uma Persona Picaro de DLC
         const baseDlcName = Object.keys(specialDlcUpgrades).find(key => specialDlcUpgrades[key] === targetPersona.name);
         if (baseDlcName) {
             const parent1 = personas.find(p => p.name === baseDlcName);
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const p1 = fusablePersonas[i];
                     const p2 = fusablePersonas[j];
 
-                    // Evita combinar 2 demônios do tesouro sem sentido
+                    // Evita combinar 2 demônios do tesouro
                     const isP1Treasure = p1.hasOwnProperty('treasureDemonModifier') || p1.treasure;
                     const isP2Treasure = p2.hasOwnProperty('treasureDemonModifier') || p2.treasure;
                     if (isP1Treasure && isP2Treasure) continue;
@@ -639,8 +639,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.style.gap = '15px';
                 li.style.padding = '10px 0';
                 li.style.borderBottom = '1px solid #444';
-
-                // Adicionamos Eventos Inline na DIV para garantir o efeito Hover clicável de Botão
                 li.innerHTML = `
                     <div style="flex: 1; text-align: right;">
                         <div class="recipe-persona" data-name="${recipe.parent1.name}" 
