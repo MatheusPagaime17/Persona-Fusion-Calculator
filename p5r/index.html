@@ -6,17 +6,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <title>Calculadora de Fusão - Persona 5</title>
+    <title>Fusion Hub - Persona 5</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 </head>
 <body>
+
+    <!-- ================== TUTORIAL MODAL P5 STYLE ================== -->
+    <div id="tutorial-overlay" class="tutorial-overlay">
+
+        <!-- Partículas de fundo decorativas -->
+        <div class="tut-bg-diamonds">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+
+        <div class="tutorial-card" id="tutorial-card">
+
+            <!-- Barra de progresso superior -->
+            <div class="tut-progress-bar">
+                <div class="tut-progress-fill" id="tut-progress-fill"></div>
+            </div>
+
+            <!-- Indicador de slide -->
+            <div class="tut-step-indicator" id="tut-step-indicator">
+                <span class="tut-dot active" data-step="0"></span>
+                <span class="tut-dot" data-step="1"></span>
+                <span class="tut-dot" data-step="2"></span>
+                <span class="tut-dot" data-step="3"></span>
+                <span class="tut-dot" data-step="4"></span>
+            </div>
+
+            <!-- Conteúdo dos slides -->
+            <div class="tut-slides-wrapper" id="tut-slides-wrapper">
+
+                <!-- SLIDE 0 — Boas-vindas -->
+                <div class="tut-slide active" data-slide="0">
+                    <div class="tut-speaker-tag">IGOR</div>
+                    <div class="tut-icon">&#9830;</div>
+                    <h2 class="tut-title typewriter" id="tut-title-0">Bem-vindo à Velvet Room.</h2>
+                    <p class="tut-body">
+                        Este lugar existe entre sonho e realidade, mente e matéria.<br><br>
+                        Aqui, no <strong>Persona Fusion Hub</strong>, reunimos os dados do Compêndio de
+                        <strong>Persona 5 Royal</strong> para que você possa planejar suas fusões antes
+                        mesmo de sentar na cadeira da guilhotina.
+                    </p>
+                    <div class="tut-flavor">
+                        "Apenas aqueles com o poder de invocar Personas são convidados a este lugar..."
+                    </div>
+                </div>
+
+                <!-- SLIDE 1 — O que é Persona 5 -->
+                <div class="tut-slide" data-slide="1">
+                    <div class="tut-speaker-tag">LAVENZA</div>
+                    <div class="tut-icon">&#9670;</div>
+                    <h2 class="tut-title" id="tut-title-1">O que são Personas?</h2>
+                    <p class="tut-body">
+                        Em <strong>Persona 5 Royal</strong>, Personas são manifestações psíquicas do
+                        coração de um Phantom Thief — máscaras da alma que concedem poder de combate.<br><br>
+                        Cada Persona pertence a uma <strong>Arcana</strong>, o que determina suas
+                        afinidades, stats e com quem pode se fundir. Fundir duas Personas cria uma
+                        terceira, geralmente mais poderosa.
+                    </p>
+                    <div class="tut-arcana-preview">
+                        <span>Fool</span><span>Magician</span><span>Priestess</span>
+                        <span>Empress</span><span>Emperor</span><span>Hierophant</span>
+                        <span>Lovers</span><span>Chariot</span><span>Justice</span>
+                        <span>+ 15 arcanas</span>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 — Calculadora Normal -->
+                <div class="tut-slide" data-slide="2">
+                    <div class="tut-speaker-tag">IGOR</div>
+                    <div class="tut-icon">⚔</div>
+                    <h2 class="tut-title" id="tut-title-2">Guilhotina de Fusão</h2>
+                    <p class="tut-body">
+                        Na calculadora principal, selecione <strong>dois prisioneiros</strong> pelo nome
+                        para descobrir qual Persona nasce da execução.
+                    </p>
+                    <div class="tut-steps-visual">
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">①</div>
+                            <div>Digite o nome no campo <em>Prisioneiro 1</em> e selecione na lista</div>
+                        </div>
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">②</div>
+                            <div>Repita para <em>Prisioneiro 2</em></div>
+                        </div>
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">③</div>
+                            <div>Clique em <em>"Executar Fusão"</em> — o resultado aparecerá abaixo</div>
+                        </div>
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">④</div>
+                            <div>Clique no nome do resultado para ver os stats completos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 — Calculadora Reversa -->
+                <div class="tut-slide" data-slide="3">
+                    <div class="tut-speaker-tag">CAROLINE & JUSTINE</div>
+                    <div class="tut-icon">&#128269;</div>
+                    <h2 class="tut-title" id="tut-title-3">Busca de Registros</h2>
+                    <p class="tut-body">
+                        Já sabe qual Persona quer criar mas não sabe como chegar lá?
+                        A <strong>Busca de Registros</strong> faz o trabalho inverso: você informa
+                        o resultado e ela lista todas as combinações possíveis.
+                    </p>
+                    <div class="tut-steps-visual">
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">①</div>
+                            <div>Digite o nome da Persona que deseja obter no campo <em>Prisioneiro Alvo</em></div>
+                        </div>
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">②</div>
+                            <div>Clique em <em>"Procurar Registros"</em></div>
+                        </div>
+                        <div class="tut-step-item">
+                            <div class="tut-step-num">③</div>
+                            <div>A lista mostra até <strong>30 combinações</strong> — clique em qualquer persona para ver seus detalhes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4 — Pronto -->
+                <div class="tut-slide" data-slide="4">
+                    <div class="tut-speaker-tag">IGOR</div>
+                    <div class="tut-icon">&#9733;</div>
+                    <h2 class="tut-title" id="tut-title-4">Está pronto, meu hóspede.</h2>
+                    <p class="tut-body">
+                        O Compêndio está carregado e a guilhotina aguarda suas ordens.<br><br>
+                        Lembre-se: fusões especiais como <strong>Satanael</strong> ou <strong>Alice</strong>
+                        exigem combinações avançadas de múltiplas Personas — a Busca de Registros
+                        identifica essas receitas automaticamente.
+                    </p>
+                    <div class="tut-flavor">
+                        "Que os seus dias de roubar corações sejam longos e prósperos."
+                    </div>
+                    <label class="tut-remember-label">
+                        <input type="checkbox" id="tut-dont-show"> Não mostrar novamente
+                    </label>
+                </div>
+
+            </div><!-- /tut-slides-wrapper -->
+
+            <!-- Navegação -->
+            <div class="tut-nav">
+                <button class="tut-btn tut-btn-prev" id="tut-btn-prev" disabled>&#9664; VOLTAR</button>
+                <button class="tut-btn tut-btn-skip" id="tut-btn-skip">PULAR</button>
+                <button class="tut-btn tut-btn-next" id="tut-btn-next">PRÓXIMO &#9654;</button>
+            </div>
+
+        </div><!-- /tutorial-card -->
+    </div><!-- /tutorial-overlay -->
+
      <!-- ================== LOADER ================== -->
     <div id="p5-loader">
         <div class="loader-content">
             <div class="loader-text" id="loader-text">CONNECTING TO VELVET ROOM...</div>
-            <div class="loader-bar-container">
+            <div class="loader-bar-container">/
                 <div class="loader-bar" id="loader-bar"></div>
             </div>
             <div class="loader-percent" id="loader-percent">0%</div>
