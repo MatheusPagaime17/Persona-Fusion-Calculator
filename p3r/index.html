@@ -40,10 +40,10 @@
                 <span></span>
             </button>
             <ul id="nav-list">
+                <li><a href="#" id="tutorial-trigger">Ajuda (Tutorial)</a></li>
                 <li><a href="../p5r/index.html">Persona 5 Royal</a></li>
                 <li><a href="p3r.html" class="active">Persona 3 Reload</a></li>
                 <li><a href="p3r-guess.html" class="minigame-nav-link">🎮 Persona Guess</a></li>
-                <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
             </ul>
         </nav>
     </header>
@@ -133,6 +133,136 @@
             </div>
         </div>
     </div>
+
+
+<!-- ================== TUTORIAL MODAL P3R STYLE ================== -->
+<div id="tutorial-overlay" class="tutorial-overlay">
+    <!-- Fragmentos de vidro decorativos em neon azul -->
+    <div class="tut-bg-shards">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+    <div class="tutorial-card" id="tutorial-card">
+        <!-- Barra de progresso superior -->
+        <div class="tut-progress-bar">
+            <div class="tut-progress-fill" id="tut-progress-fill"></div>
+        </div>
+        <!-- Indicador de slide -->
+        <div class="tut-step-indicator" id="tut-step-indicator">
+            <span class="tut-dot active" data-step="0"></span>
+            <span class="tut-dot" data-step="1"></span>
+            <span class="tut-dot" data-step="2"></span>
+            <span class="tut-dot" data-step="3"></span>
+            <span class="tut-dot" data-step="4"></span>
+        </div>
+        <!-- Conteúdo dos slides -->
+        <div class="tut-slides-wrapper" id="tut-slides-wrapper">
+            <!-- SLIDE 0 — Boas-vindas -->
+            <div class="tut-slide active" data-slide="0">
+                <div class="tut-speaker-tag">ELIZABETH</div>
+                <div class="tut-icon">&#129419;</div>
+                <h2 class="tut-title typewriter" id="tut-title-0">Boas-vindas a Sala de Veludo.</h2>
+                <p class="tut-body">
+                    Este aposento existe entre o sonho e a realidade, mente e matéria...<br><br>
+                    No <strong>Persona Fusion Hub</strong>, organizamos os dados das fusões de 
+                    <strong>Persona 3 Reload</strong> para ajudá-lo a guiar o seu destino antes de adentrar a terrível <strong>Hora Sombria</strong>.
+                </p>
+                <div class="tut-flavor">
+                    "Meu nome é Elizabeth. Sou uma residente deste aposento..."
+                </div>
+            </div>
+            <!-- SLIDE 1 — O que é Persona 3 -->
+            <div class="tut-slide" data-slide="1">
+                <div class="tut-speaker-tag">IGOR</div>
+                <div class="tut-icon">&#9670;</div>
+                <h2 class="tut-title" id="tut-title-1">Máscaras da Alma</h2>
+                <p class="tut-body">
+                    Personas são as forças do seu coração, máscaras psíquicas manifestadas para combater as Sombras do <strong>Tartarus</strong>.<br><br>
+                    Cada Persona pertence a uma <strong>Arcana</strong> das cartas de Tarô. Fundir duas delas na Velvet Room consome seus contratos e gera um aliado muito mais poderoso.
+                </p>
+                <div class="tut-arcana-preview">
+                    <span>Fool</span><span>Magician</span><span>Priestess</span>
+                    <span>Empress</span><span>Emperor</span><span>Hierophant</span>
+                    <span>Lovers</span><span>Chariot</span><span>Justice</span>
+                    <span>+ Arcanas</span>
+                </div>
+            </div>
+            <!-- SLIDE 2 — Calculadora Normal -->
+            <div class="tut-slide" data-slide="2">
+                <div class="tut-speaker-tag">ELIZABETH</div>
+                <div class="tut-icon">⚔</div>
+                <h2 class="tut-title" id="tut-title-2">Fusão de Díades</h2>
+                <p class="tut-body">
+                    Na nossa calculadora principal, você pode simular a combinação direta de duas Personas para prever qual entidade herdará seus poderes.
+                </p>
+                <div class="tut-steps-visual">
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">①</div>
+                        <div>Selecione a primeira Persona no campo <em>Persona 1</em></div>
+                    </div>
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">②</div>
+                        <div>Selecione a segunda Persona no campo <em>Persona 2</em></div>
+                    </div>
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">③</div>
+                        <div>Clique em <em>"Calcular Fusão"</em> para ver o resultado</div>
+                    </div>
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">④</div>
+                        <div>Clique no resultado para conferir seus Atributos e Afinidades Elementais</div>
+                    </div>
+                </div>
+            </div>
+            <!-- SLIDE 3 — Calculadora Reversa -->
+            <div class="tut-slide" data-slide="3">
+                <div class="tut-speaker-tag">ELIZABETH</div>
+                <div class="tut-icon">&#128269;</div>
+                <h2 class="tut-title" id="tut-title-3">Calculadora Reversa</h2>
+                <p class="tut-body">
+                    Deseja obter uma Persona específica do compêndio de dados?
+                    A <strong>Calculadora Reversa</strong> busca e lista todos os ingredientes comuns e especiais capazes de gerá-la.
+                </p>
+                <div class="tut-steps-visual">
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">①</div>
+                        <div>Digite o nome da Persona que deseja obter em <em>Persona Alvo</em></div>
+                    </div>
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">②</div>
+                        <div>Clique em <em>"Encontrar Receitas"</em></div>
+                    </div>
+                    <div class="tut-step-item">
+                        <div class="tut-step-num">③</div>
+                        <div>A lista de ingredientes aparecerá direto na tela. Dê um clique em qualquer um deles para abrir seus detalhes!</div>
+                    </div>
+                </div>
+            </div>
+            <!-- SLIDE 4 — Conclusão -->
+            <div class="tut-slide" data-slide="4">
+                <div class="tut-speaker-tag">ELIZABETH</div>
+                <div class="tut-icon">&#9733;</div>
+                <h2 class="tut-title" id="tut-title-4">A Hora Sombria nos Aguarda.</h2>
+                <p class="tut-body">
+                    O compêndio de fusão está atualizado com a API e pronto para uso.<br><br>
+                    Aproveite as fusões para obter imunidades e vantagens de fraquezas elementais cruciais para as noites de lua cheia!
+                </p>
+                <div class="tut-flavor">
+                    "Ficarei extremamente contente se este humilde sistema guiar seus passos..."
+                </div>
+                <label class="tut-remember-label">
+                    <input type="checkbox" id="tut-dont-show"> Não mostrar novamente
+                </label>
+            </div>
+        </div><!-- /tut-slides-wrapper -->
+        <!-- Navegação -->
+        <div class="tut-nav">
+            <button class="tut-btn tut-btn-prev" id="tut-btn-prev" disabled>&#9664; VOLTAR</button>
+            <button class="tut-btn tut-btn-skip" id="tut-btn-skip">PULAR</button>
+            <button class="tut-btn tut-btn-next" id="tut-btn-next">PRÓXIMO &#9654;</button>
+        </div>
+    </div><!-- /tutorial-card -->
+</div><!-- /tutorial-overlay -->
 
     <script src="script.js"></script>
 </body>

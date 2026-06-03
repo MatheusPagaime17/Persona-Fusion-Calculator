@@ -12,8 +12,114 @@
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 </head>
 <body>
+     <!-- ================== LOADER ================== -->
+    <div id="p5-loader">
+        <div class="loader-content">
+            <div class="loader-text" id="loader-text">CONNECTING TO VELVET ROOM...</div>
+            <div class="loader-bar-container">/
+                <div class="loader-bar" id="loader-bar"></div>
+            </div>
+            <div class="loader-percent" id="loader-percent">0%</div>
+        </div>
+        <div class="loader-bg-pattern"></div>
+    </div>
 
-    <!-- ================== TUTORIAL MODAL P5 STYLE ================== -->
+    <!-- ================== HEADER ================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Persona Fusion Hub</div>
+            <nav>
+                <button class="hamburger" id="hamburger-menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul id="nav-list">
+                    <li><a href="#" id="tutorial-trigger">Ajuda (Tutorial)</a></li>
+                    <li><a href="#" class="active">Persona 5 Royal</a></li>
+                    <li><a href="../p3r/index.html">Persona 3 Reload</a></li>
+                    <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<div class="calculators-wrapper">
+        <!-- ================== CALCULADORA NORMAL ================== -->
+        <div class="calculator-container">
+            <h1>Guilhotina de Fusão</h1>
+            <p>Selecione dois prisioneiros para a execução na Velvet Room.</p>
+
+            <div class="selection-area">
+                <div class="search-container">
+                    <label for="search-input-1">Prisioneiro 1</label>
+                    <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome..." autocomplete="off">
+                    <div class="results-container" id="results-container-1"></div>
+                </div>
+
+                <span class="plus-sign">+</span>
+
+                <div class="search-container">
+                    <label for="search-input-2">Prisioneiro 2</label>
+                    <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome..." autocomplete="off">
+                    <div class="results-container" id="results-container-2"></div>
+                </div>
+            </div>
+
+            <button id="calculateBtn">Executar Fusão</button>
+
+            <div id="result-area">
+                <h2>Resultado da Execução</h2>
+                <p id="result-text" style="margin-top: 10px;">O prisioneiro nascerá aqui.</p>
+            </div>
+        </div>
+
+        <!-- ================== CALCULADORA REVERSA ================== -->
+        <div class="reverse-calculator-container">
+            <h2>Busca de Registros</h2>
+            <p>Selecione um prisioneiro para ver suas combinações de execução.</p>
+            
+            <div class="search-container" style="width: 100%;">
+                <label for="reverse-search-input">Prisioneiro Alvo</label>
+                <input type="text" id="reverse-search-input" class="search-input" placeholder="Quem você deseja criar?" autocomplete="off">
+                <div class="results-container" id="reverse-results-container"></div>
+            </div>
+
+            <button id="reverse-calculate-btn">Procurar Registros</button>
+
+            <!-- ================== LISTA DE RECEITAS ================== -->
+            <div id="reverse-result-area" style="margin-top: 30px;">
+                <ul id="reverse-recipes-list" style="list-style: none; padding: 0;"></ul>
+                <p id="reverse-no-results" style="display: none; color: #d60012; font-weight: bold; margin-top: 15px;">
+                    Este prisioneiro não pode ser gerado através de uma execução normal de guilhotina.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== ÚNICO MODAL ================== -->
+    <div class="modal-overlay" id="persona-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal-btn">&times;</button>
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-persona-name">Nome da Persona</h2>
+                    <span id="modal-persona-level" class="level-badge">Lvl 0</span>
+                    <p id="modal-persona-trait" class="persona-trait"></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section" id="modal-stats">
+                    <h3>Stats Iniciais</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-section" id="modal-elements">
+                    <h3>Afinidades Elementais</h3>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- ================== TUTORIAL MODAL P5 STYLE ================== -->
     <div id="tutorial-overlay" class="tutorial-overlay">
 
         <!-- Partículas de fundo decorativas -->
@@ -162,112 +268,6 @@
 
         </div><!-- /tutorial-card -->
     </div><!-- /tutorial-overlay -->
-
-     <!-- ================== LOADER ================== -->
-    <div id="p5-loader">
-        <div class="loader-content">
-            <div class="loader-text" id="loader-text">CONNECTING TO VELVET ROOM...</div>
-            <div class="loader-bar-container">/
-                <div class="loader-bar" id="loader-bar"></div>
-            </div>
-            <div class="loader-percent" id="loader-percent">0%</div>
-        </div>
-        <div class="loader-bg-pattern"></div>
-    </div>
-
-    <!-- ================== HEADER ================== -->
-    <header>
-        <div class="header-content">
-            <div class="logo">Persona Fusion Hub</div>
-            <nav>
-                <button class="hamburger" id="hamburger-menu">
-                    <span></span><span></span><span></span>
-                </button>
-                <ul id="nav-list">
-                    <li><a href="#" class="active">Persona 5 Royal</a></li>
-                    <li><a href="../p3r/index.html">Persona 3 Reload</a></li>
-                    <li><a href="#">Persona 4 <span class="dev-tag">Em Breve</span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-<div class="calculators-wrapper">
-        <!-- ================== CALCULADORA NORMAL ================== -->
-        <div class="calculator-container">
-            <h1>Guilhotina de Fusão</h1>
-            <p>Selecione dois prisioneiros para a execução na Velvet Room.</p>
-
-            <div class="selection-area">
-                <div class="search-container">
-                    <label for="search-input-1">Prisioneiro 1</label>
-                    <input type="text" id="search-input-1" class="search-input" placeholder="Digite o nome..." autocomplete="off">
-                    <div class="results-container" id="results-container-1"></div>
-                </div>
-
-                <span class="plus-sign">+</span>
-
-                <div class="search-container">
-                    <label for="search-input-2">Prisioneiro 2</label>
-                    <input type="text" id="search-input-2" class="search-input" placeholder="Digite o nome..." autocomplete="off">
-                    <div class="results-container" id="results-container-2"></div>
-                </div>
-            </div>
-
-            <button id="calculateBtn">Executar Fusão</button>
-
-            <div id="result-area">
-                <h2>Resultado da Execução</h2>
-                <p id="result-text" style="margin-top: 10px;">O prisioneiro nascerá aqui.</p>
-            </div>
-        </div>
-
-        <!-- ================== CALCULADORA REVERSA ================== -->
-        <div class="reverse-calculator-container">
-            <h2>Busca de Registros</h2>
-            <p>Selecione um prisioneiro para ver suas combinações de execução.</p>
-            
-            <div class="search-container" style="width: 100%;">
-                <label for="reverse-search-input">Prisioneiro Alvo</label>
-                <input type="text" id="reverse-search-input" class="search-input" placeholder="Quem você deseja criar?" autocomplete="off">
-                <div class="results-container" id="reverse-results-container"></div>
-            </div>
-
-            <button id="reverse-calculate-btn">Procurar Registros</button>
-
-            <!-- ================== LISTA DE RECEITAS ================== -->
-            <div id="reverse-result-area" style="margin-top: 30px;">
-                <ul id="reverse-recipes-list" style="list-style: none; padding: 0;"></ul>
-                <p id="reverse-no-results" style="display: none; color: #d60012; font-weight: bold; margin-top: 15px;">
-                    Este prisioneiro não pode ser gerado através de uma execução normal de guilhotina.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================== ÚNICO MODAL ================== -->
-    <div class="modal-overlay" id="persona-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal-btn">&times;</button>
-            <div class="modal-header">
-                <div>
-                    <h2 id="modal-persona-name">Nome da Persona</h2>
-                    <span id="modal-persona-level" class="level-badge">Lvl 0</span>
-                    <p id="modal-persona-trait" class="persona-trait"></p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="modal-section" id="modal-stats">
-                    <h3>Stats Iniciais</h3>
-                    <ul></ul>
-                </div>
-                <div class="modal-section" id="modal-elements">
-                    <h3>Afinidades Elementais</h3>
-                    <ul></ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
