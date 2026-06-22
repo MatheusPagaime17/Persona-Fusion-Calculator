@@ -1,60 +1,199 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-            // =========================================================
-            // LOADER COM BARRA DINÂMICA
-            // =========================================================
-            const loader = document.getElementById('p5-loader');
-            const loaderText = document.querySelector('.loader-text');
-            const loaderBar = document.getElementById('loader-bar');
-            const loaderPercent = document.getElementById('loader-percent');
+    // =========================================================
+    // LOADER COM BARRA DINÂMICA
+    // =========================================================
+    const loader = document.getElementById('p5-loader');
+    const loaderText = document.querySelector('.loader-text');
+    const loaderBar = document.getElementById('loader-bar');
+    const loaderPercent = document.getElementById('loader-percent');
 
-            let progress = 0;
-            const progressInterval = setInterval(() => {
-                progress += Math.random() * 15;
-                if (progress >= 95) progress = 95; // Trava no 95% enquanto a API não responde
-                if (loaderBar) loaderBar.style.width = `${progress}%`;
-                if (loaderPercent) loaderPercent.textContent = `${Math.floor(progress)}%`;
-            }, 200);
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 95) progress = 95; // Trava no 95% enquanto a API não responde
+        if (loaderBar) loaderBar.style.width = `${progress}%`;
+        if (loaderPercent) loaderPercent.textContent = `${Math.floor(progress)}%`;
+    }, 200);
 
-            function hideLoader() {
-                if (loader) {
-                    clearInterval(progressInterval);
-                    if (loaderBar) loaderBar.style.width = '100%';
-                    if (loaderPercent) loaderPercent.textContent = '100%';
-                    
-                    setTimeout(() => {
-                        loader.classList.add('slide-out');
-                        setTimeout(() => { loader.style.display = 'none'; }, 600);
-                    }, 400);
-                }
-            }
+    function hideLoader() {
+        if (loader) {
+            clearInterval(progressInterval);
+            if (loaderBar) loaderBar.style.width = '100%';
+            if (loaderPercent) loaderPercent.textContent = '100%';
+            
+            setTimeout(() => {
+                loader.classList.add('slide-out');
+                setTimeout(() => { 
+                    loader.style.display = 'none'; 
+                    // AQUI ESTÁ O SEGREDO: O tutorial só é chamado DEPOIS que o loader some!
+                    checkFirstTimeTutorial(); 
+                }, 600);
+            }, 400);
+        } else {
+            // Caso o loader não exista no HTML por algum motivo
+            checkFirstTimeTutorial();
+        }
+    }
 
-            function setLoaderMessage(msg, isError = false) {
-                if (loaderText) {
-                    loaderText.textContent = msg;
-                    loaderText.style.color = isError ? '#ff4444' : 'var(--p5-white)';
-                }
-            }
+    function setLoaderMessage(msg, isError = false) {
+        if (loaderText) {
+            loaderText.textContent = msg;
+            loaderText.style.color = isError ? '#ff4444' : 'var(--p5-white)';
+        }
+    }
 
-        // =========================================================
-        // ELEMENTOS DOM
-        // =========================================================
-        const searchInput1          = document.getElementById('search-input-1');
-        const resultsContainer1     = document.getElementById('results-container-1');
-        const searchInput2          = document.getElementById('search-input-2');
-        const resultsContainer2     = document.getElementById('results-container-2');
-        const calculateBtn          = document.getElementById('calculateBtn');
-        const resultText            = document.getElementById('result-text');
+    // =========================================================
+    // ELEMENTOS DOM
+    // =========================================================
+    const searchInput1          = document.getElementById('search-input-1');
+    const resultsContainer1     = document.getElementById('results-container-1');
+    const searchInput2          = document.getElementById('search-input-2');
+    const resultsContainer2     = document.getElementById('results-container-2');
+    const calculateBtn          = document.getElementById('calculateBtn');
+    const resultText            = document.getElementById('result-text');
 
-        const reverseSearchInput        = document.getElementById('reverse-search-input');
-        const reverseResultsContainer   = document.getElementById('reverse-results-container');
-        const reverseCalculateBtn       = document.getElementById('reverse-calculate-btn');
-        const reverseRecipeList         = document.getElementById('reverse-recipes-list');
-        const reverseNoResults          = document.getElementById('reverse-no-results');
+    const reverseSearchInput        = document.getElementById('reverse-search-input');
+    const reverseResultsContainer   = document.getElementById('reverse-results-container');
+    const reverseCalculateBtn       = document.getElementById('reverse-calculate-btn');
+    const reverseRecipeList         = document.getElementById('reverse-recipes-list');
+    const reverseNoResults          = document.getElementById('reverse-no-results');
 
     // Modal de detalhe de persona (O único modal que sobrou)
     const modal         = document.getElementById('persona-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
+    
+    // --- SELETORES DO TUTORIAL ---
+    const tutOverlay       = document.getElementById('tutorial-overlay');
+    const tutSlides        = document.querySelectorAll('.tut-slide');
+    const tutDots          = document.querySelectorAll('.tut-dot');
+    const tutProgressFill  = document.getElementById('tut-progress-fill');
+    const tutBtnPrev       = document.getElementById('tut-btn-prev');
+    const tutBtnSkip       = document.getElementById('tut-btn-skip');
+    const tutBtnNext       = document.getElementById('tut-btn-next');
+    const tutDontShowCheck = document.getElementById('tut-dont-show');
+    const tutTrigger       = document.getElementById('tutorial-trigger');
+
+    let tutCurrentStep = 0;
+
+    // --- FUNÇÃO DE ATUALIZAÇÃO DO SLIDE ---
+    function updateTutorialView() {
+        if (!tutSlides.length) return;
+
+        // Esconde todos os slides e remove estados ativos
+        tutSlides.forEach(slide => slide.classList.remove('active'));
+        tutDots.forEach(dot => dot.classList.remove('active'));
+
+        // Ativa o slide e dot correspondente ao passo atual
+        const activeSlide = document.querySelector(`.tut-slide[data-slide="${tutCurrentStep}"]`);
+        const activeDot = document.querySelector(`.tut-dot[data-step="${tutCurrentStep}"]`);
+
+        if (activeSlide) activeSlide.classList.add('active');
+        if (activeDot) activeDot.classList.add('active');
+
+        // Atualiza a barra de progresso superior (0% a 100%)
+        const progressPercent = (tutCurrentStep / (tutSlides.length - 1)) * 100;
+        if (tutProgressFill) {
+            tutProgressFill.style.width = `${progressPercent}%`;
+        }
+
+        // Controla o estado do botão "Voltar"
+        if (tutBtnPrev) {
+            tutBtnPrev.disabled = tutCurrentStep === 0;
+        }
+
+        // Controla o texto do botão de ação principal "Próximo/Entendido"
+        if (tutBtnNext) {
+            if (tutCurrentStep === tutSlides.length - 1) {
+                tutBtnNext.innerHTML = 'ENTENDIDO &#9654;';
+            } else {
+                tutBtnNext.innerHTML = 'PRÓXIMO &#9654;';
+            }
+        }
+    }
+
+    // --- FUNÇÕES DE CONTROLE DE EXIBIÇÃO ---
+    function openTutorial() {
+        tutCurrentStep = 0;
+        updateTutorialView();
+        if (tutOverlay) {
+            tutOverlay.style.display = 'flex';
+            tutOverlay.classList.add('active'); 
+        }
+    }
+
+    function closeTutorial() {
+        // Verifica se o usuário marcou para não mostrar novamente
+        if (tutDontShowCheck && tutDontShowCheck.checked) {
+            localStorage.setItem('p5r_tutorial_seen', 'true');
+        }
+        if (tutOverlay) {
+            tutOverlay.style.display = 'none';
+            tutOverlay.classList.remove('active');
+        }
+    }
+
+    // --- CONFIGURAÇÃO DOS EVENT LISTENERS DO TUTORIAL ---
+
+    // Botão Avançar / Concluir
+    if (tutBtnNext) {
+        tutBtnNext.addEventListener('click', () => {
+            if (tutCurrentStep < tutSlides.length - 1) {
+                tutCurrentStep++;
+                updateTutorialView();
+            } else {
+                closeTutorial();
+            }
+        });
+    }
+
+    // Botão Voltar
+    if (tutBtnPrev) {
+        tutBtnPrev.addEventListener('click', () => {
+            if (tutCurrentStep > 0) {
+                tutCurrentStep--;
+                updateTutorialView();
+            }
+        });
+    }
+
+    // Botão Pular
+    if (tutBtnSkip) {
+        tutBtnSkip.addEventListener('click', () => {
+            closeTutorial();
+        });
+    }
+
+    // Clique direto nos Dots indicadores
+    tutDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            const step = parseInt(e.target.getAttribute('data-step'), 10);
+            if (!isNaN(step)) {
+                tutCurrentStep = step;
+                updateTutorialView();
+            }
+        });
+    });
+
+    // Gatilho de Ajuda na Barra de Navegação (Abre sempre, ignorando o cache)
+    if (tutTrigger) {
+        tutTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openTutorial();
+        });
+    }
+
+    // --- DISPARO AUTOMÁTICO NO PRIMEIRO ACESSO ---
+    function checkFirstTimeTutorial() {
+        const seen = localStorage.getItem('p5r_tutorial_seen');
+        if (!seen) {
+            openTutorial();
+        } else {
+            if (tutOverlay) {
+                tutOverlay.style.display = 'none';
+            }
+        }
+    }
 
     let selectedPersonas = { persona1: null, persona2: null, target: null };
     let personas = [];
@@ -743,142 +882,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- SELETORES DO TUTORIAL ---
-    const tutOverlay       = document.getElementById('tutorial-overlay');
-    const tutSlides        = document.querySelectorAll('.tut-slide');
-    const tutDots          = document.querySelectorAll('.tut-dot');
-    const tutProgressFill  = document.getElementById('tut-progress-fill');
-    const tutBtnPrev       = document.getElementById('tut-btn-prev');
-    const tutBtnSkip       = document.getElementById('tut-btn-skip');
-    const tutBtnNext       = document.getElementById('tut-btn-next');
-    const tutDontShowCheck = document.getElementById('tut-dont-show');
-    const tutTrigger       = document.getElementById('tutorial-trigger');
+   
 
-    let tutCurrentStep = 0;
-
-    // --- FUNÇÃO DE ATUALIZAÇÃO DO SLIDE ---
-    function updateTutorialView() {
-        if (!tutSlides.length) return;
-
-        // Esconde todos os slides e remove estados ativos
-        tutSlides.forEach(slide => slide.classList.remove('active'));
-        tutDots.forEach(dot => dot.classList.remove('active'));
-
-        // Ativa o slide e dot correspondente ao passo atual
-        const activeSlide = document.querySelector(`.tut-slide[data-slide="${tutCurrentStep}"]`);
-        const activeDot = document.querySelector(`.tut-dot[data-step="${tutCurrentStep}"]`);
-
-        if (activeSlide) activeSlide.classList.add('active');
-        if (activeDot) activeDot.classList.add('active');
-
-        // Atualiza a barra de progresso superior (0% a 100%)
-        const progressPercent = (tutCurrentStep / (tutSlides.length - 1)) * 100;
-        if (tutProgressFill) {
-            tutProgressFill.style.width = `${progressPercent}%`;
-        }
-
-        // Controla o estado do botão "Voltar"
-        if (tutBtnPrev) {
-            tutBtnPrev.disabled = tutCurrentStep === 0;
-        }
-
-        // Controla o texto do botão de ação principal "Próximo/Entendido"
-        if (tutBtnNext) {
-            if (tutCurrentStep === tutSlides.length - 1) {
-                tutBtnNext.innerHTML = 'ENTENDIDO &#9654;';
-            } else {
-                tutBtnNext.innerHTML = 'PRÓXIMO &#9654;';
-            }
-        }
-    }
-
-    // --- FUNÇÕES DE CONTROLE DE EXIBIÇÃO ---
-    function openTutorial() {
-        tutCurrentStep = 0;
-        updateTutorialView();
-        if (tutOverlay) {
-            tutOverlay.style.display = 'flex';
-            // Se você utilizou animação de opacidade no CSS, adiciona a classe active
-            tutOverlay.classList.add('active'); 
-        }
-    }
-
-    function closeTutorial() {
-        // Verifica se o usuário marcou para não mostrar novamente
-        if (tutDontShowCheck && tutDontShowCheck.checked) {
-            localStorage.setItem('p5r_tutorial_seen', 'true');
-        }
-        if (tutOverlay) {
-            tutOverlay.style.display = 'none';
-            tutOverlay.classList.remove('active');
-        }
-    }
-
-    // --- CONFIGURAÇÃO DOS EVENT LISTENERS ---
-
-    // Botão Avançar / Concluir
-    if (tutBtnNext) {
-        tutBtnNext.addEventListener('click', () => {
-            if (tutCurrentStep < tutSlides.length - 1) {
-                tutCurrentStep++;
-                updateTutorialView();
-            } else {
-                closeTutorial();
-            }
-        });
-    }
-
-    // Botão Voltar
-    if (tutBtnPrev) {
-        tutBtnPrev.addEventListener('click', () => {
-            if (tutCurrentStep > 0) {
-                tutCurrentStep--;
-                updateTutorialView();
-            }
-        });
-    }
-
-    // Botão Pular
-    if (tutBtnSkip) {
-        tutBtnSkip.addEventListener('click', () => {
-            closeTutorial();
-        });
-    }
-
-    // Clique direto nos Dots indicadores
-    tutDots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-            const step = parseInt(e.target.getAttribute('data-step'), 10);
-            if (!isNaN(step)) {
-                tutCurrentStep = step;
-                updateTutorialView();
-            }
-        });
-    });
-
-    // Gatilho de Ajuda na Barra de Navegação (Abre sempre, ignorando o cache)
-    if (tutTrigger) {
-        tutTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            openTutorial();
-        });
-    }
-
-    // --- DISPARO AUTOMÁTICO NO PRIMEIRO ACESSO ---
-    function checkFirstTimeTutorial() {
-        const seen = localStorage.getItem('p5r_tutorial_seen');
-        if (!seen) {
-            openTutorial();
-        } else {
-            if (tutOverlay) {
-                tutOverlay.style.display = 'none';
-            }
-        }
-    }
-
-    // Injeta a verificação após o término do Loader
-    // Para alinhar com seu carregador, você pode chamar checkFirstTimeTutorial() no final do loadPersonas() ou hideLoader()
-    setTimeout(checkFirstTimeTutorial, 1500); 
 
     // INICIALIZA A APLICAÇÃO E O FETCH DA API
     loadPersonas();

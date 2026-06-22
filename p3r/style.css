@@ -314,6 +314,251 @@ button:hover::before { left: 0; }
 .modal-section li {
     display: flex; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95em;
 }
+/* Estilo do Tutorial Overlay - Tema P3R Glassmorphism */
+.tutorial-overlay {
+    --p3-blue: #0088ff;
+    --p3-cyan: #00e5ff;
+    --p3-bg: #030816;
+    --p3-panel: #0a1128;
+    --p3-border: rgba(0, 229, 255, 0.3);
+    --p3-text: #cbd5e1;
+    --p3-white: #ffffff;
+    
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(3, 8, 22, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+}
+
+.tutorial-card {
+    background-color: var(--p3-panel);
+    border: 2px solid var(--p3-cyan);
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    position: relative;
+    border-radius: 12px;
+    color: var(--p3-text);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Barra de progresso em neon azul */
+.tut-progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #1e293b;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.tut-progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: var(--p3-cyan);
+    box-shadow: 0 0 10px var(--p3-cyan);
+    transition: width 0.3s ease;
+}
+
+/* Slides */
+.tut-slides-wrapper {
+    min-height: 280px;
+    position: relative;
+}
+
+.tut-slide {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeInTut 0.3s ease-in-out forwards;
+}
+
+.tut-slide.active {
+    display: flex;
+}
+
+@keyframes fadeInTut {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tut-speaker-tag {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--p3-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+}
+
+.tut-icon {
+    font-size: 1.5em;
+    color: var(--p3-cyan);
+}
+
+.tut-title {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.8em;
+    font-weight: 900;
+    color: var(--p3-white);
+}
+
+.tut-body {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.tut-flavor {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #64748b;
+    border-left: 2px solid var(--p3-blue);
+    padding-left: 10px;
+}
+
+.tut-arcana-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tut-arcana-preview span {
+    background-color: #1e293b;
+    color: var(--p3-cyan);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    border: 1px solid rgba(0, 229, 255, 0.1);
+}
+
+/* Indicadores */
+.tut-step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tut-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #1e293b;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border: 1px solid var(--p3-border);
+}
+
+.tut-dot.active {
+    background-color: var(--p3-cyan);
+    box-shadow: 0 0 8px var(--p3-cyan);
+    transform: scale(1.2);
+}
+
+/* Elementos de etapas do tutorial */
+.tut-steps-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.tut-step-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tut-step-num {
+    background-color: var(--p3-cyan);
+    color: #000;
+    font-weight: bold;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+
+.tut-remember-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+    color: #64748b;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Navegação do tutorial */
+.tut-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tut-btn {
+    background: transparent;
+    border: 1px solid var(--p3-cyan);
+    color: var(--p3-cyan);
+    padding: 10px 20px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tut-btn:hover:not(:disabled) {
+    background-color: var(--p3-cyan);
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.tut-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: #334155;
+    color: #334155;
+}
+
+.tut-btn-skip {
+    border-color: transparent;
+    color: #64748b;
+}
+
+.tut-btn-skip:hover {
+    color: var(--p3-white);
+}
+
+/* Partículas Decorativas de Shards */
+.tut-bg-shards {
+    position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; pointer-events: none; z-index: -1;
+}
+.tut-bg-shards span {
+    position: absolute; display: block; width: 8px; height: 8px; background: rgba(0, 229, 255, 0.1); transform: rotate(45deg); bottom: -10px; animation: shardsUp 8s infinite linear;
+}
+.tut-bg-shards span:nth-child(1) { left: 10%; width: 12px; height: 12px; animation-delay: 0s; }
+.tut-bg-shards span:nth-child(2) { left: 30%; animation-delay: 2s; animation-duration: 10s; }
+.tut-bg-shards span:nth-child(3) { left: 50%; width: 6px; height: 6px; animation-delay: 4s; }
+.tut-bg-shards span:nth-child(4) { left: 70%; animation-delay: 1s; }
+.tut-bg-shards span:nth-child(5) { left: 85%; width: 14px; height: 14px; animation-delay: 5s; }
+
+@keyframes shardsUp {
+    0% { transform: translateY(0) rotate(45deg); opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { transform: translateY(-110vh) rotate(405deg); opacity: 0; }
+}
 
 /* Responsividade */
 @media (min-width: 992px) {

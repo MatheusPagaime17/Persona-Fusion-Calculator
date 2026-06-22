@@ -30,6 +30,140 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('persona-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
+    // --- SELETORES DO TUTORIAL P3R ---
+    const p3rTutOverlay       = document.getElementById('tutorial-overlay');
+    const p3rTutSlides        = document.querySelectorAll('.tut-slide');
+    const p3rTutDots          = document.querySelectorAll('.tut-dot');
+    const p3rTutProgressFill  = document.getElementById('tut-progress-fill');
+    const p3rTutBtnPrev       = document.getElementById('tut-btn-prev');
+    const p3rTutBtnSkip       = document.getElementById('tut-btn-skip');
+    const p3rTutBtnNext       = document.getElementById('tut-btn-next');
+    const p3rTutDontShowCheck = document.getElementById('tut-dont-show');
+    const p3rTutTrigger       = document.getElementById('tutorial-trigger');
+
+    let p3rTutCurrentStep = 0;
+
+    // --- FUNÇÃO DE ATUALIZAÇÃO DO SLIDE ---
+    function updateP3RTutorialView() {
+        if (!p3rTutSlides.length) return;
+
+        // Limpa classes ativas dos slides e indicadores
+        p3rTutSlides.forEach(slide => slide.classList.remove('active'));
+        p3rTutDots.forEach(dot => dot.classList.remove('active'));
+
+        // Ativa o slide e dot atual
+        const activeSlide = document.querySelector(`.tut-slide[data-slide="${p3rTutCurrentStep}"]`);
+        const activeDot = document.querySelector(`.tut-dot[data-step="${p3rTutCurrentStep}"]`);
+
+        if (activeSlide) activeSlide.classList.add('active');
+        if (activeDot) activeDot.classList.add('active');
+
+        // Atualiza preenchimento da barra de progresso (0% a 100%)
+        const progressPercent = (p3rTutCurrentStep / (p3rTutSlides.length - 1)) * 100;
+        if (p3rTutProgressFill) {
+            p3rTutProgressFill.style.width = `${progressPercent}%`;
+        }
+
+        // Controla o estado de bloqueio do botão Voltar
+        if (p3rTutBtnPrev) {
+            p3rTutBtnPrev.disabled = p3rTutCurrentStep === 0;
+        }
+
+        // Altera o texto do botão de avanço final
+        if (p3rTutBtnNext) {
+            if (p3rTutCurrentStep === p3rTutSlides.length - 1) {
+                p3rTutBtnNext.innerHTML = 'ENTENDIDO &#9654;';
+            } else {
+                p3rTutBtnNext.innerHTML = 'PRÓXIMO &#9654;';
+            }
+        }
+    }
+
+    // --- CONTROLE DE EXIBIÇÃO ---
+    function openP3RTutorial() {
+        p3rTutCurrentStep = 0;
+        updateP3RTutorialView();
+        if (p3rTutOverlay) {
+            p3rTutOverlay.style.display = 'flex';
+            p3rTutOverlay.classList.add('active');
+        }
+    }
+
+    function closeP3RTutorial() {
+        // Guarda a preferência de não exibição se o checkbox estiver ativo
+        if (p3rTutDontShowCheck && p3rTutDontShowCheck.checked) {
+            localStorage.setItem('p3r_tutorial_seen', 'true');
+        }
+        if (p3rTutOverlay) {
+            p3rTutOverlay.style.display = 'none';
+            p3rTutOverlay.classList.remove('active');
+        }
+    }
+
+    // --- CONFIGURAÇÃO DOS EVENT LISTENERS ---
+
+    // Botão de Avanço
+    if (p3rTutBtnNext) {
+        p3rTutBtnNext.addEventListener('click', () => {
+            if (p3rTutCurrentStep < p3rTutSlides.length - 1) {
+                p3rTutCurrentStep++;
+                updateP3RTutorialView();
+            } else {
+                closeP3RTutorial();
+            }
+        });
+    }
+
+    // Botão Voltar
+    if (p3rTutBtnPrev) {
+        p3rTutBtnPrev.addEventListener('click', () => {
+            if (p3rTutCurrentStep > 0) {
+                p3rTutCurrentStep--;
+                updateP3RTutorialView();
+            }
+        });
+    }
+
+    // Botão Pular
+    if (p3rTutBtnSkip) {
+        p3rTutBtnSkip.addEventListener('click', () => {
+            closeP3RTutorial();
+        });
+    }
+
+    // Navegação manual por cliques nas bolinhas
+    p3rTutDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            const step = parseInt(e.target.getAttribute('data-step'), 10);
+            if (!isNaN(step)) {
+                p3rTutCurrentStep = step;
+                updateP3RTutorialView();
+            }
+        });
+    });
+
+    // Link de Ajuda na barra de cabeçalho
+    if (p3rTutTrigger) {
+        p3rTutTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openP3RTutorial();
+        });
+    }
+
+    // --- VERIFICAÇÃO DE PRIMEIRO ACESSO ---
+    function checkP3RFirstTimeTutorial() {
+        const seen = localStorage.getItem('p3r_tutorial_seen');
+        if (!seen) {
+            openP3RTutorial();
+        } else {
+            if (p3rTutOverlay) {
+                p3rTutOverlay.style.display = 'none';
+            }
+        }
+    }
+
+    // Dispara a verificação 1.5s após a conclusão das animações do seu Loader
+    setTimeout(checkP3RFirstTimeTutorial, 1500);
 
     let selectedPersonas = { persona1: null, persona2: null, target: null };
     let personas = [];
